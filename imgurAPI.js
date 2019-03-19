@@ -20,10 +20,9 @@ class ImageGallery {
             //     "Postman-Token": "588d1377-9763-44ac-8fa2-7bc5686bfe48"
             // }
         }
-        this.response;
     }
 
-    ajaxCall() {
+    createGallery() {
         $.ajax(this.settings).done(function (response) {
             var potentialImages = response.data.items;
             var displayedImages = [];
