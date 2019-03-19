@@ -20,7 +20,6 @@ var settings = {
 }
   
 $.ajax(settings).done(function (response) {
-    debugger;
     var potentialImages = response.data.items;
     var displayedImages = [];
     for (var imageIndex = 0; displayedImages.length < 8; imageIndex++) {
@@ -29,7 +28,7 @@ $.ajax(settings).done(function (response) {
             var imageLink = potentialImages[imageIndex].images[0].link;
             var newImage = $('<img>',{
                 src: imageLink,
-                width: '10%',
+                width: '25%',
             });
             displayedImages.push(newImage);
             $('body').append(newImage);
