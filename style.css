@@ -1,32 +1,43 @@
-#map_container {
-    margin-left: 300px;
-    height: 400px;
-    width: 600px;
+body {
+    margin: 0;
+    font-size: 0;
+    background-color: #18af46;
 }
 
-#yosemiteHeading {
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.infoBoxImages {
+.title_logo {
+    height: 40vh;
+    line-height: 20vh;
+    font-size: 4.5vmax;
     text-align: center;
-    height: 150px;
-    width: 250px;
 }
 
-#yosemiteLinkDiv {
-    font-weight: bold;
+.forms_container {
+    height: 60vh;
+    
 }
-
-a:visited {
-    color: blue;
-}
-
-select {
-    width: 100%;
-    padding: 16px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #f1f1f1;
-  }
+    .region_instructions {
+        height: 10vh;
+        text-align: center;
+        line-height: 5vh;
+        font-size: 3.5vmax;
+    }
+    .activity_instructions {
+        height: 10vh;
+        text-align: center;
+        line-height: 5vh;
+        font-size: 3.5vmax;
+    }
+    select {
+        width: 90%;
+        margin-left: 5%;
+        background-color: white;
+        font-size: 2.5vmax;
+        margin-bottom: 8vh;
+    }
+    button {
+        width: 33%;
+        margin-left: 33%;
+        font-size: 2.5vmax;
+        background-color: white;
+    }
+    
