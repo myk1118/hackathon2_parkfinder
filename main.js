@@ -20,5 +20,13 @@ var settings = {
 }
   
 $.ajax(settings).done(function (response) {
-    console.log(response);
+    var imageArray = response.data.items;
+    for (var imageIndex = 0; imageIndex < 5; imageIndex++) {
+        var imageLink = imageArray[imageIndex].images[0].link;
+        var newImage = $('<img>',{
+            src: imageLink,
+            width: '20%',
+        });
+        $('body').append(newImage);
+    }
 });
