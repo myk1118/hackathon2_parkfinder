@@ -1,4 +1,32 @@
 #map_container {
-    height: 600px;
-    background-color: lightblue;
+    margin-left: 300px;
+    height: 400px;
+    width: 600px;
 }
+
+#yosemiteHeading {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.infoBoxImages {
+    text-align: center;
+    height: 150px;
+    width: 250px;
+}
+
+#yosemiteLinkDiv {
+    font-weight: bold;
+}
+
+a:visited {
+    color: blue;
+}
+
+select {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+  }
