@@ -20,13 +20,19 @@ var settings = {
 }
   
 $.ajax(settings).done(function (response) {
-    var imageArray = response.data.items;
-    for (var imageIndex = 0; imageIndex < 5; imageIndex++) {
-        var imageLink = imageArray[imageIndex].images[0].link;
-        var newImage = $('<img>',{
-            src: imageLink,
-            width: '20%',
-        });
-        $('body').append(newImage);
+    debugger;
+    var potentialImages = response.data.items;
+    var displayedImages = [];
+    for (var imageIndex = 0; displayedImages.length < 8; imageIndex++) {
+        var currentImage = potentialImages[imageIndex].images[0];
+        if (currentImage.type === 'image/jpeg') {
+            var imageLink = potentialImages[imageIndex].images[0].link;
+            var newImage = $('<img>',{
+                src: imageLink,
+                width: '10%',
+            });
+            displayedImages.push(newImage);
+            $('body').append(newImage);
+        }
     }
 });
