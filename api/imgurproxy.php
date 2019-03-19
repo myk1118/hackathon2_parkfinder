@@ -1,6 +1,6 @@
 <?php
 
-$proxyURL = "https://api.imgur.com/3/gallery/t/yosemite/{{sort}}/{{window}}/{{page}}";
+$proxyURL = "https://api.imgur.com/3/gallery/t/" . $_GET['tagName'];
 //$proxyURL = "https://api.fortnitetracker.com/v1/profile/{$_GET['platform']}/{$_GET['player']}";
 $acceptableHeaders = ['TRN-Api-Key'];
 
