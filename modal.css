@@ -44,8 +44,9 @@
 #moreButton {
     position: absolute;
     bottom: 5%;
-    width: 20%;
-    left: 40%;
+    width: 40%;
+    left: 30%;
+    font-size: 2rem;
 }
 
 @media only screen and (min-width: 768px) {
@@ -58,5 +59,9 @@
     }
     #modalClose {
         right: 0;
+    }
+    #moreButton {
+        width: 20%;
+        left: 40%;
     }
 }
