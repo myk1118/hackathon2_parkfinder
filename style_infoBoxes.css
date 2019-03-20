@@ -1,82 +1,10 @@
-.yosemiteHeader {
-    text-align: center;
-    font-size: 5vmin;
-    font-weight: bold;
-}
-.channelIslandsHeader {
-    text-align: center;
-    font-size: 5vmin;
-    font-weight: bold;
-}
-.deathValleyHeader {
-    text-align: center;
-    font-size: 5vmin;
-    font-weight: bold;
-}
-.joshuaTreeHeader {
-    text-align: center;
-    font-size: 5vmin;
-    font-weight: bold;
-}
-.redwoodsHeader {
-    text-align: center;
-    font-size: 5vmin;
-    font-weight: bold;
-}
-.kingsCanyonHeader {
-    text-align: center;
-    font-size: 5vmin;
-    font-weight: bold;
-}
-.lassenHeader {
-    text-align: center;
-    font-size: 5vmin;
-    font-weight: bold;
-}
-.pinnaclesHeader {
-    text-align: center;
-    font-size: 5vmin;
-    font-weight: bold;
-}
-.sequoiaHeader {
+.infoHeader {
     text-align: center;
     font-size: 5vmin;
     font-weight: bold;
 }
 
-.yosemiteInfoImage {
-    width: 100%;
-    height: 40vh;
-}
-.channelIslandsInfoImage {
-    width: 100%;
-    height: 40vh;
-}
-.deathValleyInfoImage {
-    width: 100%;
-    height: 40vh;
-}
-.joshuaTreeInfoImage {
-    width: 100%;
-    height: 40vh;
-}
-.redwoodsInfoImage {
-    width: 100%;
-    height: 40vh;
-}
-.kingsCanyonInfoImage {
-    width: 100%;
-    height: 40vh;
-}
-.lassenInfoImage {
-    width: 100%;
-    height: 40vh;
-}
-.pinnaclesInfoImage {
-    width: 100%;
-    height: 40vh;
-}
-.sequoiaInfoImage {
+.infoImage {
     width: 100%;
     height: 40vh;
 }
@@ -89,4 +17,30 @@
 }
 .infoLinks:hover {
     cursor: pointer;
+}
+
+@media screen and (min-width: 525px) {
+    .infoLinks {
+        font-size: 4vmin;
+    }
+}
+
+@media screen and (orientation: landscape){
+    .infoHeader {
+        font-size: 3vmax;
+    }
+    
+    .infoLinks {
+        font-size: 3vmax;
+    }
+
+    @media screen and (min-width: 825px){
+        .infoHeader {
+            font-size: 2vmax;
+        }
+
+        .infoLinks {
+            font-size: 2vmax;
+        }
+    }
 }
