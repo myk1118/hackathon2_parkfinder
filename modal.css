@@ -32,3 +32,17 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
 }
+
+#modalClose {
+    position: fixed;
+    top: 10%;
+    right: 10%;
+    font-size: 20px;
+    font-weight: bold;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: none;
+    border-left: none;
+    color: black;
+    width: 3%;
+}
