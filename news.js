@@ -51,9 +51,9 @@ class News {
     }
 }
 
-var news1 = new News();
-
-news1.getDataFromServer();
+// var news1 = new News();
+//
+// news1.getDataFromServer();
 
 function displayNews(){
     // console.log(news1.news[0].source);

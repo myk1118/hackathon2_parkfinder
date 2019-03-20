@@ -6,12 +6,12 @@ class Modal {
 
     createModal() {
         switch (this.type) {
-            case 'news':
-                this.newsModal(parkName);
-                break;
-            case 'weather':
-                this.weatherModal();
-                break;
+            // case 'news':
+            //     this.newsModal(parkName);
+            //     break;
+            // case 'weather':
+            //     this.weatherModal();
+            //     break;
             case 'images':
                 this.imageModal();
                 break;
@@ -23,21 +23,6 @@ class Modal {
         modal.remove();
     }
 
-    // newsModal() {
-
-    // }
-
-    weatherModal() {
-        var weatherModal = $('<div>',{
-            id: 'weatherModal',
-        })
-
-        var modalClose = $('<button id="modalClose">&times;</button>').on('click', this.deleteModal);
-
-        $('body').append(weatherModal);
-        weatherModal.append(this.domDisplay);
-        this.domDisplay.append(modalClose);
-    }
 
     imageModal() {
         
