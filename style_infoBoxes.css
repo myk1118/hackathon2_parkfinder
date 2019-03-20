@@ -1,14 +1,46 @@
-.yosemiteHeader {
+.infoHeader {
     text-align: center;
-    font-size: 2.5vmin;
+    font-size: 5vmin;
     font-weight: bold;
 }
+
+.infoImage {
+    width: 100%;
+    height: 40vh;
+}
+
 .infoLinks {
     text-align: center; 
-    font-size: 2vmin;
+    font-size: 5vmin;
     color: blue;
     text-decoration: underline;
 }
 .infoLinks:hover {
     cursor: pointer;
+}
+
+@media screen and (min-width: 525px) {
+    .infoLinks {
+        font-size: 4vmin;
+    }
+}
+
+@media screen and (orientation: landscape){
+    .infoHeader {
+        font-size: 3vmax;
+    }
+    
+    .infoLinks {
+        font-size: 3vmax;
+    }
+
+    @media screen and (min-width: 825px){
+        .infoHeader {
+            font-size: 2vmax;
+        }
+
+        .infoLinks {
+            font-size: 2vmax;
+        }
+    }
 }

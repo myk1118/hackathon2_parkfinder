@@ -67,6 +67,8 @@ function displayWeatherData(w_data) {
     $('#humidity').text(humidity);
     $('#sunrise').text(sunrise);
     $('#sunset').text(sunset);
+
+
     $('#place').text(place);
     $('#wind_speed').text(wind_speed);
 

@@ -1,4 +1,5 @@
 
+
 #imageModal {
     height: 100%;
     width: 100%;
@@ -16,29 +17,46 @@
     box-sizing: border-box;
     border: 2px solid black;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
     background-color: white;
 }
 
 .imageContainer {
-    width: 21%;
-    height: 50%;
-    margin: 0 2%;
+    flex-basis: 25%;
+    margin-top: 5%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
 }
 
 #modalClose {
-    position: fixed;
-    top: 10%;
-    right: 10%;
+    position: absolute;
+    right: 5px;
     font-size: 20px;
     font-weight: bold;
-    border-top: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: none;
-    border-left: none;
+    border-style: none;
     color: black;
     width: 3%;
+    background-color: white;
+}
+
+#moreButton {
+    position: absolute;
+    bottom: 5%;
+    width: 20%;
+    left: 40%;
+}
+
+@media only screen and (min-width: 768px) {
+    #modalContent {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .imageContainer {
+        margin: 0;
+    }
+    #modalClose {
+        right: 0;
+    }
 }

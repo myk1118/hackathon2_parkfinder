@@ -21,24 +21,27 @@
     <script src="map.js"></script>
     <script src="main.js"></script>
     <script src="images.js"></script>
+    <script src="news.js"></script>
+    <script src="weather.js"></script>
     <script src="modalConstructor.js"></script>
     <script src="weather.js"></script>
     <!--<script src="news.js"></script>-->
 
 </head>
 <body>
-    <div class="title_logo">National Park Finder
-        <img src="images/logo.png">
-    </div>
+
+    <img src="images/hackathonlogo.png" class="logo">
     <div class="forms_container">
-        <div class="preference_instructions">What do you want to go?</div>
+        <div class="preference_instructions">What type of park are you looking for?</div>
             <select class="preference_form">
+                <div class="ddcontent">
                 <option value="mountains">Mountains</option>
                 <option value="forests">Forests</option>
-                <option value="beaches">Beaches</option>
+                <option value="oceans">Oceans</option>
                 <option value="deserts">Deserts</option>
+                </div>
             </select>
-            <button type="submit" id="submit_button">Submit</button>
+            <button type="submit" id="submit_button">Let's Go</button>
     </div>
     <div id="map_container"></div>
 
@@ -78,5 +81,3 @@
 
 </body>
 </html>
-
-

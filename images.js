@@ -1,5 +1,5 @@
 
-class ParkImages {  //click will create new parkImages object using park name, then call retrieveImages
+class ParkImages {
 
     constructor(tagName) {
         this.park = tagName;
@@ -27,7 +27,7 @@ class ParkImages {  //click will create new parkImages object using park name, t
         $.ajax(settings).done(function (response) {
             var potentialImages = response.data.items;
             var displayedImages = [];
-            for (var imageIndex = 0; displayedImages.length < 8; imageIndex++) {
+            for (var imageIndex = 0; displayedImages.length < 3; imageIndex++) {
                 if (potentialImages[imageIndex].images) {
                     var currentImage = potentialImages[imageIndex].images[0];
                     if (currentImage.type === 'image/jpeg') {
@@ -44,6 +44,15 @@ class ParkImages {  //click will create new parkImages object using park name, t
                 }
             }
         });
+        var urlForMore = `https://imgur.com/t/${this.park}`;
+        var moreButton = $('<button>',{
+            id: 'moreButton',
+            text: 'Click Here for More!',
+            on: {'click': function() {
+                window.open(urlForMore);
+            }}
+        })
+        modalContent.append(moreButton);
         var imageModal = new Modal('images', modalContent);
         imageModal.createModal(this.park);
     }

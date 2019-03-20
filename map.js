@@ -56,56 +56,56 @@ var parksList = {
     }
 };
 
-var yosemiteContent = "<div class='yosemiteHeader'>Yosemite National Park</div>"+
-                        "<img src='images/yosemiteInfoBox.jpg' class='yosemiteInfoImage'>"+
+var yosemiteContent = "<div class='infoHeader'>Yosemite National Park</div>"+
+                        "<img src='images/yosemiteInfoBox.jpg' class='infoImage'>"+
                         "<div class='yosemite weather infoLinks'>Weather information</div>"+
                         "<div class='yosemite news infoLinks'>Local News</div>"+
                         "<div class='yosemite images infoLinks'>Recent posts on Imgur</div>";
 
-var channelIslandsContent = "<div class='channelIslandsHeader'>Channel Islands National Park</div>"+
-                            "<img src='images/channelIslandsInfoBox.jpg' class='channelIslandsInfoImage'>"+
+var channelIslandsContent = "<div class='infoHeader'>Channel Islands National Park</div>"+
+                            "<img src='images/channelIslandsInfoBox.jpg' class='infoImage'>"+
                             "<div class='channelIslands weather infoLinks'>Weather Information</div>"+
                             "<div class='channelIslands news infoLinks'>Local News</div>"+
                             "<div class='channelIslands images infoLinks'>Recent Posts on Imgur</div>";
 
-var deathValleyContent = "<div class='deathValleyHeader'>Death Valley National Park</div>"+
-                            "<img src='images/deathValleyInfoBox.jpg' class='deathValleyInfoImage'>"+
+var deathValleyContent = "<div class='infoHeader'>Death Valley National Park</div>"+
+                            "<img src='images/deathValleyInfoBox.jpg' class='infoImage'>"+
                             "<div class='deathValley weather infoLinks'>Weather Information</div>"+
                             "<div class='deathValley news infoLinks'>Local News</div>"+
                             "<div class='deathValley images infoLinks'>Recent Posts on Imgur</div>";
 
-var joshuaTreeContent = "<div class='joshuaTreeHeader'>Joshua Tree National Park</div>"+
-                        "<img src='images/joshuaTreeInfoBox.jpg' class='joshuaTreeInfoImage'>"+
+var joshuaTreeContent = "<div class='infoHeader'>Joshua Tree National Park</div>"+
+                        "<img src='images/joshuaTreeInfoBox.jpg' class='infoImage'>"+
                         "<div class='joshuaTree weather infoLinks'>Weather Information</div>"+
                         "<div class='joshuaTree news infoLinks'>Local News</div>"+
                         "<div class='joshuaTree images infoLinks'>Recent Posts on Imgur</div>";
 
-var redwoodsContent = "<div class='redwoodsHeader'>Redwoods National Park</div>"+
-                        "<img src='images/redwoodsInfoBox.jpg' class='redwoodsInfoImage'>"+
+var redwoodsContent = "<div class='infoHeader'>Redwoods National Park</div>"+
+                        "<img src='images/redwoodsInfoBox.jpg' class='infoImage'>"+
                         "<div class='redwoods weather infoLinks'>Weather Information</div>"+
                         "<div class='redwoods news infoLinks'>Local News</div>"+
                         "<div class='redwoods images infoLinks'>Recent Posts on Imgur</div>";
 
-var kingsCanyonContent = "<div class='kingsCanyonHeader'>Kings Canyon National Park</div>"+
-                            "<img src='images/kingsCanyonInfoBox.jpg' class='kingsCanyonInfoImage'>"+
+var kingsCanyonContent = "<div class='infoHeader'>Kings Canyon National Park</div>"+
+                            "<img src='images/kingsCanyonInfoBox.jpg' class='infoImage'>"+
                             "<div class='kingsCanyon weather infoLinks'>Weather Information</div>"+
                             "<div class='kingsCanyon news infoLinks'>Local News</div>"+
                             "<div class='kingsCanyon images infoLinks'>Recent Posts on Imgur</div>";
 
-var lassenContent = "<div class='lassenHeader'>Lassen Volcanic National Park</div>"+
-                    "<img src='images/lassenInfoBox.jpg' class='lassenInfoImage'>"+
+var lassenContent = "<div class='infoHeader'>Lassen Volcanic National Park</div>"+
+                    "<img src='images/lassenInfoBox.jpg' class='infoImage'>"+
                     "<div class='lassen weather infoLinks'>Weather Information</div>"+
                     "<div class='lassen news infoLinks'>Local News</div>"+
                     "<div class='lassen images infoLinks'>Recent Posts on Imgur</div>";
 
-var pinnaclesContent = "<div class='pinnaclesHeader'>Pinnacles National Park</div>"+
-                        "<img src='images/pinnaclesInfoBox.jpg' class='pinnaclesInfoImage'>"+
+var pinnaclesContent = "<div class='infoHeader'>Pinnacles National Park</div>"+
+                        "<img src='images/pinnaclesInfoBox.jpg' class='infoImage'>"+
                         "<div class='pinnacles weather infoLinks'>Weather Information</div>"+
                         "<div class='pinnacles news infoLinks'>Local News</div>"+
                         "<div class='pinnacles images infoLinks'>Recent Posts on Imgur</div>";
 
-var sequoiaContent = "<div class='sequoiaHeader'>Sequoia National Park</div>"+
-                        "<img src='images/sequoiaInfoBox.jpg' class='sequoiaInfoImage'>"+
+var sequoiaContent = "<div class='infoHeader'>Sequoia National Park</div>"+
+                        "<img src='images/sequoiaInfoBox.jpg' class='infoImage'>"+
                         "<div class='sequoia weather infoLinks'>Weather Information</div>"+
                         "<div class='sequoia news infoLinks'>Local News</div>"+
                         "<div class='sequoia images infoLinks'>Recent Posts on Imgur</div>";
@@ -115,7 +115,9 @@ class Park_map {
         this.preference = userPreference;
         this.map = new google.maps.Map(document.getElementById("map_container"), {
             center: parksList["yosemite"].coordinates,
-            zoom: 5.8
+            zoom: 5.8,
+            minZoom: 5.8, 
+            maxZoom: 5.8
         });
         this.markers = {
             yosemiteMarker: null, 
@@ -166,7 +168,7 @@ class Park_map {
 
             this.markers.lassenMarker = new google.maps.Marker({position: parksList["lassen"].coordinates, map: this.map});
             this.markers.lassenMarker.addListener("click", this.displayLassenInfoBox);
-        } else if (this.preference==="beaches"){
+        } else if (this.preference==="oceans"){
             this.markers.channelIslandsMarker = new google.maps.Marker({position: parksList["channelIslands"].coordinates, map: this.map});
             this.markers.channelIslandsMarker.addListener("click", this.displayChannelIslandsInfoBox);
         } else if (this.preference==="deserts"){
