@@ -2,42 +2,49 @@ body {
     margin: 0;
     font-size: 0;
     /*background-color: #18af46;*/
-    background-image: url(images/photo-1516687401797-25297ff1462c.jpeg);
+    background-image: url(images/photo-1469528209190-4a45a86d817b.jpeg);
 }
 
 .title_logo {
-    height: 40vh;
-    line-height: 20vh;
+    height: 50vh;
+    line-height: 55vh;
     font-size: 4.5vmax;
+    font-family: Gotham;
+    font-weight: 450;
     text-align: center;
 }
 
 .forms_container {
     height: 60vh;
 }
-    .preference_instructions {
-        height: 10vh;
-        text-align: center;
-        line-height: 5vh;
-        font-size: 3.5vmax;
-    }
-    .preference_form {
-        width: 90%;
-        margin-left: 5%;
-        background-color: white;
-        font-size: 2.5vmax;
-        margin-bottom: 8vh;
-    }
-    #submit_button {
-        width: 33%;
-        margin-left: 33%;
-        font-size: 2.5vmax;
-        background-color: white;
-    }
 
+.preference_instructions {
+    height: 10vh;
+    text-align: center;
+    line-height: 5vh;
+    font-size: 3vmax;
+    font-family: Gotham;
+}
+
+.preference_form {
+    width: 40%;
+    margin: auto;
+    display: block;
+    background-color: white;
+    font-size: 2.5vmax;
+    margin-bottom: 8vh;
+}
+
+#submit_button {
+    width: 15%;
+    height: 12%;
+    margin: auto;
+    display: block;
+    font-size: 2vmax;
+    background-color: white;
+}
 
 #map_container {
     display: none;
     height: 90vh;
 }
-    
