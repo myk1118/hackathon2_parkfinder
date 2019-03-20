@@ -1,13 +1,58 @@
 var parksList = {
-    "Channel Islands": {lat: 33.9961, lng: -119.7692, imgurTag: ""},
-    "Death Valley": {lat: 36.5054, lng: -117.0794, imgurTag: ""},
-    "Joshua Tree": {lat: 33.8734, lng: -115.9010, imgurTag: ""},
-    "Redwoods": {lat: 41.2132, lng: -124.0046, imgurTag: ""},
-    "Kings Canyon": {lat: 36.8879, lng: -118.5551, imgurTag: ""},
-    "Lassen": {lat: 40.4977, lng: -121.4207, imgurTag: ""}, 
-    "Pinnacles": {lat: 36.4906, lng: -121.1825, imgurTag: ""},
-    "Sequoia": {lat: 36.4864, lng: -118.5658, imgurTag: ""},
-    "Yosemite": {lat: 37.8651, lng: -119.5383, imgurTag: ""}
+    "Channel Islands": {
+        coordinates: {
+            lat: 33.9961,
+            lng: -119.7692},
+        imgurTag: "channel_islands"
+    },
+    "Death Valley": {
+        coordinates: {
+            lat: 36.5054,
+            lng: -117.0794},
+        imgurTag: "death_valley"
+    },
+    "Joshua Tree": {
+        coordinates: {
+            lat: 33.8734,
+            lng: -115.9010},
+        imgurTag: "joshua_tree"
+    },
+    "Redwoods": {
+        coordinates: {
+            lat: 41.2132,
+            lng: -124.0046},
+        imgurTag: "redwoods"
+    },
+    "Kings Canyon": {
+        coordinates: {
+            lat: 36.8879,
+            lng: -118.5551},
+        imgurTag: "kings_canyon"
+    },
+    "Lassen": {
+        coordinates: {
+            lat: 40.4977,
+            lng: -121.4207},
+        imgurTag: "lassen"
+    },
+    "Pinnacles": {
+        coordinates: {
+            lat: 36.4906,
+            lng: -121.1825},
+        imgurTag: "pinnacles"
+    },
+    "Sequoia": {
+        coordinates: {
+            lat: 36.4864,
+            lng: -118.5658},
+        imgurTag: "sequoia_national_park"
+    },
+    "Yosemite": {
+        coordinates: {
+            lat: 37.8651,
+            lng: -119.5383},
+        imgurTag: "yosemite"
+    }
 };
 
 var yosemiteContent = "<img src='images/yosemiteInfoBox.jpg'>";
