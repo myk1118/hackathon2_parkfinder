@@ -65,14 +65,13 @@ function displayNews(){
                 width: '40%'
             });
         var source = $("<div>").addClass("source").text(news1.news[i].source);
-        var title = $("<div>").addClass("title").text(news1.news[i].title);
+        var link = $("<a>").attr("href", news1.news[i].url).text(news1.news[i].title);
+        link.attr("target", "_blank");
+        var title = $("<div>").addClass("title").append(link);
         var date = $("<div>").addClass("date").text(news1.news[i].publishedAt);
-        var url = news1.news[i].url;
+        // var url = news1.news[i].url;
         var articleContainer = $("<div>").append(picture, source, title, date);
-        articleContainer.addClass("articleDetails").click(function() {
-            window.open(url, '_blank');
-        });
-        console.log(url);
+        articleContainer.addClass("articleDetails");
         $(".newsContainer").append(articleContainer);
     }
 }
