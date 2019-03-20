@@ -4,7 +4,7 @@ class Modal {
         this.domDisplay = domDisplay;
     }
 
-    createModal(parkName) {
+    createModal() {
         switch (this.type) {
             case 'news':
                 this.newsModal(parkName);
@@ -13,7 +13,7 @@ class Modal {
                 this.weatherModal();
                 break;
             case 'images':
-                this.imageModal(parkName);
+                this.imageModal();
                 break;
         }
     }
@@ -30,7 +30,7 @@ class Modal {
     weatherModal() {
         var weatherModal = $('<div>',{
             id: 'weatherModal',
-        });
+
         var modalClose = $('<button id="modalClose">&times;</button>').on('click', this.deleteModal);
 
         $('body').append(weatherModal);
@@ -53,6 +53,8 @@ class Modal {
             }
         };
 
+    imageModal() { //tagName = park name; ex: 'zion_national_park'
+        
         var imageModal = $('<div>',{
             id: 'imageModal',
         });
@@ -87,5 +89,10 @@ class Modal {
                 }
             }
         });
+        var modalClose = $('<button id="modalClose">&times;</button>').on('click', this.deleteModal);
+
+        $('body').append(imageModal);
+        imageModal.append(this.domDisplay);
+        this.domDisplay.append(modalClose);
     }
 }
