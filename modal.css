@@ -34,22 +34,19 @@ body {
 }
 
 #modalClose {
-    position: fixed;
-    top: 10%;
-    right: 10%;
+    position: absolute;
+    right: 5px;
     font-size: 20px;
     font-weight: bold;
-    border-top: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: none;
-    border-left: none;
+    border-style: none;
     color: black;
     width: 3%;
+    background-color: white;
 }
 
 #moreButton {
-    position: fixed;
-    bottom: 15%;
+    position: absolute;
+    bottom: 5%;
     width: 20%;
     left: 40%;
 }
@@ -61,5 +58,8 @@ body {
     }
     .imageContainer {
         margin: 0;
+    }
+    #modalClose {
+        right: 0;
     }
 }
