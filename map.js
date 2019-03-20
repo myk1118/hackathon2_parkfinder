@@ -166,7 +166,7 @@ class Park_map {
 
             this.markers.lassenMarker = new google.maps.Marker({position: parksList["lassen"].coordinates, map: this.map});
             this.markers.lassenMarker.addListener("click", this.displayLassenInfoBox);
-        } else if (this.preference==="beaches"){
+        } else if (this.preference==="oceans"){
             this.markers.channelIslandsMarker = new google.maps.Marker({position: parksList["channelIslands"].coordinates, map: this.map});
             this.markers.channelIslandsMarker.addListener("click", this.displayChannelIslandsInfoBox);
         } else if (this.preference==="deserts"){

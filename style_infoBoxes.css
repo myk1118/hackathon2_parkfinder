@@ -1,11 +1,89 @@
 .yosemiteHeader {
     text-align: center;
-    font-size: 2.5vmin;
+    font-size: 5vmin;
     font-weight: bold;
 }
+.channelIslandsHeader {
+    text-align: center;
+    font-size: 5vmin;
+    font-weight: bold;
+}
+.deathValleyHeader {
+    text-align: center;
+    font-size: 5vmin;
+    font-weight: bold;
+}
+.joshuaTreeHeader {
+    text-align: center;
+    font-size: 5vmin;
+    font-weight: bold;
+}
+.redwoodsHeader {
+    text-align: center;
+    font-size: 5vmin;
+    font-weight: bold;
+}
+.kingsCanyonHeader {
+    text-align: center;
+    font-size: 5vmin;
+    font-weight: bold;
+}
+.lassenHeader {
+    text-align: center;
+    font-size: 5vmin;
+    font-weight: bold;
+}
+.pinnaclesHeader {
+    text-align: center;
+    font-size: 5vmin;
+    font-weight: bold;
+}
+.sequoiaHeader {
+    text-align: center;
+    font-size: 5vmin;
+    font-weight: bold;
+}
+
+.yosemiteInfoImage {
+    width: 100%;
+    height: 40vh;
+}
+.channelIslandsInfoImage {
+    width: 100%;
+    height: 40vh;
+}
+.deathValleyInfoImage {
+    width: 100%;
+    height: 40vh;
+}
+.joshuaTreeInfoImage {
+    width: 100%;
+    height: 40vh;
+}
+.redwoodsInfoImage {
+    width: 100%;
+    height: 40vh;
+}
+.kingsCanyonInfoImage {
+    width: 100%;
+    height: 40vh;
+}
+.lassenInfoImage {
+    width: 100%;
+    height: 40vh;
+}
+.pinnaclesInfoImage {
+    width: 100%;
+    height: 40vh;
+}
+.sequoiaInfoImage {
+    width: 100%;
+    height: 40vh;
+}
+
 .infoLinks {
     text-align: center; 
-    font-size: 2vmin;
+    font-size: 5vmin;
     color: blue;
     text-decoration: underline;
 }
