@@ -1,4 +1,5 @@
 var parksList = {
+
     "Channel Islands": {
         coordinates: {
             lat: 33.9961,
@@ -56,6 +57,14 @@ var parksList = {
 };
 
 var yosemiteContent = "<img src='images/yosemiteInfoBox.jpg'>";
+var channelIslandsContent; 
+var deathValleyContent;
+var joshuaTreeContent;
+var redwoodsContent;
+var kingsCanyonContent;
+var lassenContent;
+var pinnaclesContent;
+var sequoiaContent;
 
 class Park_map {
     constructor(region){
@@ -70,26 +79,46 @@ class Park_map {
             this.userRegion = "SouthEast";
         }
         this.map = new google.maps.Map(document.getElementById("map_container"), {
-            center: yosemite,
+            center: parksList["Yosemite"].coordinates,
             zoom: 5.8
         });
-        this.yosemiteMarker = null;
+        this.markers = {
+            yosemiteMarker: null, 
+            channelIslandsMarker: null, 
+            deathValleyMarker: null, 
+            joshuaTreeMarker: null, 
+            redwoodsMarker: null,
+            kingsCanyonMarker: null, 
+            lassenMarker: null, 
+            pinnaclesMarker: null, 
+            sequoiaMarker: null
+        }; 
+        this.addMarkers = this.addMarkers.bind(this);
         this.displayInfoBox = this.displayInfoBox.bind(this);
     }
 
     addMarkers(){
-        
+        this.markers.channelIslandsMarker = new google.maps.Marker({position: parksList["Channel Islands"].coordinates, map: this.map});
+        this.markers.channelIslandsMarker.addListener("click", this.displayInfoBox("channelIslands"));
 
-        this.yosemiteMarker = new google.maps.Marker({position: yosemite, map: this.map});
-        this.yosemiteMarker.addListener("click", this.displayInfoBox);
+        this.markers.yosemiteMarker = new google.maps.Marker({position: parksList["Yosemite"].coordinates, map: this.map});
+        this.markers.yosemiteMarker.addListener("click", this.displayInfoBox("yosemite"));
     }
 
-    displayInfoBox(){
-        var yosemiteInfoBox = new google.maps.InfoWindow({
-            content: yosemiteContent,
-            position: yosemite
-        });
-        yosemiteInfoBox.open(this.map);
+    displayInfoBox(park){
+        if (park==="yosemite"){
+            var yosemiteInfoBox = new google.maps.InfoWindow({
+                content: yosemiteContent,
+                position: parksList["Yosemite"].coordinates
+            });
+            yosemiteInfoBox.open(this.map);
+        } else if (park==="channelIslands"){
+            var channelIslandsInfoBox = new google.maps.InfoWindow({
+                content: channelIslandsContent, 
+                position: parksList["Channel Islands"].coordinates
+            });
+            channelIslandsInfoBox.open(this.map);
+        }
     }
 }
 
