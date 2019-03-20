@@ -44,7 +44,6 @@ class ParkImages {  //click will create new parkImages object using park name, t
                 }
             }
         });
-        debugger;
         var imageModal = new Modal('images', modalContent);
         imageModal.createModal(this.park);
     }
