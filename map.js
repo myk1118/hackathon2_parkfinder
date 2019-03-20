@@ -62,14 +62,53 @@ var yosemiteContent = "<div class='yosemiteHeader'>Yosemite National Park</div>"
                         "<div class='yosemite news infoLinks'>Local News</div>"+
                         "<div class='yosemite images infoLinks'>Recent posts on Imgur</div>";
 
-var channelIslandsContent = "<div>Channel Islands clicked</div>";
-var deathValleyContent = "<div>Death Valley clicked</div>";
-var joshuaTreeContent = "<div>Joshua Tree clicked</div>";
-var redwoodsContent = "<div>Redwoods clicked</div>";
-var kingsCanyonContent = "<div>Kings Canyon clicked</div>";
-var lassenContent = "<div>Lassen clicked</div>";
-var pinnaclesContent = "<div>Pinnacles clicked</div>";
-var sequoiaContent = "<div>Sequoia clicked</div>";
+var channelIslandsContent = "<div class='channelIslandsHeader'>Channel Islands National Park</div>"+
+                            "<img src='images/channelIslandsInfoBox.jpg' class='channelIslandsInfoImage'>"+
+                            "<div class='channelIslands weather infoLinks'>Weather Information</div>"+
+                            "<div class='channelIslands news infoLinks'>Local News</div>"+
+                            "<div class='channelIslands images infoLinks'>Recent Posts on Imgur</div>";
+
+var deathValleyContent = "<div class='deathValleyHeader'>Death Valley National Park</div>"+
+                            "<img src='images/deathValleyInfoBox.jpg' class='deathValleyInfoImage'>"+
+                            "<div class='deathValley weather infoLinks'>Weather Information</div>"+
+                            "<div class='deathValley news infoLinks'>Local News</div>"+
+                            "<div class='deathValley images infoLinks'>Recent Posts on Imgur</div>";
+
+var joshuaTreeContent = "<div class='joshuaTreeHeader'>Joshua Tree National Park</div>"+
+                        "<img src='images/joshuaTreeInfoBox.jpg' class='joshuaTreeInfoImage'>"+
+                        "<div class='joshuaTree weather infoLinks'>Weather Information</div>"+
+                        "<div class='joshuaTree news infoLinks'>Local News</div>"+
+                        "<div class='joshuaTree images infoLinks'>Recent Posts on Imgur</div>";
+
+var redwoodsContent = "<div class='redwoodsHeader'>Redwoods National Park</div>"+
+                        "<img src='images/redwoodsInfoBox.jpg' class='redwoodsInfoImage'>"+
+                        "<div class='redwoods weather infoLinks'>Weather Information</div>"+
+                        "<div class='redwoods news infoLinks'>Local News</div>"+
+                        "<div class='redwoods images infoLinks'>Recent Posts on Imgur</div>";
+
+var kingsCanyonContent = "<div class='kingsCanyonHeader'>Kings Canyon National Park</div>"+
+                            "<img src='images/kingsCanyonInfoBox.jpg' class='kingsCanyonInfoImage'>"+
+                            "<div class='kingsCanyon weather infoLinks'>Weather Information</div>"+
+                            "<div class='kingsCanyon news infoLinks'>Local News</div>"+
+                            "<div class='kingsCanyon images infoLinks'>Recent Posts on Imgur</div>";
+
+var lassenContent = "<div class='lassenHeader'>Lassen Volcanic National Park</div>"+
+                    "<img src='images/lassenInfoBox.jpg' class='lassenInfoImage'>"+
+                    "<div class='lassen weather infoLinks'>Weather Information</div>"+
+                    "<div class='lassen news infoLinks'>Local News</div>"+
+                    "<div class='lassen images infoLinks'>Recent Posts on Imgur</div>";
+
+var pinnaclesContent = "<div class='pinnaclesHeader'>Pinnacles National Park</div>"+
+                        "<img src='images/pinnaclesInfoBox.jpg' class='pinnaclesInfoImage'>"+
+                        "<div class='pinnacles weather infoLinks'>Weather Information</div>"+
+                        "<div class='pinnacles news infoLinks'>Local News</div>"+
+                        "<div class='pinnacles images infoLinks'>Recent Posts on Imgur</div>";
+
+var sequoiaContent = "<div class='sequoiaHeader'>Sequoia National Park</div>"+
+                        "<img src='images/sequoiaInfoBox.jpg' class='sequoiaInfoImage'>"+
+                        "<div class='sequoia weather infoLinks'>Weather Information</div>"+
+                        "<div class='sequoia news infoLinks'>Local News</div>"+
+                        "<div class='sequoia images infoLinks'>Recent Posts on Imgur</div>";
 
 class Park_map {
     constructor(userPreference){

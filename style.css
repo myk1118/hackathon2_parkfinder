@@ -15,7 +15,6 @@ body {
 .forms_container {
     height: 60vh;
 }
-
     .preference_instructions {
         height: 10vh;
         text-align: center;
@@ -41,22 +40,4 @@ body {
     display: none;
     height: 90vh;
 }
-    .yosemiteHeader {
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-    }
     
-
-
-
-select {
-    width: 60%;
-    margin: auto;
-    /*margin-left: 5%;*/
-    background-color: white;
-    font-size: 2.5vmax;
-    margin-bottom: 8vh;
-    display: flex;
-    justify-content: center;
-}
