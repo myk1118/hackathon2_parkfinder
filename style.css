@@ -16,19 +16,34 @@ body {
     height: 60vh;
 }
 
-.region_instructions {
-    height: 10vh;
-    text-align: center;
-    line-height: 5vh;
-    font-size: 3.5vmax;
-}
+    .region_instructions {
+        height: 10vh;
+        text-align: center;
+        line-height: 5vh;
+        font-size: 3.5vmax;
+    }
+    .region_form {
+        width: 90%;
+        margin-left: 5%;
+        background-color: white;
+        font-size: 2.5vmax;
+        margin-bottom: 8vh;
+    }
+    button {
+        width: 33%;
+        margin-left: 33%;
+        font-size: 2.5vmax;
+        background-color: white;
+    }
 
-.activity_instructions {
-    height: 10vh;
-    text-align: center;
-    line-height: 5vh;
-    font-size: 3.5vmax;
+
+#map_container {
+    display: none;
+    height: 100vh;
 }
+    
+
+
 
 select {
     width: 60%;
@@ -39,11 +54,4 @@ select {
     margin-bottom: 8vh;
     display: flex;
     justify-content: center;
-}
-
-button {
-    width: 33%;
-    margin-left: 33%;
-    font-size: 2.5vmax;
-    background-color: white;
 }
