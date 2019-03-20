@@ -183,6 +183,7 @@ class Park_map {
             content: channelIslandsContent, 
             position: parksList["channelIslands"].coordinates
         });
+        channelIslandsInfoBox.addListener('domready', this.addInfoClickHandlers);
         channelIslandsInfoBox.open(this.map);
     }
 
@@ -191,6 +192,7 @@ class Park_map {
             content: deathValleyContent,
             position: parksList["deathValley"].coordinates
         });
+        deathValleyInfoBox.addListener('domready', this.addInfoClickHandlers);
         deathValleyInfoBox.open(this.map);
     }
 
@@ -199,6 +201,7 @@ class Park_map {
             content: joshuaTreeContent, 
             position: parksList["joshuaTree"].coordinates
         });
+        joshuaTreeInfoBox.addListener('domready', this.addInfoClickHandlers);
         joshuaTreeInfoBox.open(this.map);
     }
 
@@ -207,6 +210,7 @@ class Park_map {
             content: kingsCanyonContent, 
             position: parksList["kingsCanyon"].coordinates
         });
+        kingsCanyonInfoBox.addListener('domready', this.addInfoClickHandlers);
         kingsCanyonInfoBox.open(this.map);
     }
 
@@ -215,6 +219,7 @@ class Park_map {
             content: lassenContent, 
             position: parksList["lassen"].coordinates
         });
+        lassenInfoBox.addListener('domready', this.addInfoClickHandlers);
         lassenInfoBox.open(this.map);
     }
 
@@ -223,6 +228,7 @@ class Park_map {
             content: pinnaclesContent, 
             position: parksList["pinnacles"].coordinates
         });
+        pinnaclesInfoBox.addListener('domready', this.addInfoClickHandlers);
         pinnaclesInfoBox.open(this.map);
     }
 
@@ -231,6 +237,7 @@ class Park_map {
             content: redwoodsContent, 
             position: parksList["redwoods"].coordinates
         });
+        redwoodsInfoBox.addListener('domready', this.addInfoClickHandlers);
         redwoodsInfoBox.open(this.map);
     }
 
@@ -239,6 +246,7 @@ class Park_map {
             content: sequoiaContent, 
             position: parksList["sequoia"].coordinates
         });
+        sequoiaInfoBox.addListener('domready', this.addInfoClickHandlers);
         sequoiaInfoBox.open(this.map);
     }
 
