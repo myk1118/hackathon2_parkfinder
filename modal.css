@@ -1,0 +1,34 @@
+
+body {
+    height: 100vh;
+}
+
+#imageModal {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0,0,0,0.4);
+}
+
+#modalContent {
+    width: 80%;
+    height: 80%;
+    position: relative;
+    top: 10%;
+    margin: auto;
+    box-sizing: border-box;
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+}
+
+.imageContainer {
+    width: 21%;
+    height: 50%;
+    margin: 0 2%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
