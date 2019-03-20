@@ -6,13 +6,13 @@ class News {
         this.handleError = this.handleError.bind(this);
     }
 
-    getDataFromServer() {
+    getDataFromServer(parkName) {
         var getServerData = {
-            url: 'https://newsapi.org/v2/everything?q=yosemite&apiKey=d8a638ecf0534516ad34b799192ee8b8&language=en&pageSize=4',
+            url: 'https://newsapi.org/v2/everything?apiKey=d8a638ecf0534516ad34b799192ee8b8&language=en&pageSize=4&q=' + parkName,
             method: 'get',
             data: {
                 'apiKey': 'd8a638ecf0534516ad34b799192ee8b8',
-                'q': 'yosemite',
+                // 'q': 'yosemite',
                 'language': 'en',
                 'sortBy': 'relevancy',
                 'pageSize': 4
@@ -69,9 +69,8 @@ function displayNews(){
         link.attr("target", "_blank");
         var title = $("<div>").addClass("title").append(link);
         var date = $("<div>").addClass("date").text(news1.news[i].publishedAt);
-        // var url = news1.news[i].url;
-        var articleContainer = $("<div>").append(picture, source, title, date);
-        articleContainer.addClass("articleDetails");
-        $(".newsContainer").append(articleContainer);
+        var articleContainer = $("<div>").addClass("articleDetails").append(picture, source, title, date);
+        var newsContainer = $("<div>").addClass("newsContainer").append(articleContainer);
+        $('body').append(newsContainer);
     }
 }
