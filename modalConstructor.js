@@ -30,7 +30,7 @@ class Modal {
     weatherModal() {
         var weatherModal = $('<div>',{
             id: 'weatherModal',
-
+        });
         var modalClose = $('<button id="modalClose">&times;</button>').on('click', this.deleteModal);
 
         $('body').append(weatherModal);
