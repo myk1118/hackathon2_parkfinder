@@ -1,7 +1,8 @@
 body {
     margin: 0;
     font-size: 0;
-    background-color: #18af46;
+    /*background-color: #18af46;*/
+    background-image: url(images/photo-1516687401797-25297ff1462c.jpeg);
 }
 
 .title_logo {
@@ -13,31 +14,36 @@ body {
 
 .forms_container {
     height: 60vh;
-    
 }
-    .region_instructions {
-        height: 10vh;
-        text-align: center;
-        line-height: 5vh;
-        font-size: 3.5vmax;
-    }
-    .activity_instructions {
-        height: 10vh;
-        text-align: center;
-        line-height: 5vh;
-        font-size: 3.5vmax;
-    }
-    select {
-        width: 90%;
-        margin-left: 5%;
-        background-color: white;
-        font-size: 2.5vmax;
-        margin-bottom: 8vh;
-    }
-    button {
-        width: 33%;
-        margin-left: 33%;
-        font-size: 2.5vmax;
-        background-color: white;
-    }
-    
+
+.region_instructions {
+    height: 10vh;
+    text-align: center;
+    line-height: 5vh;
+    font-size: 3.5vmax;
+}
+
+.activity_instructions {
+    height: 10vh;
+    text-align: center;
+    line-height: 5vh;
+    font-size: 3.5vmax;
+}
+
+select {
+    width: 60%;
+    margin: auto;
+    /*margin-left: 5%;*/
+    background-color: white;
+    font-size: 2.5vmax;
+    margin-bottom: 8vh;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    width: 33%;
+    margin-left: 33%;
+    font-size: 2.5vmax;
+    background-color: white;
+}

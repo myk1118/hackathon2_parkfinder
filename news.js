@@ -15,7 +15,7 @@ class News {
                 'q': 'yosemite',
                 'language': 'en',
                 'sortBy': 'relevancy',
-                'pageSize': 5
+                'pageSize': 4
             },
             dataType: 'json',
             success: this.handleSuccess,
@@ -30,19 +30,20 @@ class News {
                 var currentArticle = response.articles[i];
                 var currentArticleStorage = {};
                 currentArticleStorage.source = currentArticle.source.name;
-                currentArticleStorage.author = currentArticle.author;
+                // currentArticleStorage.author = currentArticle.author;
                 currentArticleStorage.title = currentArticle.title;
-                currentArticleStorage.description = currentArticle.description;
-                currentArticleStorage.url = currentArticle.url;
+                // currentArticleStorage.description = currentArticle.description;
+                // currentArticleStorage.url = currentArticle.url;
                 currentArticleStorage.urlToImage = currentArticle.urlToImage;
                 currentArticleStorage.publishedAt = currentArticle.publishedAt;
-                currentArticleStorage.content = currentArticle.content;
+                // currentArticleStorage.content = currentArticle.content;
                 this.news.push(currentArticleStorage);
             }
         } else { //status 'error'
             var errorMessage = response.message; //["user-requested request failure"]
             console.log(errorMessage);
         }
+        displayNews();
     }
 
     handleError() {
@@ -52,3 +53,12 @@ class News {
 
 var news1 = new News();
 news1.getDataFromServer();
+
+function displayNews(){
+    // console.log(news1.news[0].source);
+    var picture = $("<div>").addClass("image").text(news1.news[0].urlToImage);
+    var source = $("<div>").addClass("source").text(news1.news[0].source);
+    var title = $("<div>").addClass("title").text(news1.news[0].title);
+    var date = $("<div>").addClass("date").text(news1.news[0].publishedAt);
+    $('.news').append(picture, source, title, date);
+}
