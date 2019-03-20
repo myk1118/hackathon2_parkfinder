@@ -115,8 +115,9 @@ class Park_map {
         this.preference = userPreference;
         this.map = new google.maps.Map(document.getElementById("map_container"), {
             center: parksList["yosemite"].coordinates,
-            zoom: 5.8, 
-            gestureHandling: "none"
+            zoom: 5.8,
+            minZoom: 5.8, 
+            maxZoom: 5.8
         });
         this.markers = {
             yosemiteMarker: null, 
