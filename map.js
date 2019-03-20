@@ -1,5 +1,5 @@
 var parksList = {
-    "Channel Islands": {lat: 33.9961, lng: -119.7692, imgurTag: ""},
+    "Channel Islands": {coordinates: {lat: 33.9961, lng: -119.7692}, imgurTag: ""},
     "Death Valley": {lat: 36.5054, lng: -117.0794, imgurTag: ""},
     "Joshua Tree": {lat: 33.8734, lng: -115.9010, imgurTag: ""},
     "Redwoods": {lat: 41.2132, lng: -124.0046, imgurTag: ""},
@@ -7,10 +7,18 @@ var parksList = {
     "Lassen": {lat: 40.4977, lng: -121.4207, imgurTag: ""}, 
     "Pinnacles": {lat: 36.4906, lng: -121.1825, imgurTag: ""},
     "Sequoia": {lat: 36.4864, lng: -118.5658, imgurTag: ""},
-    "Yosemite": {lat: 37.8651, lng: -119.5383, imgurTag: ""}
+    "Yosemite": {coordinates: {lat: 37.8651, lng: -119.5383}, imgurTag: ""}
 };
 
 var yosemiteContent = "<img src='images/yosemiteInfoBox.jpg'>";
+var channelIslandsContent; 
+var deathValleyContent;
+var joshuaTreeContent;
+var redwoodsContent;
+var kingsCanyonContent;
+var lassenContent;
+var pinnaclesContent;
+var sequoiaContent;
 
 class Park_map {
     constructor(region){
@@ -25,26 +33,46 @@ class Park_map {
             this.userRegion = "SouthEast";
         }
         this.map = new google.maps.Map(document.getElementById("map_container"), {
-            center: yosemite,
+            center: parksList["Yosemite"].coordinates,
             zoom: 5.8
         });
-        this.yosemiteMarker = null;
+        this.markers = {
+            yosemiteMarker: null, 
+            channelIslandsMarker: null, 
+            deathValleyMarker: null, 
+            joshuaTreeMarker: null, 
+            redwoodsMarker: null,
+            kingsCanyonMarker: null, 
+            lassenMarker: null, 
+            pinnaclesMarker: null, 
+            sequoiaMarker: null
+        }; 
+        this.addMarkers = this.addMarkers.bind(this);
         this.displayInfoBox = this.displayInfoBox.bind(this);
     }
 
     addMarkers(){
-        
+        this.markers.channelIslandsMarker = new google.maps.Marker({position: parksList["Channel Islands"].coordinates, map: this.map});
+        this.markers.channelIslandsMarker.addListener("click", this.displayInfoBox("channelIslands"));
 
-        this.yosemiteMarker = new google.maps.Marker({position: yosemite, map: this.map});
-        this.yosemiteMarker.addListener("click", this.displayInfoBox);
+        this.markers.yosemiteMarker = new google.maps.Marker({position: parksList["Yosemite"].coordinates, map: this.map});
+        this.markers.yosemiteMarker.addListener("click", this.displayInfoBox("yosemite"));
     }
 
-    displayInfoBox(){
-        var yosemiteInfoBox = new google.maps.InfoWindow({
-            content: yosemiteContent,
-            position: yosemite
-        });
-        yosemiteInfoBox.open(this.map);
+    displayInfoBox(park){
+        if (park==="yosemite"){
+            var yosemiteInfoBox = new google.maps.InfoWindow({
+                content: yosemiteContent,
+                position: parksList["Yosemite"].coordinates
+            });
+            yosemiteInfoBox.open(this.map);
+        } else if (park==="channelIslands"){
+            var channelIslandsInfoBox = new google.maps.InfoWindow({
+                content: channelIslandsContent, 
+                position: parksList["Channel Islands"].coordinates
+            });
+            channelIslandsInfoBox.open(this.map);
+        }
     }
 }
 
