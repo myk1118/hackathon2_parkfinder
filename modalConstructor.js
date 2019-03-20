@@ -6,9 +6,9 @@ class Modal {
 
     createModal(parkName) {
         switch (this.type) {
-            // case 'news':
-            //     this.newsModal(parkName);
-            //     break;
+            case 'news':
+                this.newsModal(parkName);
+                break;
             case 'weather':
                 this.weatherModal();
                 break;
@@ -23,10 +23,14 @@ class Modal {
         modal.remove();
     }
 
+    newsModal() {
+
+    }
+
     weatherModal() {
         var weatherModal = $('<div>',{
             id: 'weatherModal',
-        })
+        });
         var modalClose = $('<button id="modalClose">&times;</button>').on('click', this.deleteModal);
 
         $('body').append(weatherModal);
@@ -47,15 +51,15 @@ class Modal {
                 'client_secret': '7797522e4aef6c58c534220df74b589a90794cac',
                 'grant_type': 'refresh_token',
             }
-        }
+        };
 
         var imageModal = $('<div>',{
             id: 'imageModal',
-        })
+        });
 
         var modalContent = $('<div>',{
             id: 'modalContent',
-        })
+        });
 
         var modalClose = $('<button id="modalClose">&times;</button>').on('click', this.deleteModal);
 
@@ -76,7 +80,7 @@ class Modal {
                             css: {
                                 'background-image': `url(${imageLink})`,
                             }
-                        })
+                        });
                         displayedImages.push(imageContainer);
                         $(modalContent).append(imageContainer);
                     }
