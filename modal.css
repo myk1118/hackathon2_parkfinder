@@ -20,14 +20,14 @@ body {
     box-sizing: border-box;
     border: 2px solid black;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
     background-color: white;
 }
 
 .imageContainer {
-    width: 21%;
-    height: 50%;
-    margin: 0 2%;
+    flex-basis: 25%;
+    margin-top: 5%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
@@ -45,4 +45,11 @@ body {
     border-left: none;
     color: black;
     width: 3%;
+}
+
+#moreButton {
+    position: fixed;
+    bottom: 15%;
+    width: 20%;
+    left: 40%;
 }
