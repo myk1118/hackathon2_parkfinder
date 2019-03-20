@@ -8,7 +8,7 @@ class News {
 
     getDataFromServer() {
         var getServerData = {
-            url: 'https://newsapi.org/v2/everything?q=yosemite&apiKey=d8a638ecf0534516ad34b799192ee8b8&language=en&pageSize=5',
+            url: 'https://newsapi.org/v2/everything?q=yosemite&apiKey=d8a638ecf0534516ad34b799192ee8b8&language=en&pageSize=4',
             method: 'get',
             data: {
                 'apiKey': 'd8a638ecf0534516ad34b799192ee8b8',
@@ -33,7 +33,7 @@ class News {
                 // currentArticleStorage.author = currentArticle.author;
                 currentArticleStorage.title = currentArticle.title;
                 // currentArticleStorage.description = currentArticle.description;
-                // currentArticleStorage.url = currentArticle.url;
+                currentArticleStorage.url = currentArticle.url;
                 currentArticleStorage.urlToImage = currentArticle.urlToImage;
                 currentArticleStorage.publishedAt = currentArticle.publishedAt;
                 // currentArticleStorage.content = currentArticle.content;
@@ -52,13 +52,27 @@ class News {
 }
 
 var news1 = new News();
+
 news1.getDataFromServer();
 
 function displayNews(){
     // console.log(news1.news[0].source);
-    var picture = $("<div>").addClass("image").text(news1.news[0].urlToImage);
-    var source = $("<div>").addClass("source").text(news1.news[0].source);
-    var title = $("<div>").addClass("title").text(news1.news[0].title);
-    var date = $("<div>").addClass("date").text(news1.news[0].publishedAt);
-    $('.news').append(picture, source, title, date);
+    // $(".newsContainer").empty();
+    for (var i = 0; i < news1.news.length; i++) {
+        var picture = $("<img>",
+            {
+                src: news1.news[i].urlToImage,
+                width: '40%'
+            });
+        var source = $("<div>").addClass("source").text(news1.news[i].source);
+        var title = $("<div>").addClass("title").text(news1.news[i].title);
+        var date = $("<div>").addClass("date").text(news1.news[i].publishedAt);
+        var url = news1.news[i].url;
+        var articleContainer = $("<div>").append(picture, source, title, date);
+        articleContainer.addClass("articleDetails").click(function() {
+            window.open(url, '_blank');
+        });
+        console.log(url);
+        $(".newsContainer").append(articleContainer);
+    }
 }
