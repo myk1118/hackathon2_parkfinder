@@ -1,7 +1,8 @@
 body {
     margin: 0;
     font-size: 0;
-    background-color: #18af46;
+    /*background-color: #18af46;*/
+    background-image: url(images/photo-1516687401797-25297ff1462c.jpeg);
 }
 
 .title_logo {
@@ -13,8 +14,8 @@ body {
 
 .forms_container {
     height: 60vh;
-    
 }
+
     .region_instructions {
         height: 10vh;
         text-align: center;
@@ -41,3 +42,16 @@ body {
     height: 100vh;
 }
     
+
+
+
+select {
+    width: 60%;
+    margin: auto;
+    /*margin-left: 5%;*/
+    background-color: white;
+    font-size: 2.5vmax;
+    margin-bottom: 8vh;
+    display: flex;
+    justify-content: center;
+}
