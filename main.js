@@ -8,7 +8,7 @@ function initializeApp(){
 
 function handleSubmit(){
     userPreference = $(".preference_form").val();
-    $(".title_logo").css("display", "none");
+    $(".logo").css("display", "none");
     $(".forms_container").css("display", "none");
     $("#map_container").css("display", "block");
     var mapObj = new Park_map(userPreference);
