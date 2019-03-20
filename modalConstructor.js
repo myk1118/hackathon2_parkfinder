@@ -36,7 +36,12 @@ class Modal {
             id: 'imageModal',
         })
 
+        var modalContent = $('<div>',{
+            id: 'modalContent',
+        })
+
         $('body').append(newModal);
+        newModal.append(modalContent);
 
         $.ajax(settings).done(function (response) {
             var potentialImages = response.data.items;
@@ -46,12 +51,14 @@ class Modal {
                     var currentImage = potentialImages[imageIndex].images[0];
                     if (currentImage.type === 'image/jpeg') {
                         var imageLink = potentialImages[imageIndex].images[0].link;
-                        var newImage = $('<img>',{
-                            src: imageLink,
-                            width: '25%',
-                        });
-                        displayedImages.push(newImage);
-                        $(newModal).append(newImage);
+                        var imageContainer = $('<div>',{
+                            class: 'imageContainer',
+                            css: {
+                                'background-image': `url(${imageLink})`,
+                            }
+                        })
+                        displayedImages.push(imageContainer);
+                        $(modalContent).append(imageContainer);
                     }
                 }
             }
