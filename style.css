@@ -3,15 +3,14 @@ body {
     font-size: 0;
     /*background-color: #18af46;*/
     background-image: url(images/photo-1469528209190-4a45a86d817b.jpeg);
+    background-size: cover;
 }
 
-.title_logo {
-    height: 50vh;
-    line-height: 55vh;
-    font-size: 4.5vmax;
-    font-family: Gotham;
-    font-weight: 450;
-    text-align: center;
+.logo{
+    width: 60%;
+    display: block;
+    margin: auto;
+    margin-top: 12vh;
 }
 
 .forms_container {
@@ -19,29 +18,33 @@ body {
 }
 
 .preference_instructions {
-    height: 10vh;
     text-align: center;
-    line-height: 5vh;
-    font-size: 3vmax;
+    font-size: 2vmax;
     font-family: Gotham;
+    margin-top: 5vh;
 }
 
 .preference_form {
     width: 40%;
     margin: auto;
     display: block;
-    background-color: white;
-    font-size: 2.5vmax;
-    margin-bottom: 8vh;
+    font-size: 2vmax;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+option {
+    text-align: center;
 }
 
 #submit_button {
-    width: 15%;
-    height: 12%;
+    border: none;
+    width: 10%;
+    height: 10%;
     margin: auto;
     display: block;
-    font-size: 2vmax;
-    background-color: white;
+    font-size: 1.5vmax;
+    border-radius: 8px;
 }
 
 #map_container {
