@@ -27,7 +27,6 @@ class WeatherHandler{
     processWeatherData (data){
         this.w_data = data;
         console.log('inside getWeatherData...', this.w_data);
-debugger;
         displayWeatherData(this.w_data);
     }
 
@@ -69,7 +68,6 @@ function displayWeatherData(w_data) {
     $('#sunrise').text(sunrise);
     $('#sunset').text(sunset);
 
-debugger;
     $('#place').text(place);
     $('#wind_speed').text(wind_speed);
 

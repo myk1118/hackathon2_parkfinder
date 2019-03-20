@@ -7,7 +7,7 @@ class Modal {
     createModal() {
         switch (this.type) {
             case 'news':
-                this.newsModal(parkName);
+                this.newsModal();
                 break;
             case 'weather':
                 this.weatherModal();
@@ -23,9 +23,17 @@ class Modal {
         modal.remove();
     }
 
-    // newsModal() {
+    newsModal() {
+        var newsModal = $('<div>', {
+            id: 'newsModal',
+        });
 
-    // }
+        var modalClose = $('<button id="modalClose">&times;</button>').on('click', this.deleteModal);
+
+        $('body').append(newsModal);
+        newsModal.append(this.domDisplay);
+        this.domDisplay.append(modalClose);
+    }
 
     weatherModal() {
         var weatherModal = $('<div>',{
