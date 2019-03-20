@@ -16,5 +16,5 @@ function handleSubmit(){
 }
 
 function handleInfoClicks(){
-    console.log("we got here");
+    console.log(this);
 }
