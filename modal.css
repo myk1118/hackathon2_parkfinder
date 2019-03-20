@@ -53,3 +53,13 @@ body {
     width: 20%;
     left: 40%;
 }
+
+@media only screen and (min-width: 768px) {
+    #modalContent {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .imageContainer {
+        margin: 0;
+    }
+}

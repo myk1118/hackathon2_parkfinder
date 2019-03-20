@@ -1,5 +1,5 @@
 
-class ParkImages {  //click will create new parkImages object using park name, then call retrieveImages
+class ParkImages {
 
     constructor(tagName) {
         this.park = tagName;
@@ -49,7 +49,6 @@ class ParkImages {  //click will create new parkImages object using park name, t
             id: 'moreButton',
             text: 'Click Here for More!',
             on: {'click': function() {
-                console.log('more button clicked');
                 window.open(urlForMore);
             }}
         })
