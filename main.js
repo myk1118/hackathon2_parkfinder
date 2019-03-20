@@ -16,5 +16,10 @@ function handleSubmit(){
 }
 
 function handleInfoClicks(){
-    console.log(this);
+    var classes = this.className.split(' ');
+    if (classes[1] === 'images') {
+        var parkName = classes[0];
+        var imageGallery = new ParkImages(parksList[parkName].imgurTag)
+        imageGallery.retrieveImages();
+    }
 }
