@@ -21,13 +21,7 @@ body {
         line-height: 5vh;
         font-size: 3.5vmax;
     }
-    .activity_instructions {
-        height: 10vh;
-        text-align: center;
-        line-height: 5vh;
-        font-size: 3.5vmax;
-    }
-    select {
+    .region_form {
         width: 90%;
         margin-left: 5%;
         background-color: white;
@@ -40,4 +34,10 @@ body {
         font-size: 2.5vmax;
         background-color: white;
     }
+
+
+#map_container {
+    display: none;
+    height: 100vh;
+}
     
