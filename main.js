@@ -3,7 +3,7 @@ var userPreference = null;
 
 $(document).ready(initializeApp);
 function initializeApp(){
-    $("button").click(handleSubmit);
+    $("#submit_button").click(handleSubmit);
 }
 
 function handleSubmit(){
@@ -17,9 +17,43 @@ function handleSubmit(){
 
 function handleInfoClicks(){
     var classes = this.className.split(' ');
-    if (classes[1] === 'images') {
-        var parkName = classes[0];
-        var imageGallery = new ParkImages(parksList[parkName].imgurTag)
-        imageGallery.retrieveImages();
+    var parkName = classes[0];
+    debugger;
+    // if (classes[1] === 'images') {
+    //     var parkName = classes[0];
+    //     var imageGallery = new ParkImages(parksList[parkName].imgurTag)
+    //     imageGallery.retrieveImages();
+    // }
+    switch (classes[1]){
+        case 'images':
+            var imageGallery = new ParkImages(parksList[parkName].imgurTag)
+            imageGallery.retrieveImages();
+            break;
+        case 'weather':
+            //debugger;
+            //modal.style.display = "block";
+            $(".modal").show();
+            var lat = parksList[parkName].coordinates.lat;
+            var lng = parksList[parkName].coordinates.lng;
+            var weatherAPI = new WeatherHandler(lat, lng);
+            weatherAPI.getWeatherData();
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event){
+                if ($(event.target).hasClass('modal')) {
+                    //modal.style.display = "none";
+                    $(".modal").hide();
+                } else if ($(event.target).hasClass('close_wModal')){
+                    $(".modal").hide();
+                }
+
+            }
+            break;
+        case 'news':
+            console.log('news is work-in-progress');
+            var newsAPI = new News();
+            newsAPI.getDataFromServer();
+            break;
     }
+
+
 }

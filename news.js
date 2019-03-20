@@ -52,6 +52,8 @@ class News {
         console.log("Server Request Failure");
     }
 
+
+
     displayNews(){
         // console.log(newsAPI.news[0].source);
         // $(".newsContainer").empty();

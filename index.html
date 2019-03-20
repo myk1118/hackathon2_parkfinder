@@ -7,6 +7,10 @@
     <title>National Park Finder</title>
 
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css">
+    <link rel=“stylesheet” href=“https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css“>
+
+
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiZ9d1v25RWbBqnUSci3IKAAXdYVuSHmI">
     </script>
@@ -20,9 +24,12 @@
     <script src="news.js"></script>
     <script src="weather.js"></script>
     <script src="modalConstructor.js"></script>
+    <script src="weather.js"></script>
+    <!--<script src="news.js"></script>-->
 
 </head>
 <body>
+
     <img src="images/hackathonlogo.png" class="logo">
     <div class="forms_container">
         <div class="preference_instructions">What type of park are you looking for?</div>
@@ -37,5 +44,40 @@
             <button type="submit" id="submit_button">Let's Go</button>
     </div>
     <div id="map_container"></div>
+
+
+    <div id="weatherModal" class="modal">
+        <div class="modal-weather-content">
+            <button class="close_wModal">&times;</button>
+            <div id="weather_data">
+                <h3>Today's Weather for</h3>
+                <div id="place"></div>
+                <BR>
+                <div id="description"></div>
+                <BR>
+                <div id="curr_temp"></div>
+                <div id="min_temp"></div>
+                <div id="max_temp"></div>
+                <h3>Humidity:</h3>
+                <div id="humidity"></div>
+                <h3>Wind Speed:</h3>
+                <div id="wind_speed"></div>
+                <h3>Sunrise:</h3>
+                <div id="sunrise"></div>
+                <h3>Sunset:</h3>
+                <div id="sunset"></div>
+            </div>
+            <div class='audio-control'>
+                <audio controls loop>
+                    <source src="sound/Birds-chirping-and-water-flowing.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+        </div>
+    </div>
+
+
+
 </body>
 </html>

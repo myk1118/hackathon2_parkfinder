@@ -6,12 +6,14 @@ class Modal {
 
     createModal() {
         switch (this.type) {
+
             case 'news':
                 this.newsModal();
                 break;
             case 'weather':
                 this.weatherModal();
                 break;
+
             case 'images':
                 this.imageModal();
                 break;
@@ -22,6 +24,7 @@ class Modal {
         var modal = $(this).parent().parent();
         modal.remove();
     }
+
 
     newsModal() {
         var newsModal = $('<div>', {
@@ -46,6 +49,7 @@ class Modal {
         weatherModal.append(this.domDisplay);
         this.domDisplay.append(modalClose);
     }
+
 
     imageModal() {
         
