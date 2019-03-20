@@ -75,5 +75,5 @@ class News {
     }
 }
 
-var newsAPI = new News();
-newsAPI.getDataFromServer();
+// var newsAPI = new News();
+// newsAPI.getDataFromServer();
