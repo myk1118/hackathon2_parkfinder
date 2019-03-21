@@ -57,23 +57,23 @@ class News {
     displayNews(){
         // console.log(newsAPI.news[0].source);
         // $(".newsContainer").empty();
-        for (var i = 0; i < newsAPI.news.length; i++) {
+        for (var i = 0; i < this.news.length; i++) {
             var picture = $("<img>",
                 {
-                    src: newsAPI.news[i].urlToImage,
+                    src: this.news[i].urlToImage,
                     width: '40%'
                 });
-            var source = $("<div>").addClass("source").text(newsAPI.news[i].source);
-            var link = $("<a>").attr("href", newsAPI.news[i].url).text(newsAPI.news[i].title);
+            var source = $("<div>").addClass("source").text(this.news[i].source);
+            var link = $("<a>").attr("href", this.news[i].url).text(this.news[i].title);
             link.attr("target", "_blank");
             var title = $("<div>").addClass("title").append(link);
-            var date = $("<div>").addClass("date").text(newsAPI.news[i].publishedAt);
+            var date = $("<div>").addClass("date").text(this.news[i].publishedAt);
             var articleContainer = $("<div>").addClass("articleDetails").append(picture, source, title, date);
-            var newsContainer = $("<div>").addClass("newsContainer").append(articleContainer);
+            var newsContainer = $("<div>").attr("id", "modalContent").append(articleContainer);
             // $('body').append(newsContainer);
         }
         var newsModal = new Modal('news', newsContainer);
-        newsModal.createModal(this.keyword);
+        newsModal.createModal();
     }
 }
 
