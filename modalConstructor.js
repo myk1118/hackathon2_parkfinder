@@ -28,7 +28,7 @@ class Modal {
 
     newsModal() {
         var newsModal = $('<div>', {
-            id: 'newsModal',
+            id: 'modal',
         });
 
         var modalClose = $('<button id="modalClose">&times;</button>').on('click', this.deleteModal);
@@ -54,7 +54,7 @@ class Modal {
     imageModal() {
         
         var imageModal = $('<div>',{
-            id: 'imageModal',
+            id: 'modal',
         });
 
         var modalClose = $('<button id="modalClose">&times;</button>').on('click', this.deleteModal);
