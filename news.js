@@ -71,7 +71,7 @@ class News {
             newsContainer.append(articleContainer);
             // $('body').append(newsContainer);
         }
-        var newsModal = new Modal('news', newsContainer);
+        var newsModal = new Modal(newsContainer);
         newsModal.createModal();
     }
 }

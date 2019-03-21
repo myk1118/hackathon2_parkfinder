@@ -1,10 +1,11 @@
-
+/**Object constructor for imgur AJAX call*/
 class ParkImages {
 
     constructor(tagName) {
+        /**this.park is the current national park, needed for the AJAX call*/
         this.park = tagName;
     }
-
+    /**retrieveImages initiates the AJAX call and creates a DOM element which gets passed to the modal*/
     retrieveImages() {
         var settings = {
             "async": true,
@@ -19,11 +20,11 @@ class ParkImages {
                 'grant_type': 'refresh_token',
             }
         }
-        
+        /**modalContent holds all of the images and buttons for the modal*/
         var modalContent = $('<div>',{
             id: 'modalContent',
         })
-        
+        /**When the AJAX call finishes, 4 images are added to modelContent*/
         $.ajax(settings).done(function (response) {
             var potentialImages = response.data.items;
             var displayedImages = [];
@@ -44,7 +45,9 @@ class ParkImages {
                 }
             }
         });
+        /**urlForMore links to the search results on imgur (where the images were pulled from)*/
         var urlForMore = `https://imgur.com/t/${this.park}`;
+        /**moreButton allows users to see more images from the park on imgur's website*/
         var moreButton = $('<button>',{
             id: 'moreButton',
             text: 'Click Here for More!',
@@ -52,8 +55,9 @@ class ParkImages {
                 window.open(urlForMore);
             }}
         })
+        /**moreButton is appended to modalContent, and a new Modal object is instantiated*/
         modalContent.append(moreButton);
-        var imageModal = new Modal('images', modalContent);
+        var imageModal = new Modal(modalContent);
         imageModal.createModal(this.park);
     }
 }
