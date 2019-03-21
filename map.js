@@ -1,3 +1,4 @@
+/**global variable holding park coordinates and a tag to use in our imgur api calls */
 var parksList = {
 
     "channelIslands": {
@@ -56,6 +57,7 @@ var parksList = {
     }
 };
 
+/**variables holding html content to go inside the map's info boxes */
 var yosemiteContent = "<div class='infoHeader'>Yosemite National Park</div>"+
                         "<img src='images/yosemiteInfoBox.jpg' class='infoImage'>"+
                         "<div class='yosemite weather infoLinks'>Weather information</div>"+
@@ -111,14 +113,19 @@ var sequoiaContent = "<div class='infoHeader'>Sequoia National Park</div>"+
                         "<div class='sequoia images infoLinks'>Recent Posts on Imgur</div>";
 
 class Park_map {
-    constructor(userPreference){
+    constructor(userPreference){ /**constructor takes in the user's choice of park/geography type */
+        /**store user's preference as a property of the map object */
         this.preference = userPreference;
+
+        /**create new google map, add it to the dom element with id map_container */
         this.map = new google.maps.Map(document.getElementById("map_container"), {
             center: parksList["yosemite"].coordinates,
             zoom: 5.8,
             minZoom: 5.8, 
             maxZoom: 5.8
         });
+
+        /**declare variables to later be assigned the map markers at various parks */
         this.markers = {
             yosemiteMarker: null, 
             channelIslandsMarker: null, 
@@ -130,6 +137,8 @@ class Park_map {
             pinnaclesMarker: null, 
             sequoiaMarker: null
         }; 
+
+        /**do all necessary binding of functions */
         this.addMarkers = this.addMarkers.bind(this);
         this.displayChannelIslandsInfoBox = this.displayChannelIslandsInfoBox.bind(this);
         this.displayDeathValleyInfoBox = this.displayDeathValleyInfoBox.bind(this);
@@ -144,6 +153,9 @@ class Park_map {
     }
 
     addMarkers(){
+
+        /**adds appropriate markers based on user preference */
+
         if (this.preference==="mountains"){
             this.markers.kingsCanyonMarker = new google.maps.Marker({position: parksList["kingsCanyon"].coordinates, map: this.map});
             this.markers.kingsCanyonMarker.addListener("click", this.displayKingsCanyonInfoBox);
@@ -180,12 +192,16 @@ class Park_map {
         }
     }
 
+    /**individual functions for displaying each park marker's info box */
     displayChannelIslandsInfoBox(){
         var channelIslandsInfoBox = new google.maps.InfoWindow({
             content: channelIslandsContent, 
             position: parksList["channelIslands"].coordinates
         });
-        channelIslandsInfoBox.addListener('domready', this.addInfoClickHandlers);
+        /**when the dom elements inside the info box are created, call addInfoClickHandlers */
+        channelIslandsInfoBox.addListener('domready', this.addInfoClickHandlers); 
+
+        /**open the marker's info box */
         channelIslandsInfoBox.open(this.map);
     }
 
@@ -262,7 +278,8 @@ class Park_map {
     }
 
     addInfoClickHandlers(){
-        $(".infoLinks").on("click", handleInfoClicks);
+        /**add click handlers to the divs in the info box, which call handleInfoClicks in main.js */
+        $(".infoLinks").on("click", handleInfoClicks); 
     }
 }
 
