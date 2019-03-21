@@ -20,9 +20,9 @@ class ParkImages {
                 'grant_type': 'refresh_token',
             }
         }
-        /**modalContent holds all of the images and buttons for the modal*/
-        var modalContent = $('<div>',{
-            id: 'modalContent',
+        /**imageModalContent holds all of the images and buttons for the modal*/
+        var imageModalContent = $('<div>',{
+            id: 'imageModalContent',
         })
         /**When the AJAX call finishes, 4 images are added to modelContent*/
         $.ajax(settings).done(function (response) {
@@ -40,7 +40,7 @@ class ParkImages {
                             }
                         })
                         displayedImages.push(imageContainer);
-                        $(modalContent).append(imageContainer);
+                        $(imageModalContent).append(imageContainer);
                     }
                 }
             }
@@ -55,9 +55,9 @@ class ParkImages {
                 window.open(urlForMore);
             }}
         })
-        /**moreButton is appended to modalContent, and a new Modal object is instantiated*/
-        modalContent.append(moreButton);
-        var imageModal = new Modal(modalContent);
+        /**moreButton is appended to imageModalContent, and a new Modal object is instantiated*/
+        imageModalContent.append(moreButton);
+        var imageModal = new Modal(imageModalContent);
         imageModal.createModal(this.park);
     }
 }
