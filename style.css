@@ -5,7 +5,6 @@ body {
 
     background-image: url(images/photo-1469528209190-4a45a86d817b.jpeg);
     background-size: cover;
-
 }
 
 .logo{
@@ -120,5 +119,4 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
-
 }

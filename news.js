@@ -52,11 +52,10 @@ class News {
         console.log("Server Request Failure");
     }
 
-
-
     displayNews(){
         // console.log(newsAPI.news[0].source);
         // $(".newsContainer").empty();
+        var newsContainer = $("<div>").attr("id", "modalContent");
         for (var i = 0; i < this.news.length; i++) {
             var picture = $("<img>",
                 {
@@ -69,7 +68,7 @@ class News {
             var title = $("<div>").addClass("title").append(link);
             var date = $("<div>").addClass("date").text(this.news[i].publishedAt);
             var articleContainer = $("<div>").addClass("articleDetails").append(picture, source, title, date);
-            var newsContainer = $("<div>").attr("id", "modalContent").append(articleContainer);
+            newsContainer.append(articleContainer);
             // $('body').append(newsContainer);
         }
         var newsModal = new Modal('news', newsContainer);
