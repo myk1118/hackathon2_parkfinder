@@ -9,6 +9,7 @@
 }
 
 #modalContent {
+    font-size: 2rem;
     width: 80%;
     height: 80%;
     position: relative;
@@ -46,7 +47,6 @@
     bottom: 5%;
     width: 40%;
     left: 30%;
-    font-size: 2rem;
 }
 
 @media only screen and (min-width: 768px) {
