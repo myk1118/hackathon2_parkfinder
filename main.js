@@ -44,8 +44,7 @@ function handleInfoClicks(){
                 } else if ($(event.target).hasClass('close_wModal')){
                     $(".modal").hide();
                 }
-
-            }
+            };
             break;
         case 'news':
             console.log('news is work-in-progress');
@@ -53,6 +52,4 @@ function handleInfoClicks(){
             newsAPI.getDataFromServer();
             break;
     }
-
-
 }
