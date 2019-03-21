@@ -22,6 +22,28 @@
     font-size: 2rem;
 }
 
+#newsModalContent {
+    font-size: 2rem;
+    width: 80%;
+    height: 80%;
+    position: relative;
+    top: 10%;
+    margin: auto;
+    box-sizing: border-box;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    font-size: 2rem;
+}
+
+.articleDetails {
+    flex-basis: 40%;
+    height: 50%;
+}
+
 .imageContainer {
     flex-basis: 25%;
     margin-top: 5%;
@@ -32,6 +54,7 @@
 
 #modalClose {
     position: absolute;
+    top: 0;
     right: 5px;
     font-size: 20px;
     font-weight: bold;
@@ -62,5 +85,8 @@
     #moreButton {
         width: 20%;
         left: 40%;
+    }
+    #newsModalContent {
+        flex-direction: row;
     }
 }
