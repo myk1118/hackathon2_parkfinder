@@ -2,7 +2,6 @@ body {
     height: 100vh;
     margin: 0;
     font-size: 0;
-
     background-image: url(images/photo-1469528209190-4a45a86d817b.jpeg);
     background-size: cover;
 }
@@ -55,23 +54,12 @@ body {
 
 }
 
-.modal-weather{
-    height: 100%;
-    width: 100%;
-    position: center;
-    background-color: darkslategray;
-    border-width:5px;
-    border-style:inset;
-    vertical-align: middle;
-}
-
-/* The Modal (background) */
+/* the Weather Modal (in the background) */
 .modal {
     display: none; /* Hidden by default */
-    /*position: fixed; !* Stay in place *!*/
-    /*left: 0;*/
-    /*top: 0;*/
-    position: center;
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
     z-index: 1; /* Sit on top */
     width: 100%; /* Full width */
     height: 100%; /* Full height */
@@ -84,23 +72,27 @@ body {
 }
 
 .modal-weather-content {
-    background-color: #fefefe;
-    /*margin: 15% auto; !* 15% from the top and centered *!*/
-    padding: 10px;
-    width: 30%; /* Could be more or less, depending on screen size */
+    width: 25%; /* Could be more or less, depending on screen size */
+    position: relative;
+    /*display: flex;*/
+    /*justify-content: flex-start;*/
+    margin: 5% auto; /* 15% from the top and centered */
+    /*top: 10%;*/
+    /*padding: 10px;*/
     /*border: 5px solid #888;*/
     border-width: 5px;
     border-style: inset;
-    vertical-align: middle;
+    /*background-color: darkslategray;*/
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     background-image: url("images/blueSkyRainbow.jpg");
 }
 #weather_data {
     height: 98%;
     width: 98%;
     background-color: transparent;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
-    color: black;
+    color: darkblue;
     text-align: center;
     vertical-align: middle;
     border-width:5px;
