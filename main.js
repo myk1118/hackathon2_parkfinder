@@ -18,7 +18,6 @@ function handleSubmit(){
 function handleInfoClicks(){
     var classes = this.className.split(' ');
     var parkName = classes[0];
-    debugger;
     // if (classes[1] === 'images') {
     //     var parkName = classes[0];
     //     var imageGallery = new ParkImages(parksList[parkName].imgurTag)
@@ -50,7 +49,7 @@ function handleInfoClicks(){
             break;
         case 'news':
             console.log('news is work-in-progress');
-            var newsAPI = new News();
+            var newsAPI = new News(parkName);
             newsAPI.getDataFromServer();
             break;
     }
