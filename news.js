@@ -10,14 +10,14 @@ class News {
 
     getDataFromServer() {
         var getServerData = {
-            url: 'https://newsapi.org/v2/everything?apiKey=d8a638ecf0534516ad34b799192ee8b8&language=en&pageSize=4&q=' + this.keyword,
+            url: 'https://newsapi.org/v2/everything?apiKey=d8a638ecf0534516ad34b799192ee8b8&language=en&pageSize=2&q=' + this.keyword,
             method: 'get',
             data: {
                 'apiKey': 'd8a638ecf0534516ad34b799192ee8b8',
                 // 'q': 'yosemite',
                 'language': 'en',
                 'sortBy': 'relevancy',
-                'pageSize': 4
+                'pageSize': 2
             },
             dataType: 'json',
             success: this.handleSuccess,
@@ -53,9 +53,8 @@ class News {
     }
 
     displayNews(){
-        // console.log(newsAPI.news[0].source);
         // $(".newsContainer").empty();
-        var newsContainer = $("<div>").attr("id", "modalContent");
+        var newsContainer = $("<div>").attr("id", "newsModalContent");
         for (var i = 0; i < this.news.length; i++) {
             var picture = $("<img>",
                 {

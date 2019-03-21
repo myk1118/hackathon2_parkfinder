@@ -42,7 +42,6 @@ function handleInfoClicks(){
             imageGallery.retrieveImages();
             break;
         case 'weather':
-            //debugger;
             //modal.style.display = "block";
             $(".modal").show();
             var lat = parksList[parkName].coordinates.lat;
@@ -61,7 +60,6 @@ function handleInfoClicks(){
             break;
         case 'news':
         /**create news modal in the event the user clicked the 'local news' div */
-            console.log('news is work-in-progress');
             var newsAPI = new News(parkName);
             newsAPI.getDataFromServer();
             break;
