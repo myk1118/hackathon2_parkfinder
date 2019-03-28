@@ -59,14 +59,15 @@ class News {
             var picture = $("<img>",
                 {
                     src: this.news[i].urlToImage,
-                    width: '40%'
+                    width: '100%'
                 });
             var source = $("<div>").addClass("source").text(this.news[i].source);
             var link = $("<a>").attr("href", this.news[i].url).text(this.news[i].title);
             link.attr("target", "_blank");
             var title = $("<div>").addClass("title").append(link);
-            var date = $("<div>").addClass("date").text(this.news[i].publishedAt);
-            var articleContainer = $("<div>").addClass("articleDetails").append(picture, source, title, date);
+            var dateWithoutTime = this.news[i].publishedAt.slice(0, 10);
+            var date = $("<div>").addClass("date").text(dateWithoutTime);
+            var articleContainer = $("<div>").addClass("articleContainer").append(picture, source, title, date);
             newsContainer.append(articleContainer);
             // $('body').append(newsContainer);
         }

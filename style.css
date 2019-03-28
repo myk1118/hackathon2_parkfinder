@@ -86,6 +86,7 @@ body {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     background-image: url("images/blueSkyRainbow.jpg");
 }
+
 #weather_data {
     height: 98%;
     width: 98%;
@@ -106,6 +107,7 @@ body {
     font-size: 28px;
     font-weight: bold;
 }
+
 .close_wModal:hover,
 .close_wModal:focus {
     color: black;

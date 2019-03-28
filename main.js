@@ -65,4 +65,3 @@ function handleInfoClicks(){
             break;
     }
 }
-
