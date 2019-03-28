@@ -51,7 +51,13 @@ body {
 #map_container {
     display: none;
     height: 100vh;
+}
 
+.close_wModal:hover,
+.close_wModal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* the Weather Modal (in the background) */
@@ -66,51 +72,63 @@ body {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    border-width:5px;
-    border-style:inset;
-    vertical-align: middle;
+    /*border-width:5px;*/
+    /*border-style:inset;*/
+    /*vertical-align: middle;*/
 }
 
 .modal-weather-content {
-    width: 25%; /* Could be more or less, depending on screen size */
+    width: 22%; /* Could be more or less, depending on screen size */
     position: relative;
     /*display: flex;*/
     /*justify-content: flex-start;*/
-    margin: 5% auto; /* 15% from the top and centered */
+    /*margin: 1% auto; !* 15% from the top and centered *!*/
     /*top: 10%;*/
     /*padding: 10px;*/
     /*border: 5px solid #888;*/
-    border-width: 5px;
-    border-style: inset;
+    /*border-width: 5px;*/
+    /*border-style: inset;*/
     /*background-color: darkslategray;*/
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     background-image: url("images/blueSkyRainbow.jpg");
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
 }
 
 #weather_data {
-    height: 98%;
-    width: 98%;
+    /*height: 98%;*/
+    /*width: 98%;*/
     background-color: transparent;
-    font-size: 2.5rem;
+    /*font-size: 2.5rem;*/
     font-weight: bold;
-    color: darkblue;
+    font-size: 3vmin;
+    color: black;
     text-align: center;
     vertical-align: middle;
-    border-width:5px;
-    border-style:inset;
+    /*border-width:5px;*/
+    /*border-style:inset;*/
 }
 
 /* The Weather Modal Close Button */
 .close_wModal {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    /*color: #aaa;*/
+    /*float: right;*/
+    /*font-size: 28px;*/
+    /*font-weight: bold;*/
+    position: absolute;
+    top: 0;
+    right: 10px;
+    /*right: 3px;*/
+    font-size: 22px;
+    border-style: none;
+    color: black;
+    width: 4%;
+    background-color: transparent;
+    /*border-radius: 10px;*/
 }
 
-.close_wModal:hover,
-.close_wModal:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+audio {
+    width: 100%;
 }
