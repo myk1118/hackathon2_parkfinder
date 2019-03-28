@@ -7,19 +7,19 @@
 }
 
 #imageModalContent {
-    font-size: 2rem;
     width: 80%;
     height: 80%;
     position: relative;
     top: 10%;
     margin: auto;
     box-sizing: border-box;
-    border: 2px solid black;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     background-color: white;
     font-size: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3);
 }
 
 #newsModalContent {
@@ -57,24 +57,28 @@
     top: 0;
     right: 5px;
     font-size: 20px;
-    font-weight: bold;
     border-style: none;
     color: black;
     width: 3%;
     background-color: white;
+    border-radius: 10px;
 }
 
 #moreButton {
     position: absolute;
-    bottom: 5%;
+    bottom: 3%;
     width: 40%;
     left: 30%;
+    border-radius: 8px;
+    border: none;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
     #imageModalContent {
         flex-direction: row;
         justify-content: space-around;
+        height: 60%;
+        top: 20%;
     }
     .imageContainer {
         margin: 0;
