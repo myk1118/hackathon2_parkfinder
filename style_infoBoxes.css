@@ -15,6 +15,7 @@
     color: blue;
     text-decoration: underline;
 }
+
 .infoLinks:hover {
     cursor: pointer;
 }

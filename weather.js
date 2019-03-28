@@ -72,7 +72,6 @@ function displayWeatherData(w_data) {
     sunrise = sunrise.toLocaleTimeString('en-US');
     sunset = sunset.toLocaleTimeString('en-US');
 
-
     $('#description').text('Condition: ' + description);
     $('#curr_temp').text('Current Temp: ' + curr_temp + ' F');
     $('#max_temp').text('High: ' + max_temp + ' F');
@@ -81,9 +80,6 @@ function displayWeatherData(w_data) {
     $('#sunrise').text(sunrise);
     $('#sunset').text(sunset);
 
-
     $('#place').text(place);
     $('#wind_speed').text(wind_speed);
-
 }
-

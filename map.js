@@ -60,9 +60,9 @@ var parksList = {
 /**variables holding html content to go inside the map's info boxes */
 var yosemiteContent = "<div class='infoHeader'>Yosemite National Park</div>"+
                         "<img src='images/yosemiteInfoBox.jpg' class='infoImage'>"+
-                        "<div class='yosemite weather infoLinks'>Weather information</div>"+
+                        "<div class='yosemite weather infoLinks'>Weather Information</div>"+
                         "<div class='yosemite news infoLinks'>Local News</div>"+
-                        "<div class='yosemite images infoLinks'>Recent posts on Imgur</div>";
+                        "<div class='yosemite images infoLinks'>Recent Posts on Imgur</div>";
 
 var channelIslandsContent = "<div class='infoHeader'>Channel Islands National Park</div>"+
                             "<img src='images/channelIslandsInfoBox.jpg' class='infoImage'>"+
@@ -282,5 +282,3 @@ class Park_map {
         $(".infoLinks").on("click", handleInfoClicks); 
     }
 }
-
-
