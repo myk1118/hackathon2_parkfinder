@@ -1,37 +1,38 @@
 body {
     height: 100vh;
+    width: 100%;
     margin: 0;
     font-size: 0;
     background-image: url(images/photo-1469528209190-4a45a86d817b.jpeg);
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .logo{
-    width: 60%;
+    width: 100%;
+    max-width: 700px;
     display: block;
     margin: auto;
-    margin-top: 12vh;
 }
 
 .forms_container {
-    height: 60vh;
+    height: 30%;
 }
 
 .preference_instructions {
     text-align: center;
-    font-size: 2vmax;
+    font-size: 2rem;
     font-family: Gotham;
-    margin-top: 5vh;
+    margin-top: 15px;
 }
 
 .preference_form {
     width: 40%;
     margin: auto;
     display: block;
-    font-size: 1.8vmax;
+    font-size: 2rem;
     font-family: Gotham;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin: 35px auto;
 }
 
 .ddcontent {
@@ -40,11 +41,10 @@ body {
 
 #submit_button {
     border: none;
-    width: 10%;
-    height: 10%;
+    width: 120px;
     margin: auto;
     display: block;
-    font-size: 1.5vmax;
+    font-size: 2rem;
     border-radius: 8px;
 }
 
