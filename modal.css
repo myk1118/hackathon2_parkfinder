@@ -34,7 +34,8 @@
     justify-content: space-around;
     background-color: white;
     align-items: center;
-    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3);
 }
 
 .source {
@@ -52,15 +53,16 @@
 
 .articleContainer {
     flex-basis: 40%;
-    height: 50%;
+    height: 70%;
+    margin: 20px;
 }
 
 .imageContainer {
     flex-basis: 25%;
-    margin-top: 5%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
+    margin: 5% 10px 0;
 }
 
 #modalClose {
@@ -70,8 +72,7 @@
     font-size: 20px;
     border-style: none;
     color: black;
-    width: 3%;
-    background-color: white;
+    background-color: transparent;
     border-radius: 10px;
 }
 
@@ -84,6 +85,14 @@
     border: none;
 }
 
+@media only screen and (min-width: 400px) {
+    #newsModalContent {
+        flex-direction: row;
+        height: 50%;
+        top: 25%;
+    }
+}
+
 @media only screen and (min-width: 769px) {
     #imageModalContent {
         flex-direction: row;
@@ -92,7 +101,8 @@
         top: 20%;
     }
     .imageContainer {
-        margin: 0;
+        margin: 15px 0;
+        max-height: 80%;
     }
     #modalClose {
         right: 0;
@@ -101,7 +111,15 @@
         width: 20%;
         left: 40%;
     }
+}
+
+@media only screen and (min-width: 1200px) {
+    .articleContainer {
+        height: 50%;
+    }
+
     #newsModalContent {
-        flex-direction: row;
+        height: 80%;
+        top: 10%;
     }
 }
