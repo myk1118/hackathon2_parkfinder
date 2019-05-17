@@ -6,12 +6,12 @@ var userPreference = null;
 $(document).ready(initializeApp);
 
 /**add click handlers to now existing dom elements */
-function initializeApp(){
+function initializeApp() {
     $("#submit_button").click(handleSubmit);
 }
 
 /**function called in the event of the submit button being clicked */
-function handleSubmit(){
+function handleSubmit() {
     userPreference = $(".preference_form").val(); /**stores user's choice in a global variable */
 
     /**clear the screen of existing dom elements, then make the map visible */
@@ -25,7 +25,7 @@ function handleSubmit(){
 }
 
 /**function called in the event of one of our 'images', 'weather', or 'news' divs being clicked */
-function handleInfoClicks(){
+function handleInfoClicks() {
     var classes = this.className.split(' '); /**split the class string up by spaces, effectively retrieving its individual classes */
     var parkName = classes[0];
     // if (classes[1] === 'images') {
@@ -35,9 +35,9 @@ function handleInfoClicks(){
     // }
 
     /**switch statement checking which park was clicked based on the second class of the clicked div */
-    switch (classes[1]){
+    switch (classes[1]) {
         case 'images':
-        /**create an image modal in the event the user clicked the 'recent imgur posts' div */
+            /**create an image modal in the event the user clicked the 'recent imgur posts' div */
             var imageGallery = new ParkImages(parksList[parkName].imgurTag)
             imageGallery.retrieveImages();
             break;
@@ -49,17 +49,17 @@ function handleInfoClicks(){
             var weatherAPI = new WeatherHandler(lat, lng);
             weatherAPI.getWeatherData();
             // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event){
+            window.onclick = function (event) {
                 if ($(event.target).hasClass('modal')) {
                     //modal.style.display = "none";
                     $(".modal").hide();
-                } else if ($(event.target).hasClass('close_wModal')){
+                } else if ($(event.target).hasClass('close_wModal')) {
                     $(".modal").hide();
                 }
             };
             break;
         case 'news':
-        /**create news modal in the event the user clicked the 'local news' div */
+            /**create news modal in the event the user clicked the 'local news' div */
             var newsAPI = new News(parkName);
             newsAPI.getDataFromServer();
             break;

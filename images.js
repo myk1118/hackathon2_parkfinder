@@ -11,7 +11,7 @@ class ParkImages {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost/c219_hackathon2/api/imgurproxy.php?tagName=" + this.park,
+            "url": "api/imgurproxy.php?tagName=" + this.park,
             "method": "POST",
             "dataType": 'JSON',
             "data": {
@@ -23,7 +23,7 @@ class ParkImages {
         }
 
         /**imageModalContent holds all of the images and buttons for the modal*/
-        var imageModalContent = $('<div>',{
+        var imageModalContent = $('<div>', {
             id: 'imageModalContent',
         })
 
@@ -36,7 +36,7 @@ class ParkImages {
                     var currentImage = potentialImages[imageIndex].images[0];
                     if (currentImage.type === 'image/jpeg') {
                         var imageLink = potentialImages[imageIndex].images[0].link;
-                        var imageContainer = $('<div>',{
+                        var imageContainer = $('<div>', {
                             class: 'imageContainer',
                             css: {
                                 'background-image': `url(${imageLink})`,
@@ -53,14 +53,16 @@ class ParkImages {
         var urlForMore = `https://imgur.com/t/${this.park}`;
 
         /**moreButton allows users to see more images from the park on imgur's website*/
-        var moreButton = $('<button>',{
+        var moreButton = $('<button>', {
             id: 'moreButton',
             text: 'Click Here for More!',
-            on: {'click': function() {
-                window.open(urlForMore);
-            }}
+            on: {
+                'click': function () {
+                    window.open(urlForMore);
+                }
+            }
         })
-        
+
         /**moreButton is appended to imageModalContent, and a new Modal object is instantiated*/
         imageModalContent.append(moreButton);
         var imageModal = new Modal(imageModalContent);

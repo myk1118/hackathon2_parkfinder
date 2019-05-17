@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>National Park Finder</title>
+    <title>California Park Finder</title>
 
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css">
     <link rel=“stylesheet” href=“https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css“>
-
-
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiZ9d1v25RWbBqnUSci3IKAAXdYVuSHmI">
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiZ9d1v25RWbBqnUSci3IKAAXdYVuSHmI">
     </script>
 
     <link rel="stylesheet" href="style.css">
@@ -25,23 +23,28 @@
     <script src="weather.js"></script>
     <script src="modalConstructor.js"></script>
     <script src="weather.js"></script>
-
 </head>
-<body>
 
-    <img src="images/hackathonlogo.png" class="logo">
-    <div class="forms_container">
-        <div class="preference_instructions">What type of park are you looking for?</div>
-            <select class="preference_form">
-                <div class="ddcontent">
-                <option value="mountains">Mountains</option>
-                <option value="forests">Forests</option>
-                <option value="oceans">Oceans</option>
-                <option value="deserts">Deserts</option>
-                </div>
-            </select>
-            <button type="submit" id="submit_button">Let's Go</button>
+<body>
+    <div class="landingPage">
+        <img class="backgroundImage" src="images/photo-1469528209190-4a45a86d817b.jpeg">
+        <div class="landingPageItems">
+            <img class="logo" src="images/hackathonlogo.png">
+            <div class="forms_container">
+                <div class="preference_instructions">What type of park are you looking for?</div>
+                <select class="preference_form">
+                    <div class="ddcontent">
+                        <option value="mountains">Mountains</option>
+                        <option value="forests">Forests</option>
+                        <option value="oceans">Oceans</option>
+                        <option value="deserts">Deserts</option>
+                    </div>
+                </select>
+                <button type="submit" id="submit_button">Let's Go</button>
+            </div>
+        </div>
     </div>
+
     <div id="map_container"></div>
 
     <div id="weatherModal" class="modal">
@@ -67,13 +70,12 @@
             </div>
             <div class='audio-control'>
                 <audio controls loop>
-                    <source src="sound/Birds-chirping-and-water-flowing.mp3" type="audio/mpeg" >
+                    <source src="sound/Birds-chirping-and-water-flowing.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
-
         </div>
     </div>
-
 </body>
+
 </html>
