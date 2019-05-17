@@ -15,8 +15,9 @@ function handleSubmit() {
     userPreference = $(".preference_form").val(); /**stores user's choice in a global variable */
 
     /**clear the screen of existing dom elements, then make the map visible */
-    $(".logo").css("display", "none");
-    $(".forms_container").css("display", "none");
+    $(".landingPage").css("display", "none");
+    // $(".logo").css("display", "none");
+    // $(".forms_container").css("display", "none");
     $("#map_container").css("display", "block");
 
     /**instantiate a new map object, add it to the dom, then create the markers */
