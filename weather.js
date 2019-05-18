@@ -15,9 +15,9 @@
 // api.openweathermap.org/data/2.5/weather?lat=37.8651&lon=-119.5383&APPID=de0df42deb8634d9a313c41fc3ae96b7
 //==========================================================================================================
 
-class WeatherHandler{
+class WeatherHandler {
 
-    constructor(lat, lng, callback){
+    constructor(lat, lng, callback) {
 
         this.lat = lat;
         this.lng = lng;
@@ -29,7 +29,7 @@ class WeatherHandler{
 
     }
     //make API call to weather data website using AJAX
-    getWeatherData(){
+    getWeatherData() {
         $.ajax({
             url: this.baseUrl + 'lat=' + this.lat + '&lon=' + this.lng + '&APPID=de0df42deb8634d9a313c41fc3ae96b7',
             //success: data=>{this.callback(data);
@@ -38,7 +38,7 @@ class WeatherHandler{
         })
     }
     //retrieve the data returned from the API call
-    processWeatherData (data){
+    processWeatherData(data) {
         this.w_data = data;
         console.log('inside getWeatherData...', this.w_data);
         displayWeatherData(this.w_data);
@@ -59,7 +59,7 @@ function displayWeatherData(w_data) {
     // extract data from w_data object and prep them to display on web page
     // to convert from kelvin to farenheit - subtract 273.15, multiply by 9/5, and add 32
     var place = w_data.name;
-    var wind_speed = w_data.wind.speed  + ' mph';;
+    var wind_speed = w_data.wind.speed + ' mph';;
     var curr_temp = ((w_data.main.temp - 273.15) * 9 / 5 + 32).toFixed(0);
     var min_temp = ((w_data.main.temp_min - 273.15) * 9 / 5 + 32).toFixed(0);
     var max_temp = ((w_data.main.temp_max - 273.15) * 9 / 5 + 32).toFixed(0);
