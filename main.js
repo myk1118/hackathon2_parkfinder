@@ -21,7 +21,7 @@ function handleSubmit() {
     $("#map_container").css("display", "block");
 
     /**instantiate a new map object, add it to the dom, then create the markers */
-    var mapObj = new Park_map(userPreference);
+    var mapObj = new ParkMap(userPreference);
     mapObj.addMarkers();
 }
 
@@ -39,14 +39,14 @@ function handleInfoClicks() {
     switch (classes[1]) {
         case 'images':
             /**create an image modal in the event the user clicked the 'recent imgur posts' div */
-            var imageGallery = new ParkImages(parksList[parkName].imgurTag)
+            var imageGallery = new ParkImages(parksList[userPreference][parkName].imgurTag)
             imageGallery.retrieveImages();
             break;
         case 'weather':
             //modal.style.display = "block";
             $(".modal").show();
-            var lat = parksList[parkName].coordinates.lat;
-            var lng = parksList[parkName].coordinates.lng;
+            var lat = parksList[userPreference][parkName].coordinates.lat;
+            var lng = parksList[userPreference][parkName].coordinates.lng;
             var weatherAPI = new WeatherHandler(lat, lng);
             weatherAPI.getWeatherData();
             // When the user clicks anywhere outside of the modal, close it
