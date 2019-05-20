@@ -8,6 +8,8 @@ $(document).ready(initializeApp);
 /**add click handlers to now existing dom elements */
 function initializeApp() {
     $("#submit_button").click(handleSubmit);
+    $(".tutorial").hide();
+    $(".tutorialButton").click(handleGoBack);
 }
 
 /**function called in the event of the submit button being clicked */
@@ -16,13 +18,18 @@ function handleSubmit() {
 
     /**clear the screen of existing dom elements, then make the map visible */
     $(".landingPage").css("display", "none");
-    // $(".logo").css("display", "none");
-    // $(".forms_container").css("display", "none");
     $("#map_container").css("display", "block");
+    $(".tutorial").show();
 
     /**instantiate a new map object, add it to the dom, then create the markers */
     var mapObj = new ParkMap(userPreference);
     mapObj.addMarkers();
+}
+
+function handleGoBack() {
+    $(".landingPage").show();
+    $("#map_container").hide();
+    $(".tutorial").hide();
 }
 
 /**function called in the event of one of our 'images', 'weather', or 'news' divs being clicked */
