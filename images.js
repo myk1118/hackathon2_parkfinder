@@ -11,7 +11,7 @@ class ParkImages {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost/c219_hackathon2/api/imgurproxy.php?tagName=" + this.park,
+            "url": "api/imgurproxy.php?tagName=" + this.park,
             "method": "POST",
             "dataType": 'JSON',
             "data": {
