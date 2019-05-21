@@ -1,22 +1,29 @@
-body {
-    height: 100vh;
-    width: 100%;
-    margin: 0;
-    font-size: 0;
-    background-image: url(images/photo-1469528209190-4a45a86d817b.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
+.landingPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.logo{
+.backgroundImage {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+}
+
+.landingPageItems {
+    position: absolute;
+}
+
+.logo {
     width: 100%;
-    max-width: 700px;
-    display: block;
-    margin: auto;
+    max-width: 1000px;
 }
 
 .forms_container {
     height: 30%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 
 .preference_instructions {
@@ -40,10 +47,6 @@ body {
 }
 
 #submit_button {
-    border: none;
-    width: 120px;
-    margin: auto;
-    display: block;
     font-size: 2rem;
     border-radius: 8px;
 }
@@ -51,6 +54,45 @@ body {
 #map_container {
     display: none;
     height: 100vh;
+}
+
+.tutorial {
+    position: absolute;
+    top: 0;
+    background-color: #f0e8d9;
+    height: 100vh;
+    width: 30vw;
+}
+
+.tutorialContainer {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    position: relative;
+    top: 48%;
+    transform: translate(0, -50%);
+}
+
+.tutorialLogo {
+    width: 32vw;
+}
+
+.tutorialContent {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    margin: 32px 0 60px 0;
+}
+
+.tutorialTitle {
+    text-align: center;
+    font-size: 1.6em;
+}
+
+.tutorialBody {
+    text-align: center;
+    width: 24vw;
+    margin: 32px 0 0 0;
 }
 
 .close_wModal:hover,
@@ -62,23 +104,32 @@ body {
 
 /* the Weather Modal (in the background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
     left: 0;
     top: 0;
-    z-index: 1; /* Sit on top */
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    z-index: 1;
+    /* Sit on top */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
     /*border-width:5px;*/
     /*border-style:inset;*/
     /*vertical-align: middle;*/
 }
 
 .modal-weather-content {
-    width: 22%; /* Could be more or less, depending on screen size */
+    width: 22%;
+    /* Could be more or less, depending on screen size */
     position: relative;
     /*display: flex;*/
     /*justify-content: flex-start;*/
@@ -89,7 +140,8 @@ body {
     /*border-width: 5px;*/
     /*border-style: inset;*/
     /*background-color: darkslategray;*/
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
     background-image: url("images/blueSkyRainbow.jpg");
     background-position: center, center;
     background-repeat: no-repeat;

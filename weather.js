@@ -7,9 +7,10 @@
 //  (4) prepare and display weather data for presentation
 //==============================================================================
 
+
 class WeatherHandler{
 
-    constructor(lat, lng, callback){
+    constructor(lat, lng, callback) {
 
         this.lat = lat;
         this.lng = lng;
@@ -22,6 +23,7 @@ class WeatherHandler{
 
     }
     //make API call to weather data website using AJAX
+
     getWeatherData(){
 
             $.ajax({
@@ -33,7 +35,7 @@ class WeatherHandler{
     }
 
     //retrieve the data returned from the API call
-    processWeatherData (data){
+    processWeatherData(data) {
         this.w_data = data;
         displayWeatherData(this.w_data);
     }

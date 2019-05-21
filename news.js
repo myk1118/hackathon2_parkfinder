@@ -1,5 +1,5 @@
 class News {
-    constructor(keyword){
+    constructor(keyword) {
         this.keyword = keyword;
         this.news = [];
         this.getDataFromServer = this.getDataFromServer.bind(this);
@@ -52,7 +52,7 @@ class News {
         console.log("Server Request Failure");
     }
 
-    displayNews(){
+    displayNews() {
         // $(".newsContainer").empty();
         var newsContainer = $("<div>").attr("id", "newsModalContent");
         for (var i = 0; i < this.news.length; i++) {
