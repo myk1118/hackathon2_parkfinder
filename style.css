@@ -146,3 +146,7 @@
 audio {
     width: 100%;
 }
+
+#carouselModal {
+    display: none;
+}
