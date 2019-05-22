@@ -184,3 +184,52 @@
 audio {
     width: 100%;
 }
+
+#carouselModalContainer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+
+#carouselModal {
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    background-color: white;
+}
+
+#myCarousel {
+    height: 80%;
+    top: 10%;
+    width: 100%;
+    background-color: transparent;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+.item {
+    height: 100%;
+}
+
+#myCarousel > a.carousel-control {
+    background-image: none;
+}
+
+.carousel-indicators {
+    bottom: -10%;
+}
+
+.carousel-indicators li {
+    border: 1px solid black;
+}
+
+.carousel-indicators .active {
+    background-color: black;
+}

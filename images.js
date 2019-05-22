@@ -6,7 +6,7 @@ class ParkImages {
         this.park = tagName;
     }
 
-    /**retrieveImages initiates the AJAX call and creates a DOM element which gets passed to the modal*/
+    /**retrieveImages initiates the AJAX call and appends the images/indicators to the carousel*/
     retrieveImages() {
         var settings = {
             "async": true,
@@ -22,50 +22,82 @@ class ParkImages {
             }
         }
 
-        /**imageModalContent holds all of the images and buttons for the modal*/
-        var imageModalContent = $('<div>', {
-            id: 'imageModalContent',
-        })
-
-        /**When the AJAX call finishes, 4 images are added to modelContent*/
+        /**When the AJAX call finishes, up to 3 images are added*/
         $.ajax(settings).done(function (response) {
             var potentialImages = response.data.items;
             var displayedImages = [];
-            for (var imageIndex = 0; displayedImages.length < 3; imageIndex++) {
-                if (potentialImages[imageIndex].images) {
-                    var currentImage = potentialImages[imageIndex].images[0];
+            var indicatorNum = 0;
+            for (var imageIndex = 0; displayedImages.length < 5; imageIndex++) {
+                if (!potentialImages[imageIndex]) {
+                    break;
+                } else {
+                    var currentImage = potentialImages[imageIndex];
+                    
+                    if (potentialImages[imageIndex].images) {
+                        currentImage = potentialImages[imageIndex].images[0];
+                    }
+
                     if (currentImage.type === 'image/jpeg') {
-                        var imageLink = potentialImages[imageIndex].images[0].link;
                         var imageContainer = $('<div>', {
-                            class: 'imageContainer',
+                            class: 'item',
                             css: {
-                                'background-image': `url(${imageLink})`,
+                                'background-image': 'url(' + currentImage.link + ')',
+                                'background-size': 'contain',
+                                'background-repeat': 'no-repeat',
+                                'background-position': 'center'
                             }
-                        })
-                        displayedImages.push(imageContainer);
-                        $(imageModalContent).append(imageContainer);
+                        });
+
+                        var indicator = $('<li>', {
+                            'data-target': '#myCarousel',
+                            'data-slide-to': indicatorNum,
+                        });
+
+                        $('.carousel-inner').append(imageContainer);
+                        $('.carousel-indicators').append(indicator);
+                        indicatorNum++;
+                        displayedImages.push(currentImage.link);
                     }
                 }
             }
+
+            var closeButton = $('<button id="modalClose">&times;</button>').on('click', function() {
+                $('#modalClose').remove();
+                $('.carousel-indicators').empty();
+                $('.carousel-inner').empty();
+                $('#carouselModalContainer').hide();
+            });
+            $('#carouselModal').append(closeButton);
+
+            $('.item').first().addClass('active');
+            $('.carousel-indicators > li').first().addClass('active');
+            
+            $('#carouselModalContainer').show();
+            $('#myCarousel').carousel({
+                interval: false
+            });
         });
 
         /**urlForMore links to the search results on imgur (where the images were pulled from)*/
-        var urlForMore = `https://imgur.com/t/${this.park}`;
+        // var urlForMore = `https://imgur.com/t/${this.park}`;
 
-        /**moreButton allows users to see more images from the park on imgur's website*/
-        var moreButton = $('<button>', {
-            id: 'moreButton',
-            text: 'Click Here for More!',
-            on: {
-                'click': function () {
-                    window.open(urlForMore);
-                }
-            }
-        })
+        // /**moreButton allows users to see more images from the park on imgur's website*/
+        // var moreButton = $('<button>', {
+        //     id: 'moreButton',
+        //     text: 'Click Here for More!',
+        //     on: {
+        //         'click': function () {
+        //             window.open(urlForMore);
+        //         }
+        //     }
+        // })
 
         /**moreButton is appended to imageModalContent, and a new Modal object is instantiated*/
-        imageModalContent.append(moreButton);
-        var imageModal = new Modal(imageModalContent);
-        imageModal.createModal(this.park);
+        // imageModalContent.append(moreButton);
+        // var imageModal = new Modal(imageModalContent);
+        // imageModal.createModal(this.park);
+        
+        // var imageModal = new Modal(carousel);
+        // imageModal.createModal(this.park);
     }
 }
