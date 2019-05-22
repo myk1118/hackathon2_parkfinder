@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>California Park Finder</title>
+    <title>California National Park Finder</title>
 
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -39,7 +39,7 @@
                         <option value="deserts">Deserts</option>
                     </div>
                 </select>
-                <button type="submit" id="submit_button">Let's Go</button>
+                <button type="submit" class="btn btn-info" id="submit_button">Let's Go</button>
             </div>
         </div>
     </div>
@@ -63,11 +63,26 @@
         </div>
     </div>
 
-    <div id="weatherModal" class="modal">
+    <div class="tutorial">
+        <div class="tutorialContainer">
+            <img class="tutorialLogo" src="images/hackathonlogo.png">
+            <div class="tutorialContent">
+                <div class="tutorialTitle">How to Use
+                    <br>California National Park Finder
+                </div>
+                <div class="tutorialBody">Click a map marker of your choice!
+                    <br>Then you will be able to access news, images, and weather information of your chosen park.
+                </div>
+            </div>
+            <button class="btn btn-info tutorialButton">Go Back</button>
+        </div>
+    </div>
+
+    <div class="modal" id="weatherModal">
         <div class="modal-weather-content">
             <button class="close_wModal">&times;</button>
             <div id="weather_data">
-                <h3 style="margin-block-start:0">Today's Weather for</h3>
+                <h3 style="margin-block-start:0">Today's Weather</h3>
                 <div id="place"></div>
                 <BR>
                 <div id="description"></div>
