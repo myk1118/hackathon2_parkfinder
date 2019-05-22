@@ -27,19 +27,26 @@ class ParkImages {
             var potentialImages = response.data.items;
             var displayedImages = [];
             var indicatorNum = 0;
-            for (var imageIndex = 0; displayedImages.length < 3; imageIndex++) {
-                if (potentialImages[imageIndex].images) {
-                    var currentImage = potentialImages[imageIndex].images[0];
+            for (var imageIndex = 0; displayedImages.length < 5; imageIndex++) {
+                if (!potentialImages[imageIndex]) {
+                    break;
+                } else {
+                    var currentImage = potentialImages[imageIndex];
+                    
+                    if (potentialImages[imageIndex].images) {
+                        currentImage = potentialImages[imageIndex].images[0];
+                    }
+
                     if (currentImage.type === 'image/jpeg') {
                         var imageContainer = $('<div>', {
-                            class: 'item'
+                            class: 'item',
+                            css: {
+                                'background-image': 'url(' + currentImage.link + ')',
+                                'background-size': 'contain',
+                                'background-repeat': 'no-repeat',
+                                'background-position': 'center'
+                            }
                         });
-                        
-                        var image = $('<img>', {
-                            src: currentImage.link
-                        });
-
-                        imageContainer.append(image);
 
                         var indicator = $('<li>', {
                             'data-target': '#myCarousel',
@@ -53,10 +60,22 @@ class ParkImages {
                     }
                 }
             }
+
+            var closeButton = $('<button id="modalClose">&times;</button>').on('click', function() {
+                $('#modalClose').remove();
+                $('.carousel-indicators').empty();
+                $('.carousel-inner').empty();
+                $('#carouselModalContainer').hide();
+            });
+            $('#carouselModal').append(closeButton);
+
             $('.item').first().addClass('active');
             $('.carousel-indicators > li').first().addClass('active');
-            $('#carouselModal').show();
-            $('#myCarousel').carousel();
+            
+            $('#carouselModalContainer').show();
+            $('#myCarousel').carousel({
+                interval: false
+            });
         });
 
         /**urlForMore links to the search results on imgur (where the images were pulled from)*/
