@@ -12,21 +12,24 @@ var parksList = {
         "lassen": {
             coordinates: {
                 lat: 40.4977,
-                lng: -121.4207},
+                lng: -121.4207
+            },
             imgurTag: "lassen",
             displayName: "Lassen"
         },
         "yosemite": {
             coordinates: {
                 lat: 37.8651,
-                lng: -119.5383},
+                lng: -119.5383
+            },
             imgurTag: "yosemite",
             displayName: "Yosemite"
         },
         "pinnacles": {
             coordinates: {
                 lat: 36.4906,
-                lng: -121.1825},
+                lng: -121.1825
+            },
             imgurTag: "pinnacles",
             displayName: "Pinnacles"
         }
@@ -35,28 +38,32 @@ var parksList = {
         "redwoods": {
             coordinates: {
                 lat: 41.2132,
-                lng: -124.0046},
+                lng: -124.0046
+            },
             imgurTag: "redwoods",
             displayName: "Redwoods"
         },
         "sequoia": {
             coordinates: {
                 lat: 36.4864,
-                lng: -118.5658},
+                lng: -118.5658
+            },
             imgurTag: "sequoia_national_park",
             displayName: "Sequoia"
         },
         "yosemite": {
             coordinates: {
                 lat: 37.8651,
-                lng: -119.5383},
+                lng: -119.5383
+            },
             imgurTag: "yosemite",
             displayName: "Yosemite"
         },
         "lassen": {
             coordinates: {
                 lat: 40.4977,
-                lng: -121.4207},
+                lng: -121.4207
+            },
             imgurTag: "lassen",
             displayName: "Lassen"
         }
@@ -65,7 +72,8 @@ var parksList = {
         "channelIslands": {
             coordinates: {
                 lat: 33.9961,
-                lng: -119.7692},
+                lng: -119.7692
+            },
             imgurTag: "channel_islands",
             displayName: "Channel Islands"
         }
@@ -74,14 +82,16 @@ var parksList = {
         "deathValley": {
             coordinates: {
                 lat: 36.5054,
-                lng: -117.0794},
+                lng: -117.0794
+            },
             imgurTag: "death_valley",
             displayName: "Death Valley"
         },
         "joshuaTree": {
             coordinates: {
                 lat: 33.8734,
-                lng: -115.9010},
+                lng: -115.9010
+            },
             imgurTag: "joshua_tree",
             displayName: "Joshua Tree"
         }
@@ -89,7 +99,7 @@ var parksList = {
 }
 
 class ParkMap {
-    constructor(userPreference){ /**constructor takes in the user's choice of park/geography type */
+    constructor(userPreference) { /**constructor takes in the user's choice of park/geography type */
         /**store user's preference as a property of the map object */
         this.preference = userPreference;
 
@@ -97,12 +107,13 @@ class ParkMap {
         this.map = new google.maps.Map(document.getElementById("map_container"), {
             center: parksList.mountains["yosemite"].coordinates,
             zoom: 5.8,
-            minZoom: 5.8, 
-            maxZoom: 5.8
+            mapTypeControl: false
+            // minZoom: 5.8, 
+            // maxZoom: 5.8
         });
 
         /**declare variables to later be assigned the map markers at various parks */
-        this.markers = {}; 
+        this.markers = {};
 
         /**do all necessary binding of functions */
         this.addMarkers = this.addMarkers.bind(this);
@@ -110,11 +121,20 @@ class ParkMap {
         this.addInfoClickHandlers = this.addInfoClickHandlers.bind(this);
     }
 
-    addMarkers(){
+    centerMap() {
+        let bounds = new google.maps.LatLngBounds();
+        for (let key in this.markers) {
+            const coords = this.markers[key].getPosition();
+            bounds.extend(coords);
+        }
+        this.map.fitBounds(bounds);
+    }
+
+    addMarkers() {
         /**adds appropriate markers based on user preference */
         var parkName;
         for (parkName in parksList[this.preference]) {
-            this.markers[parkName] = new google.maps.Marker({position: parksList[this.preference][parkName].coordinates, map: this.map});
+            this.markers[parkName] = new google.maps.Marker({ position: parksList[this.preference][parkName].coordinates, map: this.map });
             switch (parkName) {
                 case 'kingsCanyon':
                     this.markers[parkName].addListener("click", () => {
@@ -163,14 +183,15 @@ class ParkMap {
                     break;
             }
         }
+        this.centerMap();
     }
 
-    displayInfoBox(park){
+    displayInfoBox(park) {
         var infoBox = new google.maps.InfoWindow({
-            content: `<div class='infoHeader'>${parksList[this.preference][park].displayName} National Park</div>`+
-                `<img src='images/${park}InfoBox.jpg' class='infoImage'>`+
-                `<div class='${park} weather infoLinks'>Weather Information</div>`+
-                `<div class='${park} news infoLinks'>Local News</div>`+
+            content: `<div class='infoHeader'>${parksList[this.preference][park].displayName} National Park</div>` +
+                `<img src='images/${park}InfoBox.jpg' class='infoImage'>` +
+                `<div class='${park} weather infoLinks'>Weather Information</div>` +
+                `<div class='${park} news infoLinks'>Local News</div>` +
                 `<div class='${park} images infoLinks'>Recent Posts on Imgur</div>`,
             position: parksList[this.preference][park].coordinates
         });
@@ -178,8 +199,8 @@ class ParkMap {
         infoBox.open(this.map);
     }
 
-    addInfoClickHandlers(){
+    addInfoClickHandlers() {
         /**add click handlers to the divs in the info box, which call handleInfoClicks in main.js */
-        $(".infoLinks").on("click", handleInfoClicks); 
+        $(".infoLinks").on("click", handleInfoClicks);
     }
 }
