@@ -7,11 +7,8 @@
 //  (4) prepare and display weather data for presentation
 //==============================================================================
 
-
-class WeatherHandler{
-
+class WeatherHandler {
     constructor(lat, lng, callback) {
-
         this.lat = lat;
         this.lng = lng;
         this.w_data = {};
@@ -20,18 +17,16 @@ class WeatherHandler{
         this.callback = this.processWeatherData.bind(this);
         this.getWeatherData = this.getWeatherData.bind(this);
         this.handleError = this.handleError.bind(this);
-
     }
     //make API call to weather data website using AJAX
 
-    getWeatherData(){
-
-            $.ajax({
-                url: this.baseUrl + this.lat + ',' + this.lng,
-                //success: data=>{this.callback(data);
-                success: this.callback,
-                error: this.handleError
-            })
+    getWeatherData() {
+        $.ajax({
+            url: this.baseUrl + this.lat + ',' + this.lng,
+            //success: data=>{this.callback(data);
+            success: this.callback,
+            error: this.handleError
+        })
     }
 
     //retrieve the data returned from the API call
@@ -49,7 +44,7 @@ class WeatherHandler{
 function displayWeatherData(w_data) {
     // to convert from kelvin to farenheit - subtract 273.15, multiply by 9/5, and add 32
     //var place = w_data.alerts[0].regions[0];
-    var wind_speed = (w_data.currently.windSpeed).toFixed(0)  + ' mph';
+    var wind_speed = (w_data.currently.windSpeed).toFixed(0) + ' mph';
     var curr_temp = (w_data.currently.temperature).toFixed(0);
     var humidity = (w_data.currently.humidity * 100).toFixed(0) + '%';
     var description = w_data.daily.data[0].summary;
@@ -61,7 +56,6 @@ function displayWeatherData(w_data) {
     sunrise = sunrise.toLocaleTimeString('en-US');
     sunset = sunset.toLocaleTimeString('en-US');
 
-
     $('#description').text('Condition: ' + description);
     $('#curr_temp').text('Current Temp: ' + curr_temp + ' F');
     $('#max_temp').text('High: ' + max_temp + ' F');
@@ -69,7 +63,6 @@ function displayWeatherData(w_data) {
     $('#humidity').text(humidity);
     $('#sunrise').text(sunrise);
     $('#sunset').text(sunset);
-
     //$('#place').text(place);
     $('#wind_speed').text(wind_speed);
 }

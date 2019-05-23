@@ -12,7 +12,7 @@ function initializeApp() {
     $(".tutorial").hide();
     $(".tutorialButton").click(handleGoBack);
     $(".toggleTutorialButton").hide();
-    $(".toggleTutorialButton").click(handleHideTutorial);
+    $(".toggleTutorialButton").click(handleToggleTutorial);
 }
 
 /**function called in the event of the submit button being clicked */
@@ -37,13 +37,15 @@ function handleGoBack() {
     $(".toggleTutorialButton").hide();
 }
 
-function handleHideTutorial() {
+function handleToggleTutorial() {
     if (tutorialOpen) {
         $("#map_container").css({ "width": "100%" });
         $(".tutorial").css({ "width": "0" });
+        $(".toggleTutorialButton").text("Tutorial");
     } else {
         $("#map_container").css({ "width": "70%" });
         $(".tutorial").css({ "width": "30%" });
+        $(".toggleTutorialButton").text("Hide Tutorial");
     }
     tutorialOpen = !tutorialOpen;
 }

@@ -32,16 +32,16 @@ body {
 }
 
 .preference_instructions {
+    margin-top: 15px;
     text-align: center;
     font-size: 2rem;
     font-family: Gotham;
-    margin-top: 15px;
+    font-weight: 300;
 }
 
 .preference_form {
+    height: 32px;
     width: 40%;
-    margin: auto;
-    display: block;
     font-size: 2rem;
     font-family: Gotham;
     margin: 35px auto;
@@ -109,9 +109,9 @@ body {
 }
 
 .toggleTutorialContainer {
-    width: 30%;
     position: absolute;
-    top: 84%;
+    top: 82%;
+    width: 30%;
 }
 
 .toggleTutorialButton {
