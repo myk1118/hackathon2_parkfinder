@@ -1,6 +1,7 @@
 /**Declare global variables relating to the map and user choice on landing page */
 var mapObj = null;
 var userPreference = null;
+var tutorialOpen = true;
 
 /**attach event handler initializeApp to the event of the document being fully loaded */
 $(document).ready(initializeApp);
@@ -10,6 +11,8 @@ function initializeApp() {
     $("#submit_button").click(handleSubmit);
     $(".tutorial").hide();
     $(".tutorialButton").click(handleGoBack);
+    $(".toggleTutorialButton").hide();
+    $(".toggleTutorialButton").click(handleToggleTutorial);
 }
 
 /**function called in the event of the submit button being clicked */
@@ -20,6 +23,7 @@ function handleSubmit() {
     $(".landingPage").css("display", "none");
     $("#map_container").css("display", "block");
     $(".tutorial").show();
+    $(".toggleTutorialButton").show();
 
     /**instantiate a new map object, add it to the dom, then create the markers */
     var mapObj = new ParkMap(userPreference);
@@ -30,6 +34,20 @@ function handleGoBack() {
     $(".landingPage").show();
     $("#map_container").hide();
     $(".tutorial").hide();
+    $(".toggleTutorialButton").hide();
+}
+
+function handleToggleTutorial() {
+    if (tutorialOpen) {
+        $("#map_container").css({ "width": "100%" });
+        $(".tutorial").css({ "width": "0" });
+        $(".toggleTutorialButton").text("Tutorial");
+    } else {
+        $("#map_container").css({ "width": "70%" });
+        $(".tutorial").css({ "width": "30%" });
+        $(".toggleTutorialButton").text("Hide Tutorial");
+    }
+    tutorialOpen = !tutorialOpen;
 }
 
 /**function called in the event of one of our 'images', 'weather', or 'news' divs being clicked */
