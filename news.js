@@ -10,7 +10,7 @@ class News {
 
     getDataFromServer() {
         var getServerData = {
-            url: 'https://newsapi.org/v2/everything?apiKey=d8a638ecf0534516ad34b799192ee8b8&language=en&pageSize=2&q="' + this.keyword + '"',
+            url: 'https://newsapi.org/v2/everything?apiKey=d8a638ecf0534516ad34b799192ee8b8&language=en&pageSize=5&q="' + this.keyword + '"',
             method: 'get',
             data: {
                 'apiKey': 'd8a638ecf0534516ad34b799192ee8b8',
@@ -53,26 +53,83 @@ class News {
     }
 
     displayNews() {
-        // $(".newsContainer").empty();
-        var newsContainer = $("<div>").attr("id", "newsModalContent");
-        for (var i = 0; i < this.news.length; i++) {
-            var picture = $("<img>",
-                {
-                    src: this.news[i].urlToImage,
-                    width: '100%'
-                });
-            var source = $("<div>").addClass("source").text(this.news[i].source);
-            var link = $("<a>").attr("href", this.news[i].url).text(this.news[i].title);
-            link.attr("target", "_blank");
-            var title = $("<div>").addClass("title").append(link);
-            var dateWithoutTime = this.news[i].publishedAt.slice(0, 10);
-            var date = $("<div>").addClass("date").text(dateWithoutTime);
-            var articleContainer = $("<div>").addClass("articleContainer").append(picture, source, title, date);
-            newsContainer.append(articleContainer);
-            // $('body').append(newsContainer);
+        for (var newsIndex = 0; newsIndex < this.news.length; newsIndex++) {
+            var newsContainer = $('<div>', {
+                class: 'item',
+                css: {
+                    'background-image': 'url(' + this.news[newsIndex].urlToImage,
+                    'background-size': 'contain',
+                    'background-repeat': 'no-repeat',
+                    'background-position': 'center top'
+                }
+            });
+
+            var captionContainer = $('<div>', {
+                class: 'carousel-caption',
+            });
+
+            var link = $('<a>', {
+                href: this.news[newsIndex].url,
+                text: this.news[newsIndex].title
+            })
+
+            var dateWithoutTime = this.news[newsIndex].publishedAt.slice(0, 10);
+            var date = $('<p>', {
+                text: dateWithoutTime
+            })
+
+            var source = $('<p>', {
+                text: this.news[newsIndex].source
+            })
+
+            captionContainer.append(link, date, source);
+            newsContainer.append(captionContainer);
+
+            var indicator = $('<li>', {
+                'data-target': '#myCarousel',
+                'data-slide-to': newsIndex
+            });
+
+            $('.carousel-inner').append(newsContainer);
+            $('.carousel-indicators').append(indicator);
         }
-        var newsModal = new Modal(newsContainer);
-        newsModal.createModal();
+
+        var closeButton = $('<button id="modalClose">&times;</button>').on('click', function() {
+            $('#modalClose').remove();
+            $('.carousel-indicators').empty();
+            $('.carousel-inner').empty();
+            $('#carouselModalContainer').hide();
+        });
+        $('#carouselModal').append(closeButton);
+
+        $('.item').first().addClass('active');
+        $('.carousel-indicators > li').first().addClass('active');
+        
+        $('#carouselModalContainer').show();
+        $('#myCarousel').carousel({
+            interval: false
+        });
+
+        // $(".newsContainer").empty();
+        // var newsContainer = $("<div>").attr("id", "newsModalContent");
+        // for (var i = 0; i < this.news.length; i++) {
+        //     var picture = $("<img>",
+        //         {
+        //             src: this.news[i].urlToImage,
+        //             width: '100%'
+        //         });
+        //     var source = $("<div>").addClass("source").text(this.news[i].source);
+        //     var link = $("<a>").attr("href", this.news[i].url).text(this.news[i].title);
+        //     link.attr("target", "_blank");
+        //     var title = $("<div>").addClass("title").append(link);
+        //     var dateWithoutTime = this.news[i].publishedAt.slice(0, 10);
+        //     var date = $("<div>").addClass("date").text(dateWithoutTime);
+        //     var articleContainer = $("<div>").addClass("articleContainer").append(picture, source, title, date);
+        //     newsContainer.append(articleContainer);
+        //     // $('body').append(newsContainer);
+        // }
+        // var newsModal = new Modal(newsContainer);
+        // newsModal.createModal();
     }
 }
 
