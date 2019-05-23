@@ -7,7 +7,7 @@ var parksList = {
                 lng: -118.5551
             },
             imgurTag: "kings_canyon",
-            displayName: "Kings Canyon"
+            displayName: "Kings Canyon National Park"
         },
         "lassen": {
             coordinates: {
@@ -15,7 +15,7 @@ var parksList = {
                 lng: -121.4207
             },
             imgurTag: "lassen",
-            displayName: "Lassen"
+            displayName: "Lassen Volcanic National Park"
         },
         "yosemite": {
             coordinates: {
@@ -23,7 +23,7 @@ var parksList = {
                 lng: -119.5383
             },
             imgurTag: "yosemite",
-            displayName: "Yosemite"
+            displayName: "Yosemite National Park"
         },
         "pinnacles": {
             coordinates: {
@@ -31,7 +31,7 @@ var parksList = {
                 lng: -121.1825
             },
             imgurTag: "pinnacles",
-            displayName: "Pinnacles"
+            displayName: "Pinnacles National Park"
         }
     },
     "forests": {
@@ -41,7 +41,7 @@ var parksList = {
                 lng: -124.0046
             },
             imgurTag: "redwoods",
-            displayName: "Redwoods"
+            displayName: "Redwood National Park"
         },
         "sequoia": {
             coordinates: {
@@ -49,7 +49,7 @@ var parksList = {
                 lng: -118.5658
             },
             imgurTag: "sequoia_national_park",
-            displayName: "Sequoia"
+            displayName: "Sequoia National Park"
         },
         "yosemite": {
             coordinates: {
@@ -57,7 +57,7 @@ var parksList = {
                 lng: -119.5383
             },
             imgurTag: "yosemite",
-            displayName: "Yosemite"
+            displayName: "Yosemite National Park"
         },
         "lassen": {
             coordinates: {
@@ -65,7 +65,7 @@ var parksList = {
                 lng: -121.4207
             },
             imgurTag: "lassen",
-            displayName: "Lassen"
+            displayName: "Lassen Volcanic National Park"
         }
     },
     "oceans": {
@@ -75,7 +75,7 @@ var parksList = {
                 lng: -119.7692
             },
             imgurTag: "channel_islands",
-            displayName: "Channel Islands"
+            displayName: "Channel Islands National Park"
         }
     },
     "deserts": {
@@ -85,7 +85,7 @@ var parksList = {
                 lng: -117.0794
             },
             imgurTag: "death_valley",
-            displayName: "Death Valley"
+            displayName: "Death Valley National Park"
         },
         "joshuaTree": {
             coordinates: {
@@ -93,7 +93,7 @@ var parksList = {
                 lng: -115.9010
             },
             imgurTag: "joshua_tree",
-            displayName: "Joshua Tree"
+            displayName: "Joshua Tree National Park"
         }
     }
 }
@@ -132,66 +132,21 @@ class ParkMap {
 
     addMarkers() {
         /**adds appropriate markers based on user preference */
-        var parkName;
-        for (parkName in parksList[this.preference]) {
-            this.markers[parkName] = new google.maps.Marker({ position: parksList[this.preference][parkName].coordinates, map: this.map });
-            switch (parkName) {
-                case 'kingsCanyon':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('kingsCanyon');
-                    });
-                    break;
-                case 'lassen':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('lassen');
-                    });
-                    break;
-                case 'yosemite':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('yosemite');
-                    });
-                    break;
-                case 'pinnacles':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('pinnacles');
-                    });
-                    break;
-                case 'redwoods':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('redwoods');
-                    });
-                    break;
-                case 'sequoia':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('sequoia');
-                    });
-                    break;
-                case 'channelIslands':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('channelIslands');
-                    });
-                    break;
-                case 'deathValley':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('deathValley');
-                    });
-                    break;
-                case 'joshuaTree':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('joshuaTree');
-                    });
-                    break;
-            }
+        for (const parkName in parksList[this.preference]) {
+            this.markers[parkName] = new google.maps.Marker({position: parksList[this.preference][parkName].coordinates, map: this.map});
+            this.markers[parkName].addListener('click', () => {
+                this.displayInfoBox(parkName)
+            })
         }
         this.centerMap();
     }
 
     displayInfoBox(park) {
         var infoBox = new google.maps.InfoWindow({
-            content: `<div class='infoHeader'>${parksList[this.preference][park].displayName} National Park</div>` +
-                `<img src='images/${park}InfoBox.jpg' class='infoImage'>` +
-                `<div class='${park} weather infoLinks'>Weather Information</div>` +
-                `<div class='${park} news infoLinks'>Local News</div>` +
+            content: `<div class='infoHeader'>${parksList[this.preference][park].displayName}</div>`+
+                `<img src='images/${park}InfoBox.jpg' class='infoImage'>`+
+                `<div class='${park} weather infoLinks'>Weather Information</div>`+
+                `<div class='${park} news infoLinks'>Local News</div>`+
                 `<div class='${park} images infoLinks'>Recent Posts on Imgur</div>`,
             position: parksList[this.preference][park].coordinates
         });

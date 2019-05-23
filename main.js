@@ -64,7 +64,7 @@ function handleInfoClicks() {
     switch (classes[1]) {
         case 'images':
             /**create an image modal in the event the user clicked the 'recent imgur posts' div */
-            var imageGallery = new ParkImages(parksList[userPreference][parkName].imgurTag)
+            var imageGallery = new ParkImages(parksList[userPreference][parkName].imgurTag);
             imageGallery.retrieveImages();
             break;
         case 'weather':
@@ -86,7 +86,7 @@ function handleInfoClicks() {
             break;
         case 'news':
             /**create news modal in the event the user clicked the 'local news' div */
-            var newsAPI = new News(parkName);
+            var newsAPI = new News(parksList[userPreference][parkName].displayName);
             newsAPI.getDataFromServer();
             break;
     }

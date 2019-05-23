@@ -10,7 +10,7 @@ class News {
 
     getDataFromServer() {
         var getServerData = {
-            url: 'https://newsapi.org/v2/everything?apiKey=d8a638ecf0534516ad34b799192ee8b8&language=en&pageSize=2&q=' + this.keyword,
+            url: 'https://newsapi.org/v2/everything?apiKey=d8a638ecf0534516ad34b799192ee8b8&language=en&pageSize=2&q="' + this.keyword + '"',
             method: 'get',
             data: {
                 'apiKey': 'd8a638ecf0534516ad34b799192ee8b8',
