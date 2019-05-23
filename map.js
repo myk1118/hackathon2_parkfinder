@@ -7,28 +7,28 @@ var parksList = {
                 lng: -118.5551
             },
             imgurTag: "kings_canyon",
-            displayName: "Kings Canyon"
+            displayName: "Kings Canyon National Park"
         },
         "lassen": {
             coordinates: {
                 lat: 40.4977,
                 lng: -121.4207},
             imgurTag: "lassen",
-            displayName: "Lassen"
+            displayName: "Lassen Volcanic National Park"
         },
         "yosemite": {
             coordinates: {
                 lat: 37.8651,
                 lng: -119.5383},
             imgurTag: "yosemite",
-            displayName: "Yosemite"
+            displayName: "Yosemite National Park"
         },
         "pinnacles": {
             coordinates: {
                 lat: 36.4906,
                 lng: -121.1825},
             imgurTag: "pinnacles",
-            displayName: "Pinnacles"
+            displayName: "Pinnacles National Park"
         }
     },
     "forests": {
@@ -37,28 +37,28 @@ var parksList = {
                 lat: 41.2132,
                 lng: -124.0046},
             imgurTag: "redwoods",
-            displayName: "Redwoods"
+            displayName: "Redwood National Park"
         },
         "sequoia": {
             coordinates: {
                 lat: 36.4864,
                 lng: -118.5658},
             imgurTag: "sequoia_national_park",
-            displayName: "Sequoia"
+            displayName: "Sequoia National Park"
         },
         "yosemite": {
             coordinates: {
                 lat: 37.8651,
                 lng: -119.5383},
             imgurTag: "yosemite",
-            displayName: "Yosemite"
+            displayName: "Yosemite National Park"
         },
         "lassen": {
             coordinates: {
                 lat: 40.4977,
                 lng: -121.4207},
             imgurTag: "lassen",
-            displayName: "Lassen"
+            displayName: "Lassen Volcanic National Park"
         }
     },
     "oceans": {
@@ -67,7 +67,7 @@ var parksList = {
                 lat: 33.9961,
                 lng: -119.7692},
             imgurTag: "channel_islands",
-            displayName: "Channel Islands"
+            displayName: "Channel Islands National Park"
         }
     },
     "deserts": {
@@ -76,14 +76,14 @@ var parksList = {
                 lat: 36.5054,
                 lng: -117.0794},
             imgurTag: "death_valley",
-            displayName: "Death Valley"
+            displayName: "Death Valley National Park"
         },
         "joshuaTree": {
             coordinates: {
                 lat: 33.8734,
                 lng: -115.9010},
             imgurTag: "joshua_tree",
-            displayName: "Joshua Tree"
+            displayName: "Joshua Tree National Park"
         }
     }
 }
@@ -112,62 +112,17 @@ class ParkMap {
 
     addMarkers(){
         /**adds appropriate markers based on user preference */
-        var parkName;
-        for (parkName in parksList[this.preference]) {
+        for (const parkName in parksList[this.preference]) {
             this.markers[parkName] = new google.maps.Marker({position: parksList[this.preference][parkName].coordinates, map: this.map});
-            switch (parkName) {
-                case 'kingsCanyon':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('kingsCanyon');
-                    });
-                    break;
-                case 'lassen':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('lassen');
-                    });
-                    break;
-                case 'yosemite':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('yosemite');
-                    });
-                    break;
-                case 'pinnacles':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('pinnacles');
-                    });
-                    break;
-                case 'redwoods':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('redwoods');
-                    });
-                    break;
-                case 'sequoia':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('sequoia');
-                    });
-                    break;
-                case 'channelIslands':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('channelIslands');
-                    });
-                    break;
-                case 'deathValley':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('deathValley');
-                    });
-                    break;
-                case 'joshuaTree':
-                    this.markers[parkName].addListener("click", () => {
-                        this.displayInfoBox('joshuaTree');
-                    });
-                    break;
-            }
+            this.markers[parkName].addListener('click', () => {
+                this.displayInfoBox(parkName)
+            })
         }
     }
 
     displayInfoBox(park){
         var infoBox = new google.maps.InfoWindow({
-            content: `<div class='infoHeader'>${parksList[this.preference][park].displayName} National Park</div>`+
+            content: `<div class='infoHeader'>${parksList[this.preference][park].displayName}</div>`+
                 `<img src='images/${park}InfoBox.jpg' class='infoImage'>`+
                 `<div class='${park} weather infoLinks'>Weather Information</div>`+
                 `<div class='${park} news infoLinks'>Local News</div>`+
