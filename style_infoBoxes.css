@@ -10,7 +10,7 @@
 }
 
 .infoLinks {
-    text-align: center; 
+    text-align: center;
     font-size: 5vmin;
     color: blue;
     text-decoration: underline;
@@ -26,16 +26,16 @@
     }
 }
 
-@media screen and (orientation: landscape){
+@media screen and (orientation: landscape) {
     .infoHeader {
         font-size: 3vmax;
     }
-    
+
     .infoLinks {
         font-size: 3vmax;
     }
 
-    @media screen and (min-width: 825px){
+    @media screen and (min-width: 825px) {
         .infoHeader {
             font-size: 2vmax;
         }

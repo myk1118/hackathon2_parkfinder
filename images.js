@@ -32,7 +32,7 @@ class ParkImages {
                     break;
                 } else {
                     var currentImage = potentialImages[imageIndex];
-                    
+
                     if (potentialImages[imageIndex].images) {
                         currentImage = potentialImages[imageIndex].images[0];
                     }
@@ -42,7 +42,7 @@ class ParkImages {
                             class: 'item',
                             css: {
                                 'background-image': 'url(' + currentImage.link + ')',
-                                'background-size': 'contain',
+                                'background-size': 'cover',
                                 'background-repeat': 'no-repeat',
                                 'background-position': 'center'
                             }
@@ -61,7 +61,7 @@ class ParkImages {
                 }
             }
 
-            var closeButton = $('<button id="modalClose">&times;</button>').on('click', function() {
+            var closeButton = $('<button id="modalClose">&times;</button>').on('click', function () {
                 $('#modalClose').remove();
                 $('.carousel-indicators').empty();
                 $('.carousel-inner').empty();
@@ -71,7 +71,7 @@ class ParkImages {
 
             $('.item').first().addClass('active');
             $('.carousel-indicators > li').first().addClass('active');
-            
+
             $('#carouselModalContainer').show();
             $('#myCarousel').carousel({
                 interval: false
@@ -96,7 +96,7 @@ class ParkImages {
         // imageModalContent.append(moreButton);
         // var imageModal = new Modal(imageModalContent);
         // imageModal.createModal(this.park);
-        
+
         // var imageModal = new Modal(carousel);
         // imageModal.createModal(this.park);
     }

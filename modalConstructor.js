@@ -19,7 +19,7 @@ class Modal {
         newModal.append(this.domDisplay);
         $(this.domDisplay).append(modalClose);
     }
-    
+
     /**deleteModal is called when the modal's close button is clicked*/
     deleteModal() {
         var modal = $(this).parent().parent();
