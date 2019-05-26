@@ -9,10 +9,12 @@ $(document).ready(initializeApp);
 /**add click handlers to now existing dom elements */
 function initializeApp() {
     $("#submit_button").click(handleSubmit);
-    $(".tutorial").hide();
-    $(".tutorialButton").click(handleGoBack);
-    $(".toggleTutorialButton").hide();
-    $(".toggleTutorialButton").click(handleToggleTutorial);
+    $("#map_container").hide();
+    $(".buttonsContainer").hide();
+    $(".goBackButton").click(handleGoBack);
+    // $(".tutorial").hide();
+    // $(".toggleTutorialButton").hide();
+    // $(".toggleTutorialButton").click(handleToggleTutorial);
 }
 
 /**function called in the event of the submit button being clicked */
@@ -20,10 +22,11 @@ function handleSubmit() {
     userPreference = $(".preference_form").val(); /**stores user's choice in a global variable */
 
     /**clear the screen of existing dom elements, then make the map visible */
-    $(".landingPage").css("display", "none");
-    $("#map_container").css("display", "block");
-    $(".tutorial").show();
-    $(".toggleTutorialButton").show();
+    $(".landingPage").hide();
+    $("#map_container").show();
+    $(".buttonsContainer").show();
+    // $(".tutorial").show();
+    // $(".toggleTutorialButton").show();
 
     /**instantiate a new map object, add it to the dom, then create the markers */
     var mapObj = new ParkMap(userPreference);
@@ -33,22 +36,23 @@ function handleSubmit() {
 function handleGoBack() {
     $(".landingPage").show();
     $("#map_container").hide();
-    $(".tutorial").hide();
-    $(".toggleTutorialButton").hide();
+    $(".buttonsContainer").hide();
+    // $(".tutorial").hide();
+    // $(".toggleTutorialButton").hide();
 }
 
-function handleToggleTutorial() {
-    if (tutorialOpen) {
-        $("#map_container").css({ "width": "100%" });
-        $(".tutorial").css({ "width": "0" });
-        $(".toggleTutorialButton").text("Tutorial");
-    } else {
-        $("#map_container").css({ "width": "70%" });
-        $(".tutorial").css({ "width": "30%" });
-        $(".toggleTutorialButton").text("Hide Tutorial");
-    }
-    tutorialOpen = !tutorialOpen;
-}
+// function handleToggleTutorial() {
+//     if (tutorialOpen) {
+//         $("#map_container").css({ "width": "100%" });
+//         $(".tutorial").css({ "width": "0" });
+//         $(".toggleTutorialButton").text("Tutorial");
+//     } else {
+//         $("#map_container").css({ "width": "70%" });
+//         $(".tutorial").css({ "width": "30%" });
+//         $(".toggleTutorialButton").text("Hide Tutorial");
+//     }
+//     tutorialOpen = !tutorialOpen;
+// }
 
 /**function called in the event of one of our 'images', 'weather', or 'news' divs being clicked */
 function handleInfoClicks() {
