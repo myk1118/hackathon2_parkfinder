@@ -13,8 +13,9 @@
     </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel=“stylesheet” href=“https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css“>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiZ9d1v25RWbBqnUSci3IKAAXdYVuSHmI">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
+        integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiZ9d1v25RWbBqnUSci3IKAAXdYVuSHmI">
     </script>
 
     <link rel="stylesheet" href="style.css">
@@ -48,7 +49,7 @@
         </div>
     </div>
 
-    <div class="tutorial">
+    <!-- <div class="tutorial">
         <div class="tutorialContainer">
             <img class="tutorialLogo" src="images/hackathonlogo.png">
             <div class="tutorialContent">
@@ -65,6 +66,17 @@
 
     <div class="toggleTutorialContainer">
         <button class="btn btn-info toggleTutorialButton">Hide Tutorial</button>
+    </div> -->
+
+    <div class="buttonsContainer">
+        <button class="btn btn-light btn-lg tutorialButton" data-toggle="collapse" data-target="#tutorialCollapse">
+            <i class='fas fa-question'></i></button>
+        <button class="btn btn-light btn-lg goBackButton"><i class='fas fa-home'></i></button>
+        <div id="tutorialCollapse" class="collapse">
+            <div class="tutorialHeader">Click a map marker to get started!</div>
+            <div class="tutorialBody">Then you will be able to access news, images, and weather information of your
+                choice of park.</div>
+        </div>
     </div>
 
     <div id="map_container"></div>
