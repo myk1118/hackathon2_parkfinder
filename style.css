@@ -267,6 +267,7 @@ audio {
 
 .carousel-inner {
     height: 100%;
+    text-align: center;
 }
 
 .item {
@@ -287,4 +288,29 @@ audio {
 
 .carousel-indicators .active {
     background-color: black;
+}
+
+.date,
+.condition,
+.iconAndTemp {
+    height: 15%;
+}
+
+.leftContainer,
+.rightContainer {
+    width: 50%;
+    display: inline-block;
+    position: absolute;
+}
+
+.leftContainer {
+    left: 0;
+}
+
+.rightContainer {
+    right: 0;
+}
+
+.header {
+    text-decoration: underline;
 }

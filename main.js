@@ -73,20 +73,20 @@ function handleInfoClicks() {
             break;
         case 'weather':
             //modal.style.display = "block";
-            $(".modal").show();
+            // $(".modal").show();
             var lat = parksList[userPreference][parkName].coordinates.lat;
             var lng = parksList[userPreference][parkName].coordinates.lng;
             var weatherAPI = new WeatherHandler(lat, lng);
             weatherAPI.getWeatherData();
             // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) {
-                if ($(event.target).hasClass('modal')) {
-                    //modal.style.display = "none";
-                    $(".modal").hide();
-                } else if ($(event.target).hasClass('close_wModal')) {
-                    $(".modal").hide();
-                }
-            };
+            // window.onclick = function (event) {
+            //     if ($(event.target).hasClass('modal')) {
+            //         //modal.style.display = "none";
+            //         $(".modal").hide();
+            //     } else if ($(event.target).hasClass('close_wModal')) {
+            //         $(".modal").hide();
+            //     }
+            // };
             break;
         case 'news':
             /**create news modal in the event the user clicked the 'local news' div */
