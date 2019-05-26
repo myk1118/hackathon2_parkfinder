@@ -133,7 +133,7 @@ class ParkMap {
     addMarkers() {
         /**adds appropriate markers based on user preference */
         for (const parkName in parksList[this.preference]) {
-            this.markers[parkName] = new google.maps.Marker({position: parksList[this.preference][parkName].coordinates, map: this.map});
+            this.markers[parkName] = new google.maps.Marker({ position: parksList[this.preference][parkName].coordinates, map: this.map });
             this.markers[parkName].addListener('click', () => {
                 this.displayInfoBox(parkName)
             })
@@ -143,10 +143,10 @@ class ParkMap {
 
     displayInfoBox(park) {
         var infoBox = new google.maps.InfoWindow({
-            content: `<div class='infoHeader'>${parksList[this.preference][park].displayName}</div>`+
-                `<img src='images/${park}InfoBox.jpg' class='infoImage'>`+
-                `<div class='${park} weather infoLinks'>Weather Information</div>`+
-                `<div class='${park} news infoLinks'>Local News</div>`+
+            content: `<div class='infoHeader'>${parksList[this.preference][park].displayName}</div>` +
+                `<img src='images/${park}InfoBox.jpg' class='infoImage'>` +
+                `<div class='${park} weather infoLinks'>Weather Information</div>` +
+                `<div class='${park} news infoLinks'>Local News</div>` +
                 `<div class='${park} images infoLinks'>Recent Posts on Imgur</div>`,
             position: parksList[this.preference][park].coordinates
         });
