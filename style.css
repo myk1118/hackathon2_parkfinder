@@ -1,6 +1,22 @@
+@font-face {
+    font-family: gothamBook;
+    src: url(fonts/Gotham-Book.otf);
+}
+
+@font-face {
+    font-family: gothamMedium;
+    src: url(fonts/Gotham-Medium.otf);
+}
+
+@font-face {
+    font-family: gothamBold;
+    src: url(fonts/Gotham-Bold.otf);
+}
+
 body {
     height: 100vh;
     width: 100vw;
+    font-family: gothamBook, Arial, Helvetica, sans-serif
 }
 
 .landingPage {
@@ -35,7 +51,6 @@ body {
     margin-top: 15px;
     text-align: center;
     font-size: 2rem;
-    font-family: Gotham;
     font-weight: 300;
 }
 
@@ -43,7 +58,6 @@ body {
     height: 32px;
     width: 40%;
     font-size: 2rem;
-    font-family: Gotham;
     margin: 35px auto;
 }
 
@@ -72,12 +86,12 @@ body {
 
 .tutorialButton,
 .goBackButton {
-    box-shadow: 2px 2px 12px grey;
+    box-shadow: 1px 1px 8px grey;
 }
 
 #tutorialCollapse {
     background-color: white;
-    box-shadow: 5px 5px 20px grey;
+    box-shadow: 1px 1px 16px grey;
     width: 260px;
     border-radius: 5px;
     margin: 6px 0 0 0;
@@ -88,6 +102,7 @@ body {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1.6rem;
+    font-family: gothamBold;
     border-bottom: 1px black solid;
     margin: 0 0 12px 0;
     padding: 0 0 12px 0;
@@ -149,6 +164,94 @@ body {
     left: 50%;
     transform: translateX(-50%);
 } */
+
+#carouselModalContainer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+
+#carouselModal {
+    height: 80%;
+    width: 80%;
+    max-width: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 12px;
+}
+
+#myCarousel {
+    height: 100%;
+    background-color: transparent;
+}
+
+.carousel-inner {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.carousel-inner>.active {
+    /* height: 85%; */
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px 12px 0 0;
+    /* position: absolute; */
+    /* top: 35px; */
+}
+
+#myCarousel>a.carousel-control {
+    background-image: none;
+}
+
+.carousel-indicators {
+    bottom: 1%;
+}
+
+.carousel-indicators li {
+    border: 1px solid black;
+}
+
+.carousel-indicators .active {
+    background-color: black;
+}
+
+.date,
+.condition,
+.iconAndTemp {
+    height: 15%;
+}
+
+.leftContainer,
+.rightContainer {
+    width: 50%;
+    display: inline-block;
+    position: absolute;
+}
+
+.leftContainer {
+    left: 0;
+}
+
+.rightContainer {
+    right: 0;
+}
+
+.header {
+    text-decoration: underline;
+}
 
 .close_wModal:hover,
 .close_wModal:focus {
@@ -238,79 +341,4 @@ body {
 
 audio {
     width: 100%;
-}
-
-#carouselModalContainer {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: none;
-}
-
-#carouselModal {
-    width: 80%;
-    height: 80%;
-    position: absolute;
-    right: 10%;
-    top: 10%;
-    background-color: white;
-}
-
-#myCarousel {
-    height: 80%;
-    top: 10%;
-    width: 100%;
-    background-color: transparent;
-}
-
-.carousel-inner {
-    height: 100%;
-    text-align: center;
-}
-
-.item {
-    height: 100%;
-}
-
-#myCarousel>a.carousel-control {
-    background-image: none;
-}
-
-.carousel-indicators {
-    bottom: -10%;
-}
-
-.carousel-indicators li {
-    border: 1px solid black;
-}
-
-.carousel-indicators .active {
-    background-color: black;
-}
-
-.date,
-.condition,
-.iconAndTemp {
-    height: 15%;
-}
-
-.leftContainer,
-.rightContainer {
-    width: 50%;
-    display: inline-block;
-    position: absolute;
-}
-
-.leftContainer {
-    left: 0;
-}
-
-.rightContainer {
-    right: 0;
-}
-
-.header {
-    text-decoration: underline;
 }

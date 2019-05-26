@@ -54,36 +54,36 @@ class News {
 
     displayNews() {
         for (var newsIndex = 0; newsIndex < this.news.length; newsIndex++) {
-            var newsContainer = $('<div>', {
-                class: 'item',
+            var newsImageContainer = $('<div>', {
+                class: 'newsImageContainer',
                 css: {
                     'background-image': 'url(' + this.news[newsIndex].urlToImage,
-                    'background-size': 'contain',
+                    'background-size': 'cover',
                     'background-repeat': 'no-repeat',
-                    'background-position': 'center top'
+                    'background-position': 'center center'
                 }
             });
 
-            var captionContainer = $('<div>', {
-                class: 'carousel-caption',
-            });
-
-            var link = $('<a>', {
+            var newsTitle = $('<a>', {
                 href: this.news[newsIndex].url,
-                text: this.news[newsIndex].title
+                text: this.news[newsIndex].title,
+                target: '_blank',
+                class: 'newsTitle'
             })
 
             var dateWithoutTime = this.news[newsIndex].publishedAt.slice(0, 10);
-            var date = $('<p>', {
-                text: dateWithoutTime
+            var newsDate = $('<p>', {
+                text: dateWithoutTime,
+                class: 'newsDate'
             })
 
-            var source = $('<p>', {
-                text: this.news[newsIndex].source
+            var newsSource = $('<p>', {
+                text: this.news[newsIndex].source,
+                class: 'newsSource'
             })
 
-            captionContainer.append(link, date, source);
-            newsContainer.append(captionContainer);
+            var captionContainer = $("<div>").addClass("captionContainer").append(newsTitle, newsDate, newsSource);
+            var newsContainer = $("<div>").addClass("item").append(newsImageContainer, captionContainer);
 
             var indicator = $('<li>', {
                 'data-target': '#myCarousel',
@@ -94,17 +94,18 @@ class News {
             $('.carousel-indicators').append(indicator);
         }
 
-        var closeButton = $('<button id="modalClose">&times;</button>').on('click', function() {
+        var closeButton = $('<button id="modalClose"><i class="fas fa-times"></i></button>').on('click', function () {
             $('#modalClose').remove();
             $('.carousel-indicators').empty();
             $('.carousel-inner').empty();
             $('#carouselModalContainer').hide();
         });
+
         $('#carouselModal').append(closeButton);
 
         $('.item').first().addClass('active');
         $('.carousel-indicators > li').first().addClass('active');
-        
+
         $('#carouselModalContainer').show();
         $('#myCarousel').carousel({
             interval: false
@@ -132,6 +133,3 @@ class News {
         // newsModal.createModal();
     }
 }
-
-// var newsAPI = new News();
-// newsAPI.getDataFromServer();

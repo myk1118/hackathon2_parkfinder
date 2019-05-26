@@ -47,7 +47,7 @@ function displayWeatherData(w_data) {
     var sunset = new Date(parseInt(w_data.daily.data[0].sunsetTime * 1000));
     sunrise = sunrise.toLocaleTimeString('en-US');
     sunset = sunset.toLocaleTimeString('en-US');
-    
+
     var date = $('<div>').addClass('date').text(fullDate.toDateString());
     //Still need to add icon
     var iconAndTemp = $('<div>').addClass('iconAndTemp').text((w_data.currently.temperature).toFixed(0) + '°');
@@ -70,12 +70,12 @@ function displayWeatherData(w_data) {
     var sunsetHeader = $('<p>').addClass('header').text('Sunset');
     var sunsetTime = $('<p>').text(sunset);
     rightWeather.append(highHeader, highTemp, windSpeedHeader, windSpeed, sunsetHeader, sunsetTime);
-    
+
     $('.carousel-inner').append(date, iconAndTemp, condition, leftWeather, rightWeather);
     $('#carouselModalContainer').show();
-        $('#myCarousel').carousel({
-            interval: false
-        });
+    $('#myCarousel').carousel({
+        interval: false
+    });
 
     $('#description').text('Condition: ' + description);
     $('#curr_temp').text('Current Temp: ' + curr_temp + ' F');
@@ -85,4 +85,12 @@ function displayWeatherData(w_data) {
     $('#sunrise').text(sunrise);
     $('#sunset').text(sunset);
     $('#wind_speed').text(wind_speed);
+
+    var closeButton = $('<button id="modalClose">&times;</button>').on('click', function () {
+        $('#modalClose').remove();
+        $('.carousel-indicators').empty();
+        $('.carousel-inner').empty();
+        $('#carouselModalContainer').hide();
+    });
+    $('#carouselModal').append(closeButton);
 }

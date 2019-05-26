@@ -3,7 +3,7 @@
     width: 100%;
     position: absolute;
     top: 0;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 #imageModalContent {
@@ -19,7 +19,7 @@
     background-color: white;
     font-size: 2rem;
     border-radius: 10px;
-    box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.3);
 }
 
 #newsModalContent {
@@ -35,26 +35,38 @@
     background-color: white;
     align-items: center;
     border-radius: 10px;
-    box-shadow: 0 2px 7px 1px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.3);
 }
 
-.source {
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-.title {
+.newsTitle {
+    text-transform: capitalize;
+    color: #6e6362;
     font-size: 2rem;
+    font-family: gothamMedium, Arial, Helvetica, sans-serif;
 }
 
-.date {
+.newsDate {
+    margin: 5px 0;
     font-size: 1.5rem;
 }
 
-.articleContainer {
-    flex-basis: 40%;
-    height: 70%;
-    margin: 20px;
+.newsSource {
+    text-transform: uppercase;
+    margin: 0;
+    color: #58a4b0;
+    font-size: 1.5rem;
+    font-family: gothamMedium, Arial, Helvetica, sans-serif;
+}
+
+.newsImageContainer {
+    height: 100%;
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+}
+
+.captionContainer {
+    width: 75%;
+    margin: 15px 0 0 0;
 }
 
 .imageContainer {
@@ -67,13 +79,12 @@
 
 #modalClose {
     position: absolute;
-    top: 0;
+    top: 0px;
     right: 5px;
-    font-size: 20px;
+    color: white;
+    font-size: 28px;
     border-style: none;
-    color: black;
     background-color: transparent;
-    border-radius: 10px;
 }
 
 #moreButton {
@@ -100,13 +111,12 @@
         height: 60%;
         top: 20%;
     }
+
     .imageContainer {
         margin: 15px 0;
         max-height: 80%;
     }
-    #modalClose {
-        right: 0;
-    }
+
     #moreButton {
         width: 20%;
         left: 40%;
