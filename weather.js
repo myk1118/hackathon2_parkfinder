@@ -43,19 +43,35 @@ class WeatherHandler {
 function displayWeatherData(w_data) {
     var fullDate = new Date();
     var icon = w_data.currently.icon;
+    switch (icon) {
+        case 'clear-day':
+            icon = 'day-sunny';
+            break;
+        case 'clear-night':
+            icon = 'night-clear';
+            break;
+        case 'wind':
+            icon = 'strong-wind';
+            break;
+        case 'partly-cloudy-day':
+            icon = 'day-cloudy';
+            break;
+        case 'partly-cloudy-night':
+            icon = 'night-alt-cloudy';
+            break;
+    }
     var sunrise = new Date(parseInt(w_data.daily.data[0].sunriseTime * 1000));
     var sunset = new Date(parseInt(w_data.daily.data[0].sunsetTime * 1000));
     sunrise = sunrise.toLocaleTimeString('en-US');
     sunset = sunset.toLocaleTimeString('en-US');
 
     var date = $('<div>').addClass('date').text(fullDate.toDateString());
-    //Still need to add icon
-    var iconAndTemp = $('<div>').addClass('iconAndTemp').text((w_data.currently.temperature).toFixed(0) + '°');
+    var iconAndTemp = $(`<div class="iconAndTemp">${(w_data.currently.temperature).toFixed(0) + '° '}<i class="wi wi-${icon}">`);
     var condition = $('<div>').addClass('condition').text(w_data.daily.data[0].summary);
 
     var leftWeather = $('<div>').addClass('leftContainer');
     var lowHeader = $('<p>').addClass('header').text('Low');
-    var lowTemp = $('<p>').text((w_data.daily.data[0].apparentTemperatureMin).toFixed(0));
+    var lowTemp = $('<p>').text((w_data.daily.data[0].apparentTemperatureMin).toFixed(0) + '°');
     var humidityHeader = $('<p>').addClass('header').text('Humidity');
     var humidity = $('<p>').text((w_data.currently.humidity * 100).toFixed(0) + '%');
     var sunriseHeader = $('<p>').addClass('header').text('Sunrise');
@@ -64,7 +80,7 @@ function displayWeatherData(w_data) {
 
     var rightWeather = $('<div>').addClass('rightContainer');
     var highHeader = $('<p>').addClass('header').text('High');
-    var highTemp = $('<p>').text((w_data.daily.data[0].apparentTemperatureMax).toFixed(0));
+    var highTemp = $('<p>').text((w_data.daily.data[0].apparentTemperatureMax).toFixed(0) + '°');
     var windSpeedHeader = $('<p>').addClass('header').text('Wind Speed');
     var windSpeed = $('<p>').text((w_data.currently.windSpeed).toFixed(0) + ' mph');
     var sunsetHeader = $('<p>').addClass('header').text('Sunset');
@@ -77,20 +93,12 @@ function displayWeatherData(w_data) {
         interval: false
     });
 
-    $('#description').text('Condition: ' + description);
-    $('#curr_temp').text('Current Temp: ' + curr_temp + ' F');
-    $('#max_temp').text('High: ' + max_temp + ' F');
-    $('#min_temp').text('Low: ' + min_temp + ' F');
-    $('#humidity').text(humidity);
-    $('#sunrise').text(sunrise);
-    $('#sunset').text(sunset);
-    $('#wind_speed').text(wind_speed);
-
-    var closeButton = $('<button id="modalClose">&times;</button>').on('click', function () {
+    var closeButton = $('<button id="modalClose"><i class="fas fa-times"></i></button>').on('click', function () {
         $('#modalClose').remove();
         $('.carousel-indicators').empty();
         $('.carousel-inner').empty();
         $('#carouselModalContainer').hide();
     });
+
     $('#carouselModal').append(closeButton);
 }

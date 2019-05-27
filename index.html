@@ -18,9 +18,10 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiZ9d1v25RWbBqnUSci3IKAAXdYVuSHmI">
     </script>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style_infoBoxes.css">
-    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="css/weather-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_infoBoxes.css">
+    <link rel="stylesheet" href="css/modal.css">
     <script src="map.js"></script>
     <script src="news.js"></script>
     <script src="main.js"></script>
@@ -49,25 +50,6 @@
         </div>
     </div>
 
-    <!-- <div class="tutorial">
-        <div class="tutorialContainer">
-            <img class="tutorialLogo" src="images/hackathonlogo.png">
-            <div class="tutorialContent">
-                <div class="tutorialTitle">How to Use
-                    <br>California National Park Finder
-                </div>
-                <div class="tutorialBody">Click a map marker of your choice!
-                    <br>Then you will be able to access news, images, and weather information of your chosen park.
-                </div>
-            </div>
-            <button class="btn btn-info tutorialButton">Go Back</button>
-        </div>
-    </div>
-
-    <div class="toggleTutorialContainer">
-        <button class="btn btn-info toggleTutorialButton">Hide Tutorial</button>
-    </div> -->
-
     <div class="buttonsContainer">
         <button class="btn btn-light btn-lg tutorialButton" data-toggle="collapse" data-target="#tutorialCollapse">
             <i class='fas fa-question'></i></button>
@@ -94,36 +76,6 @@
                 <a class="carousel-control right" href="#myCarousel" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="weatherModal">
-        <div class="modal-weather-content">
-            <button class="close_wModal">&times;</button>
-            <div id="weather_data">
-                <h3 style="margin-block-start:0">Today's Weather</h3>
-                <div id="place"></div>
-                <BR>
-                <div id="description"></div>
-                <BR>
-                <div id="curr_temp"></div>
-                <div id="min_temp"></div>
-                <div id="max_temp"></div>
-                <h3>Humidity:</h3>
-                <div id="humidity"></div>
-                <h3>Wind Speed:</h3>
-                <div id="wind_speed"></div>
-                <h3>Sunrise:</h3>
-                <div id="sunrise"></div>
-                <h3>Sunset:</h3>
-                <div id="sunset"></div>
-            </div>
-            <div class='audio-control'>
-                <audio controls loop>
-                    <source src="sound/Birds-chirping-and-water-flowing.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
             </div>
         </div>
     </div>
