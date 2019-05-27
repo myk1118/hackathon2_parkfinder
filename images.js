@@ -61,12 +61,13 @@ class ParkImages {
                 }
             }
 
-            var closeButton = $('<button id="modalClose">&times;</button>').on('click', function () {
+            var closeButton = $('<button id="modalClose"><i class="fas fa-times"></i></button>').on('click', function () {
                 $('#modalClose').remove();
                 $('.carousel-indicators').empty();
                 $('.carousel-inner').empty();
                 $('#carouselModalContainer').hide();
             });
+
             $('#carouselModal').append(closeButton);
 
             $('.item').first().addClass('active');

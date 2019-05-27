@@ -1,16 +1,16 @@
 @font-face {
     font-family: gothamBook;
-    src: url(fonts/Gotham-Book.otf);
+    src: url(../font/Gotham-Book.otf);
 }
 
 @font-face {
     font-family: gothamMedium;
-    src: url(fonts/Gotham-Medium.otf);
+    src: url(../font/Gotham-Medium.otf);
 }
 
 @font-face {
     font-family: gothamBold;
-    src: url(fonts/Gotham-Bold.otf);
+    src: url(../font/Gotham-Bold.otf);
 }
 
 body {
@@ -194,9 +194,9 @@ body {
 .carousel-inner {
     height: 100%;
     text-align: center;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    background-color: transparent;
+    background-color: transparent; */
 }
 
 .carousel-inner>.active {
@@ -228,10 +228,24 @@ body {
     background-color: black;
 }
 
+.fa-times {
+    color: black;
+}
+
 .date,
-.condition,
+.iconAndTemp,
+.condition {
+    height: 12%;
+}
+
+.date,
 .iconAndTemp {
-    height: 15%;
+    font-family: gothamMedium, Arial, Helvetica, sans-serif;
+    font-size: 2em;
+}
+
+.date {
+    margin-top: 30px;
 }
 
 .leftContainer,
@@ -239,6 +253,7 @@ body {
     width: 50%;
     display: inline-block;
     position: absolute;
+    margin-top: 20px;
 }
 
 .leftContainer {
