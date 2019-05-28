@@ -8,9 +8,10 @@
 //==============================================================================
 
 class WeatherHandler {
-    constructor(lat, lng) {
+    constructor(lat, lng, resetModal) {
         this.lat = lat;
         this.lng = lng;
+        this.resetModal = resetModal;
         this.w_data = {};
         this.apiUrl = 'https://api.darksky.net/forecast/eb1017e0f2a52f8a5709fd37bf8452af/';
         this.baseUrl = 'https://cors-anywhere.herokuapp.com/' + this.apiUrl;
@@ -93,11 +94,8 @@ function displayWeatherData(w_data) {
         interval: false
     });
 
-    var closeButton = $('<button id="modalClose"><i class="fas fa-times"></i></button>').on('click', function () {
-        $('#modalClose').remove();
-        $('.carousel-indicators').empty();
-        $('.carousel-inner').empty();
-        $('#carouselModalContainer').hide();
+    var closeButton = $('<button id="modalClose"><i class="fas fa-times"></i></button>').on('click', () => {
+        this.resetModal();
     });
 
     $('#carouselModal').append(closeButton);

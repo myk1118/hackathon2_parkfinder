@@ -1,6 +1,7 @@
 class News {
-    constructor(keyword) {
+    constructor(keyword, resetModal) {
         this.keyword = keyword;
+        this.resetModal = resetModal;
         this.news = [];
         this.getDataFromServer = this.getDataFromServer.bind(this);
         this.handleSuccess = this.handleSuccess.bind(this);
@@ -32,13 +33,10 @@ class News {
                 var currentArticle = response.articles[i];
                 var currentArticleStorage = {};
                 currentArticleStorage.source = currentArticle.source.name;
-                // currentArticleStorage.author = currentArticle.author;
                 currentArticleStorage.title = currentArticle.title;
-                // currentArticleStorage.description = currentArticle.description;
                 currentArticleStorage.url = currentArticle.url;
                 currentArticleStorage.urlToImage = currentArticle.urlToImage;
                 currentArticleStorage.publishedAt = currentArticle.publishedAt;
-                // currentArticleStorage.content = currentArticle.content;
                 this.news.push(currentArticleStorage);
             }
         } else { //status 'error'
@@ -94,11 +92,8 @@ class News {
             $('.carousel-indicators').append(indicator);
         }
 
-        var closeButton = $('<button id="modalClose"><i class="fas fa-times"></i></button>').on('click', function () {
-            $('#modalClose').remove();
-            $('.carousel-indicators').empty();
-            $('.carousel-inner').empty();
-            $('#carouselModalContainer').hide();
+        var closeButton = $('<button id="modalClose"><i class="fas fa-times"></i></button>').on('click', () => {
+            this.resetModal();
         });
 
         $('#carouselModal').append(closeButton);
@@ -110,26 +105,5 @@ class News {
         $('#myCarousel').carousel({
             interval: false
         });
-
-        // $(".newsContainer").empty();
-        // var newsContainer = $("<div>").attr("id", "newsModalContent");
-        // for (var i = 0; i < this.news.length; i++) {
-        //     var picture = $("<img>",
-        //         {
-        //             src: this.news[i].urlToImage,
-        //             width: '100%'
-        //         });
-        //     var source = $("<div>").addClass("source").text(this.news[i].source);
-        //     var link = $("<a>").attr("href", this.news[i].url).text(this.news[i].title);
-        //     link.attr("target", "_blank");
-        //     var title = $("<div>").addClass("title").append(link);
-        //     var dateWithoutTime = this.news[i].publishedAt.slice(0, 10);
-        //     var date = $("<div>").addClass("date").text(dateWithoutTime);
-        //     var articleContainer = $("<div>").addClass("articleContainer").append(picture, source, title, date);
-        //     newsContainer.append(articleContainer);
-        //     // $('body').append(newsContainer);
-        // }
-        // var newsModal = new Modal(newsContainer);
-        // newsModal.createModal();
     }
 }

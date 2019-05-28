@@ -1,9 +1,10 @@
 /**Object constructor for imgur AJAX call*/
 class ParkImages {
 
-    constructor(tagName) {
+    constructor(tagName, resetModal) {
         /**this.park is the current national park, needed for the AJAX call*/
         this.park = tagName;
+        this.resetModal = resetModal;
     }
 
     /**retrieveImages initiates the AJAX call and appends the images/indicators to the carousel*/
@@ -22,8 +23,8 @@ class ParkImages {
             }
         }
 
-        /**When the AJAX call finishes, up to 3 images are added*/
-        $.ajax(settings).done(function (response) {
+        /**When the AJAX call finishes, images are added to the carousel*/
+        $.ajax(settings).done( response => {
             var potentialImages = response.data.items;
             var displayedImages = [];
             var indicatorNum = 0;
@@ -61,11 +62,8 @@ class ParkImages {
                 }
             }
 
-            var closeButton = $('<button id="modalClose"><i class="fas fa-times"></i></button>').on('click', function () {
-                $('#modalClose').remove();
-                $('.carousel-indicators').empty();
-                $('.carousel-inner').empty();
-                $('#carouselModalContainer').hide();
+            var closeButton = $('<button id="modalClose"><i class="fas fa-times"></i></button>').on('click', () => {
+                this.resetModal();
             });
 
             $('#carouselModal').append(closeButton);
