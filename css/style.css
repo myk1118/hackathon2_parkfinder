@@ -19,6 +19,18 @@ body {
     font-family: gothamBook, Arial, Helvetica, sans-serif
 }
 
+#loading {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    z-index: 5;
+    background-image: url("../images/loading.gif");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
 /* Landing Page Elements */
 
 .landingPage {
@@ -176,7 +188,8 @@ body {
     display: none;
 }
 
-#carouselModal {
+#carouselModal,
+#loading {
     height: 80%;
     width: 80%;
     max-width: 800px;

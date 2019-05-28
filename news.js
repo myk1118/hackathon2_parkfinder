@@ -25,10 +25,12 @@ class News {
             error: this.handleError
         };
         $.ajax(getServerData);
+        $('#loading').css('display', 'block');
     }
 
     handleSuccess(response) { //status either 'ok' or 'error'
         if (response.status === 'ok') { //status 'ok'
+            $('#loading').css('display', 'none');
             for (var i = 0; i < response.articles.length; i++) {
                 var currentArticle = response.articles[i];
                 var currentArticleStorage = {};
