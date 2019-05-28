@@ -108,9 +108,6 @@ class ParkMap {
             center: parksList.mountains["yosemite"].coordinates,
             //zoom needs to be dependent on screen size, 5.3 is good for mobile
             zoom: 5.3,
-            minZoom: 5.3,
-            maxZoom: 5.3,
-            zoomControl: false,
             mapTypeControl: false,
             streetViewControl: false,
             fullscreenControl: false
