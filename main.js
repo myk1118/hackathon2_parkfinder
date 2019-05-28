@@ -12,9 +12,6 @@ function initializeApp() {
     $("#map_container").hide();
     $(".buttonsContainer").hide();
     $(".goBackButton").click(handleGoBack);
-    // $(".tutorial").hide();
-    // $(".toggleTutorialButton").hide();
-    // $(".toggleTutorialButton").click(handleToggleTutorial);
 }
 
 /**function called in the event of the submit button being clicked */
@@ -25,8 +22,6 @@ function handleSubmit() {
     $(".landingPage").hide();
     $("#map_container").show();
     $(".buttonsContainer").show();
-    // $(".tutorial").show();
-    // $(".toggleTutorialButton").show();
 
     /**instantiate a new map object, add it to the dom, then create the markers */
     var mapObj = new ParkMap(userPreference);
@@ -37,61 +32,45 @@ function handleGoBack() {
     $(".landingPage").show();
     $("#map_container").hide();
     $(".buttonsContainer").hide();
-    // $(".tutorial").hide();
-    // $(".toggleTutorialButton").hide();
+    resetModal();
 }
 
-// function handleToggleTutorial() {
-//     if (tutorialOpen) {
-//         $("#map_container").css({ "width": "100%" });
-//         $(".tutorial").css({ "width": "0" });
-//         $(".toggleTutorialButton").text("Tutorial");
-//     } else {
-//         $("#map_container").css({ "width": "70%" });
-//         $(".tutorial").css({ "width": "30%" });
-//         $(".toggleTutorialButton").text("Hide Tutorial");
-//     }
-//     tutorialOpen = !tutorialOpen;
-// }
-
-/**function called in the event of one of our 'images', 'weather', or 'news' divs being clicked */
+/**function called in the event of one of our 'images', 'weather', or 'news' buttons being clicked */
 function handleInfoClicks() {
     var classes = this.className.split(' '); /**split the class string up by spaces, effectively retrieving its individual classes */
     var parkName = classes[0];
-    // if (classes[1] === 'images') {
-    //     var parkName = classes[0];
-    //     var imageGallery = new ParkImages(parksList[parkName].imgurTag)
-    //     imageGallery.retrieveImages();
-    // }
 
-    /**switch statement checking which park was clicked based on the second class of the clicked div */
+    /**switch statement checking which button was clicked based on the second class of the clicked div */
     switch (classes[1]) {
         case 'images':
-            /**create an image modal in the event the user clicked the 'recent imgur posts' div */
-            var imageGallery = new ParkImages(parksList[userPreference][parkName].imgurTag);
+            /**create image modal in the event the user clicked the 'images' button */
+            var imageGallery = new ParkImages(parksList[userPreference][parkName].imgurTag, resetModal);
             imageGallery.retrieveImages();
             break;
         case 'weather':
-            //modal.style.display = "block";
-            // $(".modal").show();
+            /**create weather modal in the event the user clicked the 'weather' button */
             var lat = parksList[userPreference][parkName].coordinates.lat;
             var lng = parksList[userPreference][parkName].coordinates.lng;
-            var weatherAPI = new WeatherHandler(lat, lng);
+            var weatherAPI = new WeatherHandler(lat, lng, resetModal);
             weatherAPI.getWeatherData();
-            // When the user clicks anywhere outside of the modal, close it
-            // window.onclick = function (event) {
-            //     if ($(event.target).hasClass('modal')) {
-            //         //modal.style.display = "none";
-            //         $(".modal").hide();
-            //     } else if ($(event.target).hasClass('close_wModal')) {
-            //         $(".modal").hide();
-            //     }
-            // };
             break;
         case 'news':
-            /**create news modal in the event the user clicked the 'local news' div */
-            var newsAPI = new News(parksList[userPreference][parkName].displayName);
+            /**create news modal in the event the user clicked the 'news' button */
+            var newsAPI = new News(parksList[userPreference][parkName].displayName, resetModal);
             newsAPI.getDataFromServer();
             break;
     }
+
+    window.onclick = function(event) {
+        if ($(event.target).attr('id') === 'carouselModalContainer') {
+            resetModal();
+        }
+    }
+}
+
+function resetModal() {
+    $('#modalClose').remove();
+    $('.carousel-indicators').empty();
+    $('.carousel-inner').empty();
+    $('#carouselModalContainer').hide();
 }

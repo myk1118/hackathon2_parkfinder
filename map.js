@@ -106,10 +106,14 @@ class ParkMap {
         /**create new google map, add it to the dom element with id map_container */
         this.map = new google.maps.Map(document.getElementById("map_container"), {
             center: parksList.mountains["yosemite"].coordinates,
-            zoom: 5.8,
-            mapTypeControl: false
-            // minZoom: 5.8, 
-            // maxZoom: 5.8
+            //zoom needs to be dependent on screen size, 5.3 is good for mobile
+            zoom: 5.3,
+            minZoom: 5.3,
+            maxZoom: 5.3,
+            zoomControl: false,
+            mapTypeControl: false,
+            streetViewControl: false,
+            fullscreenControl: false
         });
 
         /**declare variables to later be assigned the map markers at various parks */
@@ -138,7 +142,7 @@ class ParkMap {
                 this.displayInfoBox(parkName)
             })
         }
-        this.centerMap();
+        // this.centerMap();
     }
 
     displayInfoBox(park) {
