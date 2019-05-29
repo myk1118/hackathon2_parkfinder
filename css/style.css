@@ -334,3 +334,25 @@ body {
     font-size: 1.5rem;
     font-family: gothamMedium, Arial, Helvetica, sans-serif;
 }
+
+.noArticles {
+    font-size: 30px;
+    width: 80%;
+    left: 10%;
+    margin-bottom: 50px;
+}
+
+.noArticlesButton {
+    margin: auto;
+}
+
+.noArticlesButton:hover {
+    cursor: pointer;
+}
+
+.noArticles,
+.noArticlesButton {
+    font-family: gothamMedium, Arial, Helvetica, sans-serif;
+    position: relative;
+    top: 20%;
+}

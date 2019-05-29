@@ -53,45 +53,64 @@ class News {
     }
 
     displayNews() {
-        for (var newsIndex = 0; newsIndex < this.news.length; newsIndex++) {
-            var newsImageContainer = $('<div>', {
-                class: 'newsImageContainer',
-                css: {
-                    'background-image': 'url(' + this.news[newsIndex].urlToImage,
-                    'background-size': 'cover',
-                    'background-repeat': 'no-repeat',
-                    'background-position': 'center center'
+        if (this.news.length === 0) {
+            var noArticles = $('<p>')
+                .addClass('noArticles')
+                .text("It looks like there aren't any articles available for this park."
+            );
+            var noArticlesButton = $('<div>')
+                .addClass('noArticlesButton')
+                .text('Back')
+                .on('click', () => {
+                    this.resetModal();
                 }
-            });
+            );
 
-            var newsTitle = $('<a>', {
-                href: this.news[newsIndex].url,
-                text: this.news[newsIndex].title,
-                target: '_blank',
-                class: 'newsTitle'
-            })
+            $('.carousel-inner').append(noArticles, noArticlesButton);
+        } else {
+            for (var newsIndex = 0; newsIndex < this.news.length; newsIndex++) {
+                var newsImageContainer = $('<div>', {
+                    class: 'newsImageContainer',
+                    css: {
+                        'background-image': 'url(' + this.news[newsIndex].urlToImage,
+                        'background-size': 'cover',
+                        'background-repeat': 'no-repeat',
+                        'background-position': 'center center'
+                    }
+                });
+    
+                var newsTitle = $('<a>', {
+                    href: this.news[newsIndex].url,
+                    text: this.news[newsIndex].title,
+                    target: '_blank',
+                    class: 'newsTitle'
+                })
+    
+                var dateWithoutTime = this.news[newsIndex].publishedAt.slice(0, 10);
+                var newsDate = $('<p>', {
+                    text: dateWithoutTime,
+                    class: 'newsDate'
+                })
+    
+                var newsSource = $('<p>', {
+                    text: this.news[newsIndex].source,
+                    class: 'newsSource'
+                })
+    
+                var captionContainer = $("<div>").addClass("captionContainer").append(newsTitle, newsDate, newsSource);
+                var newsContainer = $("<div>").addClass("item").append(newsImageContainer, captionContainer);
+    
+                var indicator = $('<li>', {
+                    'data-target': '#myCarousel',
+                    'data-slide-to': newsIndex
+                });
+    
+                $('.carousel-inner').append(newsContainer);
+                $('.carousel-indicators').append(indicator);
 
-            var dateWithoutTime = this.news[newsIndex].publishedAt.slice(0, 10);
-            var newsDate = $('<p>', {
-                text: dateWithoutTime,
-                class: 'newsDate'
-            })
-
-            var newsSource = $('<p>', {
-                text: this.news[newsIndex].source,
-                class: 'newsSource'
-            })
-
-            var captionContainer = $("<div>").addClass("captionContainer").append(newsTitle, newsDate, newsSource);
-            var newsContainer = $("<div>").addClass("item").append(newsImageContainer, captionContainer);
-
-            var indicator = $('<li>', {
-                'data-target': '#myCarousel',
-                'data-slide-to': newsIndex
-            });
-
-            $('.carousel-inner').append(newsContainer);
-            $('.carousel-indicators').append(indicator);
+                $('.item').first().addClass('active');
+                $('.carousel-indicators > li').first().addClass('active');
+            }
         }
 
         var closeButton = $('<button id="modalClose"><i class="fas fa-times"></i></button>').on('click', () => {
@@ -99,9 +118,6 @@ class News {
         });
 
         $('#carouselModal').append(closeButton);
-
-        $('.item').first().addClass('active');
-        $('.carousel-indicators > li').first().addClass('active');
 
         $('#carouselModalContainer').show();
         $('#myCarousel').carousel({
