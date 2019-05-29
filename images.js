@@ -5,9 +5,10 @@ class ParkImages {
         /**this.park is the current national park, needed for the AJAX call*/
         this.park = tagName;
         this.resetModal = resetModal;
+        this.handleSuccess = this.handleSuccess.bind(this);
     }
 
-    /**retrieveImages initiates the AJAX call and appends the images/indicators to the carousel*/
+    /**Initiates the AJAX call and retrieves the images/indicators to the carousel*/
     retrieveImages() {
         var settings = {
             "async": true,
@@ -20,83 +21,70 @@ class ParkImages {
                 'client_id': '96d895f68c7df46',
                 'client_secret': '7797522e4aef6c58c534220df74b589a90794cac',
                 'grant_type': 'refresh_token',
+            },
+            "success": this.handleSuccess,
+            "error": this.handleError
+        }
+        $.ajax(settings);
+        $('#loading').css('display', 'block');
+    }
+
+    /**Appends the images/indicators to the carousel*/
+    handleSuccess(response) {
+        $('#loading').css('display', 'none');
+        var potentialImages = response.data.items;
+        var displayedImages = [];
+        var indicatorNum = 0;
+        for (var imageIndex = 0; displayedImages.length < 5; imageIndex++) {
+            if (!potentialImages[imageIndex]) {
+                break;
+            } else {
+                var currentImage = potentialImages[imageIndex];
+
+                if (potentialImages[imageIndex].images) {
+                    currentImage = potentialImages[imageIndex].images[0];
+                }
+
+                if (currentImage.type === 'image/jpeg') {
+                    var imageContainer = $('<div>', {
+                        class: 'item',
+                        css: {
+                            'background-image': 'url(' + currentImage.link + ')',
+                            'background-size': 'cover',
+                            'background-repeat': 'no-repeat',
+                            'background-position': 'center'
+                        }
+                    });
+
+                    var indicator = $('<li>', {
+                        'data-target': '#myCarousel',
+                        'data-slide-to': indicatorNum,
+                    });
+
+                    $('.carousel-inner').append(imageContainer);
+                    $('.carousel-indicators').append(indicator);
+                    indicatorNum++;
+                    displayedImages.push(currentImage.link);
+                }
             }
         }
 
-        /**When the AJAX call finishes, images are added to the carousel*/
-        $.ajax(settings).done( response => {
-            var potentialImages = response.data.items;
-            var displayedImages = [];
-            var indicatorNum = 0;
-            for (var imageIndex = 0; displayedImages.length < 5; imageIndex++) {
-                if (!potentialImages[imageIndex]) {
-                    break;
-                } else {
-                    var currentImage = potentialImages[imageIndex];
-
-                    if (potentialImages[imageIndex].images) {
-                        currentImage = potentialImages[imageIndex].images[0];
-                    }
-
-                    if (currentImage.type === 'image/jpeg') {
-                        var imageContainer = $('<div>', {
-                            class: 'item',
-                            css: {
-                                'background-image': 'url(' + currentImage.link + ')',
-                                'background-size': 'cover',
-                                'background-repeat': 'no-repeat',
-                                'background-position': 'center'
-                            }
-                        });
-
-                        var indicator = $('<li>', {
-                            'data-target': '#myCarousel',
-                            'data-slide-to': indicatorNum,
-                        });
-
-                        $('.carousel-inner').append(imageContainer);
-                        $('.carousel-indicators').append(indicator);
-                        indicatorNum++;
-                        displayedImages.push(currentImage.link);
-                    }
-                }
-            }
-
-            var closeButton = $('<button id="modalClose"><i class="fas fa-times"></i></button>').on('click', () => {
-                this.resetModal();
-            });
-
-            $('#carouselModal').append(closeButton);
-
-            $('.item').first().addClass('active');
-            $('.carousel-indicators > li').first().addClass('active');
-
-            $('#carouselModalContainer').show();
-            $('#myCarousel').carousel({
-                interval: false
-            });
+        var closeButton = $('<button id="modalClose"><i class="fas fa-times"></i></button>').on('click', () => {
+            this.resetModal();
         });
 
-        /**urlForMore links to the search results on imgur (where the images were pulled from)*/
-        // var urlForMore = `https://imgur.com/t/${this.park}`;
+        $('#carouselModal').append(closeButton);
 
-        // /**moreButton allows users to see more images from the park on imgur's website*/
-        // var moreButton = $('<button>', {
-        //     id: 'moreButton',
-        //     text: 'Click Here for More!',
-        //     on: {
-        //         'click': function () {
-        //             window.open(urlForMore);
-        //         }
-        //     }
-        // })
+        $('.item').first().addClass('active');
+        $('.carousel-indicators > li').first().addClass('active');
 
-        /**moreButton is appended to imageModalContent, and a new Modal object is instantiated*/
-        // imageModalContent.append(moreButton);
-        // var imageModal = new Modal(imageModalContent);
-        // imageModal.createModal(this.park);
+        $('#carouselModalContainer').show();
+        $('#myCarousel').carousel({
+            interval: false
+        });
+    }
 
-        // var imageModal = new Modal(carousel);
-        // imageModal.createModal(this.park);
+    handleError() {
+        console.log("Server Request Failure");
     }
 }

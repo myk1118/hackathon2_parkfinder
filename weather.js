@@ -26,11 +26,13 @@ class WeatherHandler {
             url: this.baseUrl + this.lat + ',' + this.lng,
             success: this.processWeatherData,
             error: this.handleError
-        })
+        });
+        $('#loading').css('display', 'block');
     }
 
     //retrieve the data returned from the API call
     processWeatherData(data) {
+        $('#loading').css('display', 'none');
         this.w_data = data;
         displayWeatherData(this.w_data);
     }
