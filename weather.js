@@ -69,28 +69,40 @@ function displayWeatherData(w_data) {
     sunset = sunset.toLocaleTimeString('en-US');
 
     var date = $('<div>').addClass('date').text(fullDate.toDateString());
-    var iconAndTemp = $(`<div class="iconAndTemp">${(w_data.currently.temperature).toFixed(0) + '° '}<i class="wi wi-${icon}">`);
+
+    // var iconAndTemp = $(`<div class="iconAndTemp">${(w_data.currently.temperature).toFixed(0) + '°F'}<i class="wi wi-${icon}">`);
+
+    var weatherIcon = $(`<i class="wi wi-${icon}">`);
+    var currentTemp = $('<div>').addClass('currentTemp').text((w_data.currently.temperature).toFixed(0) + '°F');
     var condition = $('<div>').addClass('condition').text(w_data.daily.data[0].summary);
 
+    var currentTempAndCondition = $('<div>').addClass('currentTempAndCondition').append(currentTemp, condition);
+
+    var weatherMiddle = $('<div>').addClass('weatherMiddle jumbotron').append(weatherIcon, currentTempAndCondition);
+
     var leftWeather = $('<div>').addClass('leftContainer');
-    var lowHeader = $('<p>').addClass('header').text('Low');
-    var lowTemp = $('<p>').text((w_data.daily.data[0].apparentTemperatureMin).toFixed(0) + '°');
-    var humidityHeader = $('<p>').addClass('header').text('Humidity');
-    var humidity = $('<p>').text((w_data.currently.humidity * 100).toFixed(0) + '%');
-    var sunriseHeader = $('<p>').addClass('header').text('Sunrise');
-    var sunriseTime = $('<p>').text(sunrise);
+    var lowHeader = $('<div>').addClass('header').text('Low');
+    var lowTemp = $('<div>').addClass('weatherData').text((w_data.daily.data[0].apparentTemperatureMin).toFixed(0) + '°F');
+    var humidityHeader = $('<div>').addClass('header').text('Humidity');
+    var humidity = $('<div>').addClass('weatherData').text((w_data.currently.humidity * 100).toFixed(0) + '%');
+    var sunriseHeader = $('<div>').addClass('header').text('Sunrise');
+    var sunriseTime = $('<div>').addClass('weatherData').text(sunrise);
     leftWeather.append(lowHeader, lowTemp, humidityHeader, humidity, sunriseHeader, sunriseTime);
 
     var rightWeather = $('<div>').addClass('rightContainer');
-    var highHeader = $('<p>').addClass('header').text('High');
-    var highTemp = $('<p>').text((w_data.daily.data[0].apparentTemperatureMax).toFixed(0) + '°');
-    var windSpeedHeader = $('<p>').addClass('header').text('Wind Speed');
-    var windSpeed = $('<p>').text((w_data.currently.windSpeed).toFixed(0) + ' mph');
-    var sunsetHeader = $('<p>').addClass('header').text('Sunset');
-    var sunsetTime = $('<p>').text(sunset);
+    var highHeader = $('<div>').addClass('header').text('High');
+    var highTemp = $('<div>').addClass('weatherData').text((w_data.daily.data[0].apparentTemperatureMax).toFixed(0) + '°F');
+    var windSpeedHeader = $('<div>').addClass('header').text('Wind Speed');
+    var windSpeed = $('<div>').addClass('weatherData').text((w_data.currently.windSpeed).toFixed(0) + ' mph');
+    var sunsetHeader = $('<div>').addClass('header').text('Sunset');
+    var sunsetTime = $('<div>').addClass('weatherData').text(sunset);
     rightWeather.append(highHeader, highTemp, windSpeedHeader, windSpeed, sunsetHeader, sunsetTime);
 
-    $('.carousel-inner').append(date, iconAndTemp, condition, leftWeather, rightWeather);
+    var weatherBottom = $('<div>').addClass('weatherBottom').append(leftWeather, rightWeather);
+
+    var weatherContainer = $('<div>').addClass('weatherContainer').append(date, weatherMiddle, weatherBottom);
+
+    $('.carousel-inner').append(weatherContainer);
     $('#carouselModalContainer').show();
     $('#myCarousel').carousel({
         interval: false
