@@ -20,7 +20,8 @@
     margin-bottom: 8px;
 }
 
-.infoLinks {
+.infoLinks,
+.noArticlesButton {
     background-color: cadetblue;
     height: 40px;
     width: 120px;
