@@ -171,6 +171,9 @@ class ParkMap {
         });
         infoBox.addListener('domready', this.addInfoClickHandlers);
         infoBox.open(this.map);
+        google.maps.event.addListener(infoBox, 'closeclick', () => {
+            this.map.panTo(parksList.mountains.parks["yosemite"].coordinates);
+        });
     }
 
     addInfoClickHandlers() {
