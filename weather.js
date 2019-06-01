@@ -35,7 +35,8 @@ class WeatherHandler {
     processWeatherData(data) {
         $('#loading').css('display', 'none');
         this.w_data = data;
-        displayWeatherData(this.w_data);
+        displayCurrentWeatherData(this.w_data);
+        displayForecast(this.w_data);
     }
     //in case of error, display an error message
     handleError() {
@@ -44,8 +45,15 @@ class WeatherHandler {
 }
 
 //prepare the data retrieved from API call to display on screen
-function displayWeatherData(w_data) {
+function displayCurrentWeatherData(w_data) {
     var fullDate = new Date();
+    var date = $('<div>').addClass('date').text(fullDate.toDateString());
+
+    var sunrise = new Date(parseInt(w_data.daily.data[0].sunriseTime * 1000));
+    var sunset = new Date(parseInt(w_data.daily.data[0].sunsetTime * 1000));
+    sunrise = sunrise.toLocaleTimeString('en-US');
+    sunset = sunset.toLocaleTimeString('en-US');
+
     var icon = w_data.currently.icon;
     switch (icon) {
         case 'clear-day':
@@ -64,14 +72,6 @@ function displayWeatherData(w_data) {
             icon = 'night-alt-cloudy';
             break;
     }
-    var sunrise = new Date(parseInt(w_data.daily.data[0].sunriseTime * 1000));
-    var sunset = new Date(parseInt(w_data.daily.data[0].sunsetTime * 1000));
-    sunrise = sunrise.toLocaleTimeString('en-US');
-    sunset = sunset.toLocaleTimeString('en-US');
-
-    var date = $('<div>').addClass('date').text(fullDate.toDateString());
-
-    // var iconAndTemp = $(`<div class="iconAndTemp">${(w_data.currently.temperature).toFixed(0) + '°F'}<i class="wi wi-${icon}">`);
 
     var weatherIcon = $(`<i class="wi wi-${icon}">`);
     var currentTemp = $('<div>').addClass('currentTemp').text((w_data.currently.temperature).toFixed(0) + '°F');
@@ -101,17 +101,92 @@ function displayWeatherData(w_data) {
 
     var weatherBottom = $('<div>').addClass('weatherBottom').append(leftWeather, rightWeather);
 
-    var weatherContainer = $('<div>').addClass('weatherContainer').append(date, weatherMiddle, weatherBottom);
+    var weatherContainer = $('<div>').addClass('weatherContainer item active').append(date, weatherMiddle, weatherBottom);
+
+    var indicator = $('<li>', {
+        'data-target': '#carousel-outer',
+        'data-slide-to': 0,
+        class: 'active'
+    });
 
     $('.carousel-inner').append(weatherContainer);
-    $('#carouselModalContainer').show();
-    $('#carousel-outer').carousel({
-        interval: false
-    });
+    $('.carousel-indicators').append(indicator);
 
     var closeButton = $('<button id="modalClose"><i class="fas fa-times"></i></button>').on('click', () => {
         this.resetModal();
     });
 
     $('#carouselModal').append(closeButton);
+}
+
+function displayForecast(w_data) {
+    var dailyData = w_data.daily.data;
+    for (var dateIndex = 1; dateIndex < dailyData.length; dateIndex++) {
+        var fullDate = new Date(dailyData[dateIndex].time * 1000);
+        var date = $('<div>').addClass('date').text(fullDate.toDateString());
+
+        var sunrise = new Date(parseInt(dailyData[dateIndex].sunriseTime * 1000));
+        var sunset = new Date(parseInt(dailyData[dateIndex].sunsetTime * 1000));
+        sunrise = sunrise.toLocaleTimeString('en-US');
+        sunset = sunset.toLocaleTimeString('en-US');
+
+        var icon = dailyData[dateIndex].icon;
+        switch (icon) {
+            case 'clear-day':
+                icon = 'day-sunny';
+                break;
+            case 'clear-night':
+                icon = 'night-clear';
+                break;
+            case 'wind':
+                icon = 'strong-wind';
+                break;
+            case 'partly-cloudy-day':
+                icon = 'day-cloudy';
+                break;
+            case 'partly-cloudy-night':
+                icon = 'night-alt-cloudy';
+                break;
+        }
+        
+        var weatherIcon = $(`<i class="wi wi-${icon}">`);
+        var condition = $('<div>').addClass('condition').text(dailyData[dateIndex].summary);
+        var currentTempAndCondition = $('<div>').addClass('currentTempAndCondition').append(condition);
+        var weatherMiddle = $('<div>').addClass('weatherMiddle jumbotron').append(weatherIcon, currentTempAndCondition);
+
+        var leftWeather = $('<div>').addClass('leftContainer');
+        var lowHeader = $('<div>').addClass('header').text('Low');
+        var lowTemp = $('<div>').addClass('weatherData').text((dailyData[dateIndex].apparentTemperatureMin).toFixed(0) + '°F');
+        var humidityHeader = $('<div>').addClass('header').text('Humidity');
+        var humidity = $('<div>').addClass('weatherData').text((dailyData[dateIndex].humidity * 100).toFixed(0) + '%');
+        var sunriseHeader = $('<div>').addClass('header').text('Sunrise');
+        var sunriseTime = $('<div>').addClass('weatherData').text(sunrise);
+        leftWeather.append(lowHeader, lowTemp, humidityHeader, humidity, sunriseHeader, sunriseTime);
+
+        var rightWeather = $('<div>').addClass('rightContainer');
+        var highHeader = $('<div>').addClass('header').text('High');
+        var highTemp = $('<div>').addClass('weatherData').text((dailyData[dateIndex].apparentTemperatureMax).toFixed(0) + '°F');
+        var windSpeedHeader = $('<div>').addClass('header').text('Wind Speed');
+        var windSpeed = $('<div>').addClass('weatherData').text((dailyData[dateIndex].windSpeed).toFixed(0) + ' mph');
+        var sunsetHeader = $('<div>').addClass('header').text('Sunset');
+        var sunsetTime = $('<div>').addClass('weatherData').text(sunset);
+        rightWeather.append(highHeader, highTemp, windSpeedHeader, windSpeed, sunsetHeader, sunsetTime);
+
+        var weatherBottom = $('<div>').addClass('weatherBottom').append(leftWeather, rightWeather);
+
+        var weatherContainer = $('<div>').addClass('weatherContainer item').append(date, weatherMiddle, weatherBottom);
+
+        var indicator = $('<li>', {
+            'data-target': '#carousel-outer',
+            'data-slide-to': dateIndex
+        });
+
+        $('.carousel-inner').append(weatherContainer);
+        $('.carousel-indicators').append(indicator);
+
+        $('#carouselModalContainer').show();
+        $('#carousel-outer').carousel({
+            interval: false
+        });
+    }
 }

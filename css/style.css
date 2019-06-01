@@ -206,14 +206,14 @@ body {
     color: #6e6362;
 }
 
-.weatherMiddle {
+.weatherMiddle.jumbotron {
     width: 70%;
     border-radius: 12px;
     display: flex;
     flex-flow: row;
     justify-content: center;
     align-items: center;
-    margin: 15px 0;
+    margin: 5px 0;
 }
 
 .wi {
