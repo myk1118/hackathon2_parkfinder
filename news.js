@@ -22,7 +22,8 @@ class News {
             },
             dataType: 'json',
             success: this.handleSuccess,
-            error: this.handleError
+            error: this.handleError,
+            timeout: 10000
         };
         $.ajax(getServerData);
         $('#loading').css('display', 'block');
@@ -101,7 +102,7 @@ class News {
                 var newsContainer = $("<div>").addClass("item").append(newsImageContainer, captionContainer);
     
                 var indicator = $('<li>', {
-                    'data-target': '#myCarousel',
+                    'data-target': '#carousel-outer',
                     'data-slide-to': newsIndex
                 });
     
@@ -120,7 +121,7 @@ class News {
         $('#carouselModal').append(closeButton);
 
         $('#carouselModalContainer').show();
-        $('#myCarousel').carousel({
+        $('#carousel-outer').carousel({
             interval: false
         });
     }

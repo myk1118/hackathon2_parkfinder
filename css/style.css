@@ -146,7 +146,7 @@ body {
     border-radius: 12px;
 }
 
-#myCarousel {
+#carousel-outer {
     height: 100%;
     background-color: transparent;
 }
@@ -154,9 +154,6 @@ body {
 .carousel-inner {
     height: 100%;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .carousel-inner>.active {
@@ -172,7 +169,7 @@ body {
     /* top: 35px; */
 }
 
-#myCarousel>a.carousel-control {
+#carousel-outer>a.carousel-control {
     background-image: none;
 }
 
@@ -189,7 +186,7 @@ body {
 }
 
 .fa-times {
-    color: black;
+    color: gray;
 }
 
 /* Weather */

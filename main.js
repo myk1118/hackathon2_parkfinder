@@ -69,8 +69,12 @@ function handleInfoClicks() {
 }
 
 function resetModal() {
-    $('#modalClose').remove();
+    $('#carouselModal>modalClose').remove();
     $('.carousel-indicators').empty();
     $('.carousel-inner').empty();
     $('#carouselModalContainer').hide();
+}
+
+function closeLoading() {
+    $('#loading').css('display', 'none');
 }
