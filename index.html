@@ -30,7 +30,11 @@
 </head>
 
 <body>
-    <div id="loading"></div>
+    <div id="loading">
+        <button id="modalClose" onclick="closeLoading()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
     
     <div class="landingPage">
         <img class="backgroundImage" src="images/photo-1469528209190-4a45a86d817b.jpeg">
@@ -64,15 +68,15 @@
 
     <div id="carouselModalContainer">
         <div id="carouselModal">
-            <div id="myCarousel" class="carousel slide">
+            <div id="carousel-outer" class="carousel slide">
                 <ol class="carousel-indicators">
                 </ol>
                 <div class="carousel-inner">
                 </div>
-                <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                <a class="carousel-control left" href="#carousel-outer" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
-                <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                <a class="carousel-control right" href="#carousel-outer" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
             </div>

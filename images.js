@@ -11,19 +11,20 @@ class ParkImages {
     /**Initiates the AJAX call and retrieves the images/indicators to the carousel*/
     retrieveImages() {
         var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "api/imgurproxy.php?tagName=" + this.park,
-            "method": "POST",
-            "dataType": 'JSON',
-            "data": {
+            async: true,
+            crossDomain: true,
+            url: "api/imgurproxy.php?tagName=" + this.park,
+            method: "POST",
+            dataType: 'JSON',
+            data: {
                 'refresh_token': 'refresh_token',
                 'client_id': '96d895f68c7df46',
                 'client_secret': '7797522e4aef6c58c534220df74b589a90794cac',
                 'grant_type': 'refresh_token',
             },
-            "success": this.handleSuccess,
-            "error": this.handleError
+            success: this.handleSuccess,
+            error: this.handleError,
+            timeout: 10000
         }
         $.ajax(settings);
         $('#loading').css('display', 'block');
@@ -57,7 +58,7 @@ class ParkImages {
                     });
 
                     var indicator = $('<li>', {
-                        'data-target': '#myCarousel',
+                        'data-target': '#carousel-outer',
                         'data-slide-to': indicatorNum,
                     });
 
@@ -79,7 +80,7 @@ class ParkImages {
         $('.carousel-indicators > li').first().addClass('active');
 
         $('#carouselModalContainer').show();
-        $('#myCarousel').carousel({
+        $('#carousel-outer').carousel({
             interval: false
         });
     }

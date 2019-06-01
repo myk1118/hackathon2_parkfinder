@@ -25,7 +25,8 @@ class WeatherHandler {
         $.ajax({
             url: this.baseUrl + this.lat + ',' + this.lng,
             success: this.processWeatherData,
-            error: this.handleError
+            error: this.handleError,
+            timeout: 10000
         });
         $('#loading').css('display', 'block');
     }
@@ -104,7 +105,7 @@ function displayWeatherData(w_data) {
 
     $('.carousel-inner').append(weatherContainer);
     $('#carouselModalContainer').show();
-    $('#myCarousel').carousel({
+    $('#carousel-outer').carousel({
         interval: false
     });
 
