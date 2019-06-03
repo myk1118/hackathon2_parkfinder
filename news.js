@@ -1,7 +1,8 @@
 class News {
-    constructor(keyword, resetModal) {
+    constructor(keyword, resetModal, closeLoading) {
         this.keyword = keyword;
         this.resetModal = resetModal;
+        this.closeLoading = closeLoading;
         this.news = [];
         this.getDataFromServer = this.getDataFromServer.bind(this);
         this.handleSuccess = this.handleSuccess.bind(this);
@@ -51,6 +52,8 @@ class News {
 
     handleError() {
         console.log("Server Request Failure");
+        this.closeLoading();
+        $('#errorModal').css('display', 'block');
     }
 
     displayNews() {

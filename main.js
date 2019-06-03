@@ -33,6 +33,8 @@ function handleGoBack() {
     $("#map_container").hide();
     $(".buttonsContainer").hide();
     resetModal();
+    closeLoading();
+    closeErrorModal();
 }
 
 /**function called in the event of one of our 'images', 'weather', or 'news' buttons being clicked */
@@ -44,19 +46,19 @@ function handleInfoClicks() {
     switch (classes[1]) {
         case 'images':
             /**create image modal in the event the user clicked the 'images' button */
-            var imageGallery = new ParkImages(parksList[userPreference].parks[parkName].imgurTag, resetModal);
+            var imageGallery = new ParkImages(parksList[userPreference].parks[parkName].imgurTag, resetModal, closeLoading);
             imageGallery.retrieveImages();
             break;
         case 'weather':
             /**create weather modal in the event the user clicked the 'weather' button */
             var lat = parksList[userPreference].parks[parkName].coordinates.lat;
             var lng = parksList[userPreference].parks[parkName].coordinates.lng;
-            var weatherAPI = new WeatherHandler(lat, lng, resetModal);
+            var weatherAPI = new WeatherHandler(lat, lng, resetModal, closeLoading);
             weatherAPI.getWeatherData();
             break;
         case 'news':
             /**create news modal in the event the user clicked the 'news' button */
-            var newsAPI = new News(parksList[userPreference].parks[parkName].displayName, resetModal);
+            var newsAPI = new News(parksList[userPreference].parks[parkName].displayName, resetModal, closeLoading);
             newsAPI.getDataFromServer();
             break;
     }
@@ -77,4 +79,8 @@ function resetModal() {
 
 function closeLoading() {
     $('#loading').css('display', 'none');
+}
+
+function closeErrorModal() {
+    $('#errorModal').css('display', 'none');
 }

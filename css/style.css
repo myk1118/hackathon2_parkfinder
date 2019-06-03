@@ -19,16 +19,35 @@ body {
     font-family: gothamBook, Arial, Helvetica, sans-serif
 }
 
-#loading {
+#loading,
+#errorModal {
     display: none;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: transparent;
-    z-index: 5;
-    background-image: url("../images/loading.gif");
+    z-index: 3;
     background-repeat: no-repeat;
+}
+
+#loading {
+    background-image: url("../images/loading.gif");
     background-position: center center;
+}
+
+#errorModal {
+    background-image: url("../images/error.gif");
+    background-size: contain;
+    background-position: 60% center;
+}
+
+.errorContainer {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+.errorText {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
 }
 
 /* Landing Page Elements */
@@ -75,7 +94,8 @@ body {
     margin: 35px auto;
 }
 
-#submit_button {
+#submit_button,
+.closeErrorModal {
     font-size: 2rem;
     border-radius: 8px;
 }
@@ -134,7 +154,8 @@ body {
 }
 
 #carouselModal,
-#loading {
+#loading,
+#errorModal {
     height: 80%;
     width: 80%;
     max-width: 800px;
