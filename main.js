@@ -69,7 +69,7 @@ function handleInfoClicks() {
 }
 
 function resetModal() {
-    $('#carouselModal>modalClose').remove();
+    $('#carouselModal>#modalClose').remove();
     $('.carousel-indicators').empty();
     $('.carousel-inner').empty();
     $('#carouselModalContainer').hide();
