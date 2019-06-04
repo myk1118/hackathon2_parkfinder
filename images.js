@@ -1,10 +1,12 @@
 /**Object constructor for imgur AJAX call*/
 class ParkImages {
 
-    constructor(tagName, resetModal) {
+    constructor(tagName, resetModal, closeLoading) {
         /**this.park is the current national park, needed for the AJAX call*/
         this.park = tagName;
         this.resetModal = resetModal;
+        this.closeLoading = closeLoading;
+        this.handleError = this.handleError.bind(this);
         this.handleSuccess = this.handleSuccess.bind(this);
     }
 
@@ -87,5 +89,7 @@ class ParkImages {
 
     handleError() {
         console.log("Server Request Failure");
+        this.closeLoading();
+        $('#errorModal').css('display', 'block');
     }
 }
