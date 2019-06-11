@@ -40,6 +40,9 @@ class News {
                 currentArticleStorage.title = currentArticle.title;
                 currentArticleStorage.url = currentArticle.url;
                 currentArticleStorage.urlToImage = currentArticle.urlToImage;
+                if (currentArticleStorage.urlToImage === null) {
+                    currentArticleStorage.urlToImage = 'images/noimageavailable.png';
+                }
                 currentArticleStorage.publishedAt = currentArticle.publishedAt;
                 this.news.push(currentArticleStorage);
             }
