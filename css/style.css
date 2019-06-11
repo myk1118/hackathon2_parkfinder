@@ -225,7 +225,7 @@ body {
 }
 
 .weatherMiddle.jumbotron {
-    width: 70%;
+    width: 80%;
     border-radius: 12px;
     display: flex;
     flex-flow: row;
@@ -253,7 +253,7 @@ body {
 }
 
 .condition {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .weatherBottom {
@@ -301,6 +301,7 @@ body {
 
 @media only screen and (min-width: 600px) {
     .weatherMiddle.jumbotron {
+        width: 70%;
         min-height: 150px;
     }
 
