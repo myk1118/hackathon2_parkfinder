@@ -6,8 +6,11 @@ class ParkImages {
         this.park = tagName;
         this.resetModal = resetModal;
         this.closeLoading = closeLoading;
+        this.displayedImages = [];
+        this.numberOfImagesLoaded = 0;
         this.handleError = this.handleError.bind(this);
         this.handleSuccess = this.handleSuccess.bind(this);
+        this.loadImage = this.loadImage.bind(this);
     }
 
     /**Initiates the AJAX call and retrieves the images/indicators to the carousel*/
@@ -34,11 +37,10 @@ class ParkImages {
 
     /**Appends the images/indicators to the carousel*/
     handleSuccess(response) {
-        $('#loading').css('display', 'none');
+        // $('#loading').css('display', 'none');
         var potentialImages = response.data.items;
-        var displayedImages = [];
         var indicatorNum = 0;
-        for (var imageIndex = 0; displayedImages.length < 5; imageIndex++) {
+        for (var imageIndex = 0; this.displayedImages.length < 5; imageIndex++) {
             if (!potentialImages[imageIndex]) {
                 break;
             } else {
@@ -49,15 +51,20 @@ class ParkImages {
                 }
 
                 if (currentImage.type === 'image/jpeg') {
-                    var imageContainer = $('<div>', {
+                    var imageContainer = $('<img>', {
                         class: 'item',
-                        css: {
-                            'background-image': 'url(' + currentImage.link + ')',
-                            'background-size': 'cover',
-                            'background-repeat': 'no-repeat',
-                            'background-position': 'center'
-                        }
+                        src: currentImage.link
                     });
+
+                    // var imageContainer = $('<div>', {
+                    //     class: 'item',
+                    //     css: {
+                    //         'background-image': 'url(' + currentImage.link + ')',
+                    //         'background-size': 'cover',
+                    //         'background-repeat': 'no-repeat',
+                    //         'background-position': 'center'
+                    //     }
+                    // });
 
                     var indicator = $('<li>', {
                         'data-target': '#carousel-outer',
@@ -67,7 +74,7 @@ class ParkImages {
                     $('.carousel-inner').append(imageContainer);
                     $('.carousel-indicators').append(indicator);
                     indicatorNum++;
-                    displayedImages.push(currentImage.link);
+                    this.displayedImages.push(currentImage.link);
                 }
             }
         }
@@ -81,6 +88,8 @@ class ParkImages {
         $('.item').first().addClass('active');
         $('.carousel-indicators > li').first().addClass('active');
 
+        $('.item').on('load', this.loadImage);
+
         $('#carouselModalContainer').show();
         $('#carousel-outer').carousel({
             interval: false
@@ -91,5 +100,13 @@ class ParkImages {
         console.log("Server Request Failure");
         this.closeLoading();
         $('#errorModal').css('display', 'block');
+    }
+
+    loadImage() {
+        this.numberOfImagesLoaded++;
+        if (this.numberOfImagesLoaded === this.displayedImages.length) {
+            $('#loading').css('display', 'none');
+            console.log('all images loaded');
+        }
     }
 }

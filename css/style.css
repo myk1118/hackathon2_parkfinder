@@ -384,3 +384,9 @@ body {
     position: relative;
     top: 20%;
 }
+
+/* Images */
+
+img.item {
+    object-fit: cover;
+}
