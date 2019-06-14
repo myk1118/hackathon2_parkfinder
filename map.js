@@ -122,7 +122,8 @@ class ParkMap {
             zoom: 5.3,
             mapTypeControl: false,
             streetViewControl: false,
-            fullscreenControl: false
+            fullscreenControl: false,
+            gestureHandling: 'greedy'
         });
 
         /**declare variables to later be assigned the map markers at various parks */
