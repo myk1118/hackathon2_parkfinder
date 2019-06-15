@@ -4,10 +4,12 @@ class News {
         this.resetModal = resetModal;
         this.closeLoading = closeLoading;
         this.news = [];
+        this.numberOfArticlesLoaded = 0;
         this.getDataFromServer = this.getDataFromServer.bind(this);
         this.handleSuccess = this.handleSuccess.bind(this);
         this.handleError = this.handleError.bind(this);
         this.displayNews = this.displayNews.bind(this);
+        this.loadImage = this.loadImage.bind(this);
     }
 
     getDataFromServer() {
@@ -32,7 +34,7 @@ class News {
 
     handleSuccess(response) { //status either 'ok' or 'error'
         if (response.status === 'ok') { //status 'ok'
-            $('#loading').css('display', 'none');
+            // $('#loading').css('display', 'none');
             for (var i = 0; i < response.articles.length; i++) {
                 var currentArticle = response.articles[i];
                 var currentArticleStorage = {};
@@ -121,9 +123,6 @@ class News {
     
                 $('.carousel-inner').append(newsContainer);
                 $('.carousel-indicators').append(indicator);
-
-                $('.item').first().addClass('active');
-                $('.carousel-indicators > li').first().addClass('active');
             }
         }
 
@@ -133,9 +132,21 @@ class News {
 
         $('#carouselModal').append(closeButton);
 
+        $('.item').first().addClass('active');
+        $('.carousel-indicators > li').first().addClass('active');
+
+        $('.newsImage').on('load', this.loadImage);
+
         $('#carouselModalContainer').show();
         $('#carousel-outer').carousel({
             interval: false
         });
+    }
+
+    loadImage() {
+        this.numberOfArticlesLoaded++;
+        if (this.numberOfArticlesLoaded === this.news.length) {
+            $('#loading').css('display', 'none');
+        }
     }
 }
