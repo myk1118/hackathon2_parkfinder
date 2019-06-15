@@ -104,7 +104,9 @@ function displayCurrentWeatherData(w_data) {
 
     var weatherBottom = $('<div>').addClass('weatherBottom').append(leftWeather, rightWeather);
 
-    var weatherContainer = $('<div>').addClass('weatherContainer item active').append(date, weatherMiddle, weatherBottom);
+    var weatherFlexContainer = $('<div>').addClass('weatherFlexContainer').append(date, weatherMiddle, weatherBottom);
+
+    var weatherContainer = $('<div>').addClass('weatherContainer item active').append(weatherFlexContainer);
 
     var indicator = $('<li>', {
         'data-target': '#carousel-outer',
@@ -177,7 +179,9 @@ function displayForecast(w_data) {
 
         var weatherBottom = $('<div>').addClass('weatherBottom').append(leftWeather, rightWeather);
 
-        var weatherContainer = $('<div>').addClass('weatherContainer item').append(date, weatherMiddle, weatherBottom);
+        var weatherFlexContainer = $('<div>').addClass('weatherFlexContainer').append(date, weatherMiddle, weatherBottom);
+
+        var weatherContainer = $('<div>').addClass('weatherContainer item').append(weatherFlexContainer);
 
         var indicator = $('<li>', {
             'data-target': '#carousel-outer',

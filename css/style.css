@@ -104,7 +104,7 @@ body {
 
 #map_container {
     position: absolute;
-    top: 0;
+    /* top: 0; */
     height: 100%;
     width: 100%;
 }
@@ -169,7 +169,7 @@ body {
 
 #carousel-outer {
     height: 100%;
-    background-color: transparent;
+    /* background-color: transparent; */
 }
 
 .carousel-inner {
@@ -177,14 +177,8 @@ body {
     text-align: center;
 }
 
-.carousel-inner>.active {
+.item {
     height: 90%;
-    width: 100%;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 12px 12px 0 0;
 }
 
 #carousel-outer>a.carousel-control {
@@ -209,13 +203,13 @@ body {
 
 /* Weather */
 
-.weatherContainer {
+.weatherFlexContainer {
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .date {
@@ -228,7 +222,7 @@ body {
     width: 80%;
     border-radius: 12px;
     display: flex;
-    flex-flow: row;
+    /* flex-flow: row; */
     justify-content: center;
     align-items: center;
     margin: 10px 0;
@@ -259,7 +253,7 @@ body {
 .weatherBottom {
     width: 100%;
     display: flex;
-    flex-flow: row;
+    /* flex-flow: row; */
     justify-content: center;
 }
 
@@ -293,7 +287,7 @@ body {
     position: absolute;
     top: 0px;
     right: 5px;
-    color: white;
+    /* color: white; */
     font-size: 28px;
     border-style: none;
     background-color: transparent;
@@ -332,10 +326,20 @@ body {
 
 /* News */
 
+.newsFlexContainer {
+    height: 90%;
+    /* width: 100%; */
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    /* border-radius: 12px 12px 0 0; */
+}
+
 .newsImageContainer {
     height: 50%;
     width: 100%;
-    border-radius: 12px 12px 0 0;
+    /* border-radius: 12px 12px 0 0; */
 }
 
 .newsImage {
@@ -347,7 +351,7 @@ body {
 
 .captionContainer {
     width: 80%;
-    margin: 15px 0 10% 0;
+    margin: 15px 0 0 0;
 }
 
 .newsTitle {
@@ -395,10 +399,7 @@ body {
 @media only screen and (min-width: 600px) {
     .newsImageContainer {
         height: 60%;
-    }
-
-    .captionContainer {
-        margin: 15px 0 5% 0;
+        /* Still need to play with this more, may add more media queries */
     }
 }
 
@@ -406,4 +407,6 @@ body {
 
 img.item {
     object-fit: cover;
+    width: 100%;
+    border-radius: 12px 12px 0 0;
 }
