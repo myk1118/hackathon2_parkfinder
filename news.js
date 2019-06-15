@@ -78,13 +78,20 @@ class News {
             for (var newsIndex = 0; newsIndex < this.news.length; newsIndex++) {
                 var newsImageContainer = $('<div>', {
                     class: 'newsImageContainer',
-                    css: {
-                        'background-image': 'url(' + this.news[newsIndex].urlToImage,
-                        'background-size': 'cover',
-                        'background-repeat': 'no-repeat',
-                        'background-position': 'center center'
-                    }
+                    // css: {
+                    //     'background-image': 'url(' + this.news[newsIndex].urlToImage,
+                    //     'background-size': 'cover',
+                    //     'background-repeat': 'no-repeat',
+                    //     'background-position': 'center center'
+                    // }
                 });
+
+                var newsImage = $('<img>', {
+                    class: 'newsImage',
+                    src: this.news[newsIndex].urlToImage
+                });
+
+                newsImageContainer.append(newsImage);
     
                 var newsTitle = $('<a>', {
                     href: this.news[newsIndex].url,

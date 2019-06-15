@@ -56,16 +56,6 @@ class ParkImages {
                         src: currentImage.link
                     });
 
-                    // var imageContainer = $('<div>', {
-                    //     class: 'item',
-                    //     css: {
-                    //         'background-image': 'url(' + currentImage.link + ')',
-                    //         'background-size': 'cover',
-                    //         'background-repeat': 'no-repeat',
-                    //         'background-position': 'center'
-                    //     }
-                    // });
-
                     var indicator = $('<li>', {
                         'data-target': '#carousel-outer',
                         'data-slide-to': indicatorNum,
@@ -106,7 +96,6 @@ class ParkImages {
         this.numberOfImagesLoaded++;
         if (this.numberOfImagesLoaded === this.displayedImages.length) {
             $('#loading').css('display', 'none');
-            console.log('all images loaded');
         }
     }
 }
