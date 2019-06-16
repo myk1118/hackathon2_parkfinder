@@ -35,6 +35,9 @@ function handleGoBack() {
     resetModal();
     closeLoading();
     closeErrorModal();
+    if ($('.collapse').attr('aria-expanded') === 'true') {
+        $('.collapse').collapse('hide');
+    }
 }
 
 /**function called in the event of one of our 'images', 'weather', or 'news' buttons being clicked */

@@ -128,6 +128,7 @@ class ParkMap {
 
         /**declare variables to later be assigned the map markers at various parks */
         this.markers = {};
+        this.currentInfoBox = null;
 
         /**do all necessary binding of functions */
         this.addMarkers = this.addMarkers.bind(this);
@@ -153,10 +154,16 @@ class ParkMap {
                 icon: parksList[this.preference].icon
             });
             this.markers[parkName].addListener('click', () => {
-                this.displayInfoBox(parkName)
+                if (this.currentInfoBox) {
+                    this.currentInfoBox.close();
+                    this.currentInfoBox = null;
+                }
+                if ($('.collapse').attr('aria-expanded') === 'true') {
+                    $('.collapse').collapse('hide');
+                }
+                this.displayInfoBox(parkName);
             })
         }
-        // this.centerMap();
     }
 
     displayInfoBox(park) {
@@ -175,6 +182,7 @@ class ParkMap {
         google.maps.event.addListener(infoBox, 'closeclick', () => {
             this.map.panTo(parksList.mountains.parks["yosemite"].coordinates);
         });
+        this.currentInfoBox = infoBox;
     }
 
     addInfoClickHandlers() {
