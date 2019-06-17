@@ -153,7 +153,7 @@ function displayForecast(w_data) {
                 icon = 'night-alt-cloudy';
                 break;
         }
-        
+
         var weatherIcon = $(`<i class="wi wi-${icon}">`);
         var condition = $('<div>').addClass('condition').text(dailyData[dateIndex].summary);
         var currentTempAndCondition = $('<div>').addClass('currentTempAndCondition').append(condition);
