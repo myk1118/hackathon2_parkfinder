@@ -43,7 +43,7 @@ class News {
                 currentArticleStorage.url = currentArticle.url;
                 currentArticleStorage.urlToImage = currentArticle.urlToImage;
                 if (currentArticleStorage.urlToImage === null) {
-                    currentArticleStorage.urlToImage = 'images/noimageavailable.png';
+                    currentArticleStorage.urlToImage = 'images/imageNotFound.png';
                 }
                 currentArticleStorage.publishedAt = currentArticle.publishedAt;
                 this.news.push(currentArticleStorage);
@@ -66,14 +66,14 @@ class News {
             var noArticles = $('<p>')
                 .addClass('noArticles')
                 .text("It looks like there aren't any articles available for this park."
-            );
+                );
             var noArticlesButton = $('<div>')
                 .addClass('noArticlesButton')
                 .text('Back')
                 .on('click', () => {
                     this.resetModal();
                 }
-            );
+                );
 
             $('.carousel-inner').append(noArticles, noArticlesButton);
         } else {
@@ -94,34 +94,34 @@ class News {
                 });
 
                 newsImageContainer.append(newsImage);
-    
+
                 var newsTitle = $('<a>', {
                     href: this.news[newsIndex].url,
                     text: this.news[newsIndex].title,
                     target: '_blank',
                     class: 'newsTitle'
                 })
-    
+
                 var dateWithoutTime = this.news[newsIndex].publishedAt.slice(0, 10);
                 var newsDate = $('<p>', {
                     text: dateWithoutTime,
                     class: 'newsDate'
                 })
-    
+
                 var newsSource = $('<p>', {
                     text: this.news[newsIndex].source,
                     class: 'newsSource'
                 })
-    
+
                 var captionContainer = $("<div>").addClass("captionContainer").append(newsTitle, newsDate, newsSource);
                 var newsContainer = $("<div>").addClass("newsFlexContainer").append(newsImageContainer, captionContainer);
                 var testContainer = $("<div>").addClass("testContainer item").append(newsContainer);
-    
+
                 var indicator = $('<li>', {
                     'data-target': '#carousel-outer',
                     'data-slide-to': newsIndex
                 });
-    
+
                 $('.carousel-inner').append(testContainer);
                 $('.carousel-indicators').append(indicator);
             }
