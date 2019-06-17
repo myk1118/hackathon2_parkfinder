@@ -399,7 +399,18 @@ body {
 @media only screen and (min-width: 600px) {
     .newsImageContainer {
         height: 60%;
-        /* Still need to play with this more, may add more media queries */
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .newsImageContainer {
+        height: 70%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .newsImageContainer {
+        height: 80%;
     }
 }
 
