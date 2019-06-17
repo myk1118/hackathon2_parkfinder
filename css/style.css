@@ -100,6 +100,20 @@ body {
     border-radius: 8px;
 }
 
+@media only screen and (orientation: landscape) {
+    .logo {
+        max-width: 400px;
+    }
+
+    .preference_instructions {
+        margin: 0;
+    }
+
+    .preference_form {
+        margin: 20px auto;
+    }
+}
+
 /* Map Elements, Including Tutorial/Home Buttons */
 
 #map_container {
@@ -357,7 +371,7 @@ body {
 .newsTitle {
     text-transform: capitalize;
     color: #58a4b0;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-family: gothamMedium, Arial, Helvetica, sans-serif;
 }
 
@@ -411,6 +425,28 @@ body {
 @media only screen and (min-width: 1200px) {
     .newsImageContainer {
         height: 80%;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 1000px) {
+    .carousel-indicators {
+        bottom: 0;
+    }
+
+    .newsImageContainer {
+        height: 75%;
+    }
+
+    .newsTitle {
+        font-size: 1.5rem;
+    }
+
+    .newsDate {
+        font-size: 1.2rem;
+    }
+
+    .newsSource {
+        font-size: 1rem;
     }
 }
 
