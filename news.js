@@ -114,15 +114,15 @@ class News {
                 })
 
                 var captionContainer = $("<div>").addClass("captionContainer").append(newsTitle, newsDate, newsSource);
-                var newsContainer = $("<div>").addClass("newsFlexContainer").append(newsImageContainer, captionContainer);
-                var testContainer = $("<div>").addClass("testContainer item").append(newsContainer);
+                var newsFlexContainer = $("<div>").addClass("newsFlexContainer").append(newsImageContainer, captionContainer);
+                var newsContainer = $("<div>").addClass("newsContainer item").append(newsFlexContainer);
 
                 var indicator = $('<li>', {
                     'data-target': '#carousel-outer',
                     'data-slide-to': newsIndex
                 });
-
-                $('.carousel-inner').append(testContainer);
+    
+                $('.carousel-inner').append(newsContainer);
                 $('.carousel-indicators').append(indicator);
             }
         }

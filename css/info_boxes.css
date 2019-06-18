@@ -8,7 +8,6 @@
 .gm-style .infoImage {
     width: 100%;
     max-width: 400px;
-    margin: 16px 0;
     object-fit: contain;
 }
 
@@ -17,6 +16,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
 }
 
 .infoLinks,
@@ -51,5 +51,21 @@
 
     .infoLinks:nth-child(2) {
         margin: 0 8px;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-width: 1000px) {
+    .infoHeader {
+        font-size: 20px;
+    }
+    
+    .infoImage {
+        display: none;
+    }
+
+    .infoLinks {
+        height: 30px;
+        width: 100px;
+        font-size: 20px;
     }
 }

@@ -87,20 +87,26 @@ function displayCurrentWeatherData(w_data) {
     var leftWeather = $('<div>').addClass('leftContainer');
     var lowHeader = $('<div>').addClass('header').text('Low');
     var lowTemp = $('<div>').addClass('weatherData').text((w_data.daily.data[0].apparentTemperatureMin).toFixed(0) + '°F');
+    var lowContainer = $('<div>').addClass('weatherDataContainer').append(lowHeader, lowTemp);
     var humidityHeader = $('<div>').addClass('header').text('Humidity');
     var humidity = $('<div>').addClass('weatherData').text((w_data.currently.humidity * 100).toFixed(0) + '%');
+    var humidityContainer = $('<div>').addClass('weatherDataContainer').append(humidityHeader, humidity);
     var sunriseHeader = $('<div>').addClass('header').text('Sunrise');
     var sunriseTime = $('<div>').addClass('weatherData').text(sunrise);
-    leftWeather.append(lowHeader, lowTemp, humidityHeader, humidity, sunriseHeader, sunriseTime);
+    var sunriseContainer = $('<div>').addClass('weatherDataContainer').append(sunriseHeader, sunriseTime);
+    leftWeather.append(lowContainer, humidityContainer, sunriseContainer);
 
     var rightWeather = $('<div>').addClass('rightContainer');
     var highHeader = $('<div>').addClass('header').text('High');
     var highTemp = $('<div>').addClass('weatherData').text((w_data.daily.data[0].apparentTemperatureMax).toFixed(0) + '°F');
+    var highContainer = $('<div>').addClass('weatherDataContainer').append(highHeader, highTemp);
     var windSpeedHeader = $('<div>').addClass('header').text('Wind Speed');
     var windSpeed = $('<div>').addClass('weatherData').text((w_data.currently.windSpeed).toFixed(0) + ' mph');
+    var windSpeedContainer = $('<div>').addClass('weatherDataContainer').append(windSpeedHeader, windSpeed);
     var sunsetHeader = $('<div>').addClass('header').text('Sunset');
     var sunsetTime = $('<div>').addClass('weatherData').text(sunset);
-    rightWeather.append(highHeader, highTemp, windSpeedHeader, windSpeed, sunsetHeader, sunsetTime);
+    var sunsetContainer = $('<div>').addClass('weatherDataContainer').append(sunsetHeader, sunsetTime);
+    rightWeather.append(highContainer, windSpeedContainer, sunsetContainer);
 
     var weatherBottom = $('<div>').addClass('weatherBottom').append(leftWeather, rightWeather);
 
@@ -162,20 +168,26 @@ function displayForecast(w_data) {
         var leftWeather = $('<div>').addClass('leftContainer');
         var lowHeader = $('<div>').addClass('header').text('Low');
         var lowTemp = $('<div>').addClass('weatherData').text((dailyData[dateIndex].apparentTemperatureMin).toFixed(0) + '°F');
+        var lowContainer = $('<div>').addClass('weatherDataContainer').append(lowHeader, lowTemp);
         var humidityHeader = $('<div>').addClass('header').text('Humidity');
         var humidity = $('<div>').addClass('weatherData').text((dailyData[dateIndex].humidity * 100).toFixed(0) + '%');
+        var humidityContainer = $('<div>').addClass('weatherDataContainer').append(humidityHeader, humidity);
         var sunriseHeader = $('<div>').addClass('header').text('Sunrise');
         var sunriseTime = $('<div>').addClass('weatherData').text(sunrise);
-        leftWeather.append(lowHeader, lowTemp, humidityHeader, humidity, sunriseHeader, sunriseTime);
+        var sunriseContainer = $('<div>').addClass('weatherDataContainer').append(sunriseHeader, sunriseTime);
+        leftWeather.append(lowContainer, humidityContainer, sunriseContainer);
 
         var rightWeather = $('<div>').addClass('rightContainer');
         var highHeader = $('<div>').addClass('header').text('High');
         var highTemp = $('<div>').addClass('weatherData').text((dailyData[dateIndex].apparentTemperatureMax).toFixed(0) + '°F');
+        var highContainer = $('<div>').addClass('weatherDataContainer').append(highHeader, highTemp);
         var windSpeedHeader = $('<div>').addClass('header').text('Wind Speed');
         var windSpeed = $('<div>').addClass('weatherData').text((dailyData[dateIndex].windSpeed).toFixed(0) + ' mph');
+        var windSpeedContainer = $('<div>').addClass('weatherDataContainer').append(windSpeedHeader, windSpeed);
         var sunsetHeader = $('<div>').addClass('header').text('Sunset');
         var sunsetTime = $('<div>').addClass('weatherData').text(sunset);
-        rightWeather.append(highHeader, highTemp, windSpeedHeader, windSpeed, sunsetHeader, sunsetTime);
+        var sunsetContainer = $('<div>').addClass('weatherDataContainer').append(sunsetHeader, sunsetTime);
+        rightWeather.append(highContainer, windSpeedContainer, sunsetContainer);
 
         var weatherBottom = $('<div>').addClass('weatherBottom').append(leftWeather, rightWeather);
 
