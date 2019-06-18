@@ -36,7 +36,7 @@ function handleGoBack() {
     closeLoading();
     closeErrorModal();
     if ($('.collapse').attr('aria-expanded') === 'true') {
-        $('.collapse').collapse('hide');
+        $('#tutorialCollapse').toggleClass('in');
     }
 }
 
@@ -66,7 +66,7 @@ function handleInfoClicks() {
             break;
     }
 
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if ($(event.target).attr('id') === 'carouselModalContainer') {
             resetModal();
         }
