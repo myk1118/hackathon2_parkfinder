@@ -268,7 +268,7 @@ body {
     width: 100%;
     display: flex;
     /* flex-flow: row; */
-    justify-content: center;
+    justify-content: center; /*remove?*/
 }
 
 .leftContainer {
@@ -335,6 +335,42 @@ body {
 
     .weatherData {
         font-size: 20px;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 1000px) {
+    .date {
+        font-size: 18px;
+    }
+
+    .weatherMiddle.jumbotron {
+        width: 60%;
+        margin: 0 0 5px;
+        min-height: 0;
+    }
+
+    .wi {
+        font-size: 30px;
+    }
+
+    .currentTemp {
+        font-size: 25px;
+    }
+
+    .weatherBottom {
+        width: 80%;
+        flex-direction: column;
+    }
+
+    .leftContainer,
+    .rightContainer {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .weatherDataContainer {
+        width: 100%;
     }
 }
 
