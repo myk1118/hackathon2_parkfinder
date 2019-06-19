@@ -31,12 +31,6 @@ body {
     background-position: center center;
 }
 
-/* #errorModal {
-    background-image: url("../images/error.gif");
-    background-size: contain;
-    background-position: 60% center;
-} */
-
 .errorContainer {
     height: 100%;
     display: flex;
@@ -54,7 +48,7 @@ body {
     font-weight: bold;
     margin: 0;
     position: fixed;
-    top: 80%;
+    top: 82%;
 }
 
 /* Landing Page Elements */
@@ -73,11 +67,13 @@ body {
 
 .landingPageItems {
     position: absolute;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 
 .logo {
     width: 100%;
-    max-width: 1000px;
 }
 
 .forms_container {
@@ -87,37 +83,182 @@ body {
     align-items: center;
 }
 
+.preference_instructions,
+.preference_form,
+#submit_button {
+    font-size: 3rem;
+}
+
 .preference_instructions {
     margin-top: 15px;
     text-align: center;
-    font-size: 2rem;
-    font-weight: 300;
 }
 
 .preference_form {
-    height: 32px;
-    width: 40%;
-    font-size: 2rem;
-    margin: 35px auto;
+    width: 100%;
+    margin: 35px 0;
 }
 
-#submit_button,
-.closeErrorModal {
-    font-size: 2rem;
-    border-radius: 8px;
-}
+@media only screen and (max-width: 1366px) and (orientation: landscape) {
 
-@media only screen and (orientation: landscape) {
-    .logo {
-        max-width: 400px;
+    .preference_instructions,
+    .preference_form,
+    #submit_button {
+        font-size: 4.5rem;
     }
 
     .preference_instructions {
-        margin: 0;
+        font-weight: bold;
+        text-shadow: 1px 1px 4px lightgray;
     }
 
     .preference_form {
-        margin: 20px auto;
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .preference_instructions,
+    .preference_form,
+    #submit_button {
+        font-size: 4rem;
+    }
+
+    .preference_form {
+        margin: 50px 0;
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+
+    .preference_instructions,
+    .preference_form,
+    #submit_button {
+        font-size: 3rem;
+    }
+
+    .preference_instructions {
+        margin-top: 0;
+    }
+
+    .preference_form {
+        width: 80%;
+        margin: 40px 0;
+    }
+}
+
+@media only screen and (max-width: 823px) and (orientation: landscape) {
+    .landingPageItems {
+        top: 0%;
+    }
+
+    .logo {
+        width: 85%;
+    }
+
+    .preference_instructions {
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px lightgray;
+        margin-top: 0;
+    }
+
+    .preference_form {
+        font-size: 2rem;
+        margin: 16px 0;
+    }
+
+    #submit_button {
+        font-size: 1.8rem;
+    }
+}
+
+@media only screen and (max-width: 812px) and (orientation: landscape) {
+    .logo {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 736px) and (orientation: landscape) {
+    .landingPageItems {
+        top: 2%;
+    }
+
+    .logo {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .preference_instructions,
+    .preference_form,
+    #submit_button {
+        font-size: 3.5rem;
+    }
+
+    .preference_instructions {
+        width: 85%
+    }
+
+    .preference_form {
+        margin: 40px 0;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+
+    .preference_instructions,
+    .preference_form,
+    #submit_button {
+        font-size: 1.8rem;
+    }
+
+    .preference_instructions {
+        width: 60%;
+    }
+
+    .preference_form {
+        margin: 25px 0;
+        width: 65%;
+    }
+}
+
+@media only screen and (max-width: 640px) and (orientation: landscape) {
+    .logo {
+        width: 85%;
+    }
+
+    .landingPageItems {
+        top: 6%;
+    }
+
+    .preference_instructions,
+    .preference_form {
+        font-size: 1.8rem;
+    }
+
+    .preference_form {
+        width: 70%;
+        margin: 12px 0;
+    }
+
+    #submit_button {
+        font-size: 1.4rem;
+    }
+}
+
+@media only screen and (max-width: 568px) and (orientation: landscape) {
+    .landingPageItems {
+        top: 3%;
+    }
+}
+
+@media only screen and (max-width: 480px) and (orientation: landscape) {
+    .landingPageItems {
+        top: 4%;
     }
 }
 
@@ -274,7 +415,8 @@ body {
     width: 100%;
     display: flex;
     /* flex-flow: row; */
-    justify-content: center; /*remove?*/
+    justify-content: center;
+    /*remove?*/
 }
 
 .leftContainer {
@@ -405,7 +547,7 @@ body {
 }
 
 .captionContainer {
-    width: 80%;
+    width: 85%;
     margin: 15px 0 0 0;
 }
 
@@ -451,25 +593,81 @@ body {
     top: 20%;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (max-height: 1366px) {
+    .newsImageContainer {
+        height: 74%;
+    }
+
+    .newsTitle {
+        font-size: 3rem;
+    }
+
+    .newsDate,
+    .newsSource {
+        font-size: 2.5rem;
+    }
+}
+
+@media only screen and (max-height: 1024px) {
+    .newsImageContainer {
+        height: 68%;
+    }
+}
+
+@media only screen and (max-height: 823px) {
+    .newsImageContainer {
+        height: 76%;
+    }
+
+    .newsTitle {
+        font-size: 1.6rem;
+    }
+
+    .newsDate,
+    .newsSource {
+        font-size: 1.4rem;
+    }
+}
+
+@media only screen and (max-height: 731px) {
+    .newsImageContainer {
+        height: 74%;
+    }
+
+    .newsTitle {
+        font-size: 1.5rem;
+    }
+
+    .newsDate,
+    .newsSource {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-height: 640px) {
+    .newsImageContainer {
+        height: 72%;
+    }
+}
+
+@media only screen and (max-height: 568px) {
     .newsImageContainer {
         height: 60%;
     }
 }
 
-@media only screen and (min-width: 900px) {
-    .newsImageContainer {
-        height: 70%;
+@media only screen and (max-height: 480px) {
+    .newsTitle {
+        font-size: 1.2rem;
+    }
+
+    .newsDate,
+    .newsSource {
+        font-size: 1rem;
     }
 }
 
-@media only screen and (min-width: 1200px) {
-    .newsImageContainer {
-        height: 80%;
-    }
-}
-
-@media only screen and (orientation: landscape) and (max-width: 1000px) {
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
     .carousel-indicators {
         bottom: 0;
     }
