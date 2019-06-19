@@ -1,19 +1,19 @@
 .infoHeader {
     text-align: center;
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 3rem;
     font-weight: bold;
 }
 
 .gm-style .infoImage {
     width: 100%;
-    max-width: 400px;
+    /* max-width: 400px; */
     object-fit: contain;
 }
 
 .infoLinksContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
@@ -40,32 +40,61 @@
     cursor: pointer;
 }
 
-@media screen and (min-width: 425px) {
-    .infoHeader {
-        font-size: 24px;
-    }
-
-    .infoLinksContainer {
-        flex-direction: row;
-    }
-
-    .infoLinks:nth-child(2) {
-        margin: 0 8px;
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+    .infoLinks {
+        height: 40px;
+        width: 110px;
+        font-size: 22px;
     }
 }
 
-@media screen and (orientation: landscape) and (max-width: 1000px) {
+@media screen and (max-width: 480px) and (orientation: landscape) {
     .infoHeader {
-        font-size: 20px;
-    }
-    
-    .infoImage {
-        display: none;
+        font-size: 2.4rem;
     }
 
     .infoLinks {
-        height: 30px;
-        width: 100px;
-        font-size: 20px;
+        height: 36px;
+        width: 84px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .infoHeader {
+        font-size: 2rem;
+    }
+
+    .infoLinksContainer {
+        margin-top: 0;
+    }
+
+    .infoLinks {
+        font-size: 18px;
+        height: 32px;
+        width: 84px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .infoLinks {
+        font-size: 16px;
+        width: 68px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .infoHeader {
+        font-size: 1.8rem;
+    }
+
+    .infoLinksContainer {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .infoLinks {
+        font-size: 16px;
+        width: 80px;
     }
 }
