@@ -1,13 +1,13 @@
 class News {
-    constructor(keyword, resetModal, closeLoading) {
+    constructor(keyword, resetModal, closeLoading, handleError) {
         this.keyword = keyword;
         this.resetModal = resetModal;
         this.closeLoading = closeLoading;
+        this.handleError = handleError;
         this.news = [];
         this.numberOfArticlesLoaded = 0;
         this.getDataFromServer = this.getDataFromServer.bind(this);
         this.handleSuccess = this.handleSuccess.bind(this);
-        this.handleError = this.handleError.bind(this);
         this.displayNews = this.displayNews.bind(this);
         this.loadImage = this.loadImage.bind(this);
     }
@@ -53,12 +53,6 @@ class News {
             console.log(errorMessage);
         }
         this.displayNews();
-    }
-
-    handleError() {
-        console.log("Server Request Failure");
-        this.closeLoading();
-        $('#errorModal').css('display', 'block');
     }
 
     displayNews() {
@@ -142,6 +136,13 @@ class News {
         $('#carousel-outer').carousel({
             interval: false
         });
+
+        setTimeout(() => {
+            if ($('#loading').css('display') === 'block') {
+                this.handleError();
+                this.resetModal();
+            }
+        }, 10000);
     }
 
     loadImage() {

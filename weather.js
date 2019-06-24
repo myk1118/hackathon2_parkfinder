@@ -8,17 +8,17 @@
 //==============================================================================
 
 class WeatherHandler {
-    constructor(lat, lng, resetModal, closeLoading) {
+    constructor(lat, lng, resetModal, closeLoading, handleError) {
         this.lat = lat;
         this.lng = lng;
         this.resetModal = resetModal;
         this.closeLoading = closeLoading;
+        this.handleError = handleError;
         this.w_data = {};
         this.apiUrl = 'https://api.darksky.net/forecast/eb1017e0f2a52f8a5709fd37bf8452af/';
         this.baseUrl = 'https://cors-anywhere.herokuapp.com/' + this.apiUrl;
         this.processWeatherData = this.processWeatherData.bind(this);
         this.getWeatherData = this.getWeatherData.bind(this);
-        this.handleError = this.handleError.bind(this);
     }
     //make API call to weather data website using AJAX
 
@@ -38,12 +38,6 @@ class WeatherHandler {
         this.w_data = data;
         displayCurrentWeatherData(this.w_data);
         displayForecast(this.w_data);
-    }
-    //in case of error, display an error message
-    handleError() {
-        console.log("DarkSky - API data request failed");
-        this.closeLoading();
-        $('#errorModal').css('display', 'block');
     }
 }
 
