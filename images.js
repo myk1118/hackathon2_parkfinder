@@ -1,14 +1,14 @@
 /**Object constructor for imgur AJAX call*/
 class ParkImages {
 
-    constructor(tagName, resetModal, closeLoading) {
+    constructor(tagName, resetModal, closeLoading, handleError) {
         /**this.park is the current national park, needed for the AJAX call*/
         this.park = tagName;
         this.resetModal = resetModal;
         this.closeLoading = closeLoading;
+        this.handleError = handleError;
         this.displayedImages = [];
         this.numberOfImagesLoaded = 0;
-        this.handleError = this.handleError.bind(this);
         this.handleSuccess = this.handleSuccess.bind(this);
         this.loadImage = this.loadImage.bind(this);
     }
@@ -79,17 +79,18 @@ class ParkImages {
         $('.carousel-indicators > li').first().addClass('active');
 
         $('.item').on('load', this.loadImage);
-
+        
         $('#carouselModalContainer').show();
         $('#carousel-outer').carousel({
             interval: false
         });
-    }
 
-    handleError() {
-        console.log("Server Request Failure");
-        this.closeLoading();
-        $('#errorModal').css('display', 'block');
+        setTimeout(() => {
+            if ($('#loading').css('display') === 'block') {
+                this.handleError();
+                this.resetModal();
+            }
+        }, 10000);
     }
 
     loadImage() {

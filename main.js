@@ -49,19 +49,19 @@ function handleInfoClicks() {
     switch (classes[1]) {
         case 'images':
             /**create image modal in the event the user clicked the 'images' button */
-            var imageGallery = new ParkImages(parksList[userPreference].parks[parkName].imgurTag, resetModal, closeLoading);
+            var imageGallery = new ParkImages(parksList[userPreference].parks[parkName].imgurTag, resetModal, closeLoading, handleError);
             imageGallery.retrieveImages();
             break;
         case 'weather':
             /**create weather modal in the event the user clicked the 'weather' button */
             var lat = parksList[userPreference].parks[parkName].coordinates.lat;
             var lng = parksList[userPreference].parks[parkName].coordinates.lng;
-            var weatherAPI = new WeatherHandler(lat, lng, resetModal, closeLoading);
+            var weatherAPI = new WeatherHandler(lat, lng, resetModal, closeLoading, handleError);
             weatherAPI.getWeatherData();
             break;
         case 'news':
             /**create news modal in the event the user clicked the 'news' button */
-            var newsAPI = new News(parksList[userPreference].parks[parkName].displayName, resetModal, closeLoading);
+            var newsAPI = new News(parksList[userPreference].parks[parkName].displayName, resetModal, closeLoading, handleError);
             newsAPI.getDataFromServer();
             break;
     }
@@ -86,4 +86,9 @@ function closeLoading() {
 
 function closeErrorModal() {
     $('#errorModal').css('display', 'none');
+}
+
+function handleError() {
+    closeLoading();
+    $('#errorModal').css('display', 'block');
 }
