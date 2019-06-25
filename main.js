@@ -49,19 +49,19 @@ function handleInfoClicks() {
     switch (classes[1]) {
         case 'images':
             /**create image modal in the event the user clicked the 'images' button */
-            var imageGallery = new ParkImages(parksList[userPreference].parks[parkName].imgurTag, resetModal, closeLoading, handleError);
+            var imageGallery = new ParkImages(parksList[userPreference].parks[parkName].imgurTag, resetModal, handleError);
             imageGallery.retrieveImages();
             break;
         case 'weather':
             /**create weather modal in the event the user clicked the 'weather' button */
             var lat = parksList[userPreference].parks[parkName].coordinates.lat;
             var lng = parksList[userPreference].parks[parkName].coordinates.lng;
-            var weatherAPI = new WeatherHandler(lat, lng, resetModal, closeLoading, handleError);
+            var weatherAPI = new WeatherHandler(lat, lng, resetModal, handleError);
             weatherAPI.getWeatherData();
             break;
         case 'news':
             /**create news modal in the event the user clicked the 'news' button */
-            var newsAPI = new News(parksList[userPreference].parks[parkName].displayName, resetModal, closeLoading, handleError);
+            var newsAPI = new News(parksList[userPreference].parks[parkName].displayName, resetModal, handleError);
             newsAPI.getDataFromServer();
             break;
     }
@@ -82,6 +82,13 @@ function resetModal() {
 
 function closeLoading() {
     $('#loading').css('display', 'none');
+    resetModal();
+    var maxTimeoutId = setTimeout(function() {}, 0);
+    while (maxTimeoutId) {
+        clearTimeout(maxTimeoutId);
+        maxTimeoutId--;
+    }
+    $('#loading #modalClose').remove();
 }
 
 function closeErrorModal() {

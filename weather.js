@@ -8,11 +8,10 @@
 //==============================================================================
 
 class WeatherHandler {
-    constructor(lat, lng, resetModal, closeLoading, handleError) {
+    constructor(lat, lng, resetModal, handleError) {
         this.lat = lat;
         this.lng = lng;
         this.resetModal = resetModal;
-        this.closeLoading = closeLoading;
         this.handleError = handleError;
         this.w_data = {};
         this.apiUrl = 'https://api.darksky.net/forecast/eb1017e0f2a52f8a5709fd37bf8452af/';

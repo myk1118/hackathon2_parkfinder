@@ -1,8 +1,7 @@
 class News {
-    constructor(keyword, resetModal, closeLoading, handleError) {
+    constructor(keyword, resetModal, handleError) {
         this.keyword = keyword;
         this.resetModal = resetModal;
-        this.closeLoading = closeLoading;
         this.handleError = handleError;
         this.news = [];
         this.numberOfArticlesLoaded = 0;
