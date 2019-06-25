@@ -1,14 +1,14 @@
 /**Object constructor for imgur AJAX call*/
 class ParkImages {
 
-    constructor(tagName, resetModal, closeLoading, handleError) {
+    constructor(tagName, resetModal, handleError) {
         /**this.park is the current national park, needed for the AJAX call*/
         this.park = tagName;
         this.resetModal = resetModal;
-        this.closeLoading = closeLoading;
         this.handleError = handleError;
         this.displayedImages = [];
         this.numberOfImagesLoaded = 0;
+        this.imageLoadTime = null;
         this.handleSuccess = this.handleSuccess.bind(this);
         this.loadImage = this.loadImage.bind(this);
     }
@@ -38,6 +38,7 @@ class ParkImages {
     /**Appends the images/indicators to the carousel*/
     handleSuccess(response) {
         // $('#loading').css('display', 'none');
+        $('#loading').append('<button id="modalClose" onclick="closeLoading()"><i class="fas fa-times"></i></button>');
         var potentialImages = response.data.items;
         var indicatorNum = 0;
         for (var imageIndex = 0; this.displayedImages.length < 5; imageIndex++) {
@@ -85,18 +86,20 @@ class ParkImages {
             interval: false
         });
 
-        setTimeout(() => {
+        this.imageLoadTime = setTimeout(() => {
             if ($('#loading').css('display') === 'block') {
                 this.handleError();
-                this.resetModal();
             }
-        }, 10000);
+        }, 15000);
     }
 
     loadImage() {
+        console.log('image loaded');
         this.numberOfImagesLoaded++;
         if (this.numberOfImagesLoaded === this.displayedImages.length) {
             $('#loading').css('display', 'none');
+            clearTimeout(this.imageLoadTime);
+            $('#loading #modalClose').remove();
         }
     }
 }
