@@ -5,6 +5,7 @@ class News {
         this.handleError = handleError;
         this.news = [];
         this.numberOfArticlesLoaded = 0;
+        this.timeoutId = null;
         this.getDataFromServer = this.getDataFromServer.bind(this);
         this.handleSuccess = this.handleSuccess.bind(this);
         this.displayNews = this.displayNews.bind(this);
@@ -33,7 +34,7 @@ class News {
 
     handleSuccess(response) { //status either 'ok' or 'error'
         if (response.status === 'ok') { //status 'ok'
-            // $('#loading').css('display', 'none');
+            $('#loading').append('<button id="modalClose" onclick="closeLoading()"><i class="fas fa-times"></i></button>');
             for (var i = 0; i < response.articles.length; i++) {
                 var currentArticle = response.articles[i];
                 var currentArticleStorage = {};
@@ -136,10 +137,9 @@ class News {
             interval: false
         });
 
-        setTimeout(() => {
+        this.timeoutId = setTimeout(() => {
             if ($('#loading').css('display') === 'block') {
                 this.handleError();
-                this.resetModal();
             }
         }, 10000);
     }
@@ -148,6 +148,8 @@ class News {
         this.numberOfArticlesLoaded++;
         if (this.numberOfArticlesLoaded === this.news.length) {
             $('#loading').css('display', 'none');
+            clearTimeout(this.timeoutId);
+            $('#loading #modalClose').remove();
         }
     }
 }

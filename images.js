@@ -8,7 +8,7 @@ class ParkImages {
         this.handleError = handleError;
         this.displayedImages = [];
         this.numberOfImagesLoaded = 0;
-        this.imageLoadTime = null;
+        this.timeoutId = null;
         this.handleSuccess = this.handleSuccess.bind(this);
         this.loadImage = this.loadImage.bind(this);
     }
@@ -37,7 +37,6 @@ class ParkImages {
 
     /**Appends the images/indicators to the carousel*/
     handleSuccess(response) {
-        // $('#loading').css('display', 'none');
         $('#loading').append('<button id="modalClose" onclick="closeLoading()"><i class="fas fa-times"></i></button>');
         var potentialImages = response.data.items;
         var indicatorNum = 0;
@@ -86,19 +85,18 @@ class ParkImages {
             interval: false
         });
 
-        this.imageLoadTime = setTimeout(() => {
+        this.timeoutId = setTimeout(() => {
             if ($('#loading').css('display') === 'block') {
                 this.handleError();
             }
-        }, 15000);
+        }, 20000);
     }
 
     loadImage() {
-        console.log('image loaded');
         this.numberOfImagesLoaded++;
         if (this.numberOfImagesLoaded === this.displayedImages.length) {
             $('#loading').css('display', 'none');
-            clearTimeout(this.imageLoadTime);
+            clearTimeout(this.timeoutId);
             $('#loading #modalClose').remove();
         }
     }
