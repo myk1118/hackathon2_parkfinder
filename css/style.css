@@ -74,7 +74,7 @@ body {
 
 .logo {
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
 }
 
 .forms_container {
@@ -85,12 +85,12 @@ body {
 }
 
 .preference_instructions {
-    margin-top: 15px;
+    /* margin-top: 15px; */
     text-align: center;
 }
 
 .preference_form {
-    margin: 8% 0;
+    margin: 6% 0;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -125,188 +125,46 @@ body {
     }
 }
 
+@media only screen and (max-width: 850px) and (orientation: landscape) {
+    .logo {
+        width: 70%;
+    }
+
+    .preference_instructions {
+        width: max-content;
+        margin-top: 10px;
+    }
+
+    .preference_instructions,
+    .preference_form,
+    #submit_button {
+        font-size: 1.5rem;
+    }
+
+    .preference_form {
+        margin: 6% 0;
+    }
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+    ...
+}
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    .preference_form {
-        width: 100%;
+
+    .preference_instructions,
+    .preference_form,
+    #submit_button {
+        font-size: 2.8rem;
     }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-
-    .preference_instructions,
-    .preference_form,
-    #submit_button {
-        font-size: 3rem;
-    }
+    ...
 }
-
-/* @media only screen and (max-width: 1366px) and (orientation: landscape) {
-
-    .preference_instructions,
-    .preference_form,
-    #submit_button {
-        font-size: 4.5rem;
-    }
-
-    .preference_instructions {
-        font-weight: bold;
-        text-shadow: 1px 1px 4px lightgray;
-    }
-
-    .preference_form {
-        width: 80%;
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-
-    .preference_instructions,
-    .preference_form,
-    #submit_button {
-        font-size: 4rem;
-    }
-
-    .preference_form {
-        margin: 50px 0;
-        width: 60%;
-    }
-}
-
-@media only screen and (max-width: 1024px) and (orientation: landscape) {
-
-    .preference_instructions,
-    .preference_form,
-    #submit_button {
-        font-size: 3rem;
-    }
-
-    .preference_instructions {
-        margin-top: 0;
-    }
-
-    .preference_form {
-        width: 80%;
-        margin: 40px 0;
-    }
-}
-
-@media only screen and (max-width: 823px) and (orientation: landscape) {
-    .landingPageItems {
-        top: 0%;
-    }
-
-    .logo {
-        width: 85%;
-    }
-
-    .preference_instructions {
-        font-size: 2rem;
-        font-weight: bold;
-        text-shadow: 1px 1px 2px lightgray;
-        margin-top: 0;
-    }
-
-    .preference_form {
-        font-size: 2rem;
-        margin: 16px 0;
-    }
-
-    #submit_button {
-        font-size: 1.8rem;
-    }
-}
-
-@media only screen and (max-width: 812px) and (orientation: landscape) {
-    .logo {
-        width: 75%;
-    }
-}
-
-@media only screen and (max-width: 736px) and (orientation: landscape) {
-    .landingPageItems {
-        top: 2%;
-    }
-
-    .logo {
-        width: 90%;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-
-    .preference_instructions,
-    .preference_form,
-    #submit_button {
-        font-size: 3.5rem;
-    }
-
-    .preference_instructions {
-        width: 85%
-    }
-
-    .preference_form {
-        margin: 40px 0;
-    }
-}
-
-@media only screen and (max-width: 640px) {
-
-    .preference_instructions,
-    .preference_form,
-    #submit_button {
-        font-size: 1.8rem;
-    }
-
-    .preference_instructions {
-        width: 60%;
-    }
-
-    .preference_form {
-        margin: 25px 0;
-        width: 65%;
-    }
-}
-
-@media only screen and (max-width: 640px) and (orientation: landscape) {
-    .logo {
-        width: 85%;
-    }
-
-    .landingPageItems {
-        top: 6%;
-    }
-
-    .preference_instructions,
-    .preference_form {
-        font-size: 1.8rem;
-    }
-
-    .preference_form {
-        width: 70%;
-        margin: 12px 0;
-    }
-
-    #submit_button {
-        font-size: 1.4rem;
-    }
-}
-
-@media only screen and (max-width: 568px) and (orientation: landscape) {
-    .landingPageItems {
-        top: 3%;
-    }
-}
-
-@media only screen and (max-width: 480px) and (orientation: landscape) {
-    .landingPageItems {
-        top: 4%;
-    }
-} */
 
 /* Map Elements, Including Tutorial/Home Buttons */
 
@@ -480,6 +338,10 @@ body {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    .date {
+        font-size: 2rem;
+    }
+
     .weatherMiddle.jumbotron {
         margin: 3% 0;
         padding: 4% 0;
@@ -487,20 +349,20 @@ body {
     }
 
     .wi {
-        font-size: 7rem;
+        font-size: 5rem;
     }
 
     .currentTemp {
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     .condition,
     .header {
-        font-size: 1.4rem;
+        font-size: 1rem;
     }
 
     .weatherData {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 
     .leftContainer,
@@ -511,14 +373,18 @@ body {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+    .date {
+        font-size: 3.5rem;
+    }
+
     .weatherMiddle.jumbotron {
-        margin: 3% 0;
-        padding: 3% 0;
+        margin: 6.5% 0;
+        padding: 8% 0;
         width: 75%;
     }
 
     .wi {
-        font-size: 8rem;
+        font-size: 12rem;
     }
 
     .currentTempAndCondition {
@@ -526,52 +392,155 @@ body {
     }
 
     .currentTemp {
-        font-size: 5rem;
+        font-size: 7rem;
     }
 
     .condition,
     .header {
-        font-size: 1.6rem;
+        font-size: 2rem;
     }
 
     .weatherData {
-        font-size: 1.8rem;
+        font-size: 2.8rem;
     }
 
     .leftContainer,
     .rightContainer {
-        width: 32%;
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 850px) and (orientation: landscape) {
+    .date {
+        font-size: 1.5rem;
+    }
+
+    .weatherMiddle.jumbotron {
+        margin: 2.5% 0;
+        padding: 2% 0;
+    }
+
+    .wi {
+        font-size: 7rem;
+    }
+
+    .currentTemp {
+        font-size: 3.5rem;
+    }
+
+    .condition {
+        font-size: 1.3rem;
+    }
+
+    .weatherBottom {
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .leftContainer,
+    .rightContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .weatherDataContainer {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        width: 10%;
+    }
+
+    .weatherDataContainer:nth-child(2) {
+        margin: 0 50px;
+    }
+
+    .header,
+    .weatherData {
+        width: max-content;
+        font-size: 1rem;
     }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    .weatherMiddle.jumbotron {
-        padding: 3.5% 0;
-        margin: 2.5% 0;
-        width: 70%;
-    }
-
-    .condition,
-    .header {
-        font-size: 1.5rem;
-    }
-
-    .leftContainer,
-    .rightContainer {
-        width: 30%;
-    }
+    ...
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+    .date {
+        font-size: 4.5rem;
+    }
+
     .weatherMiddle.jumbotron {
-        padding: 4.5% 0;
-        margin: 2.5% 0;
+        margin: 8% 0;
+        padding: 8% 0;
+    }
+
+    .wi {
+        font-size: 14rem;
     }
 
     .currentTempAndCondition {
         margin-left: 6%;
+    }
+
+    .currentTemp {
+        font-size: 8rem;
+    }
+
+    .condition,
+    .header {
+        font-size: 3rem;
+    }
+
+    .weatherData {
+        font-size: 3.5rem;
+    }
+}
+
+@media only screen and (min-width: 992px) and (orientation: landscape) {
+    .date {
+        font-size: 3.5rem;
+    }
+
+    .wi {
+        font-size: 12rem;
+    }
+
+    .weatherMiddle.jumbotron {
+        margin: 3% 0;
+        padding: 4% 0;
+    }
+
+    .weatherBottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .leftContainer,
+    .rightContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .condition,
+    .header,
+    .weatherData {
+        font-size: 2rem;
+    }
+
+    .weatherDataContainer {
+        width: 28%;
+    }
+
+    .header,
+    .weatherData {
+        width: max-content;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -582,104 +551,14 @@ body {
     }
 
     .weatherMiddle.jumbotron {
-        padding: 5% 0;
-        margin: 3% 0;
+        padding: 3% 0;
     }
-
-    /* .wi {
-        font-size: 10rem;
-    } */
 
     .currentTempAndCondition {
         width: 50%;
         margin-left: 8%;
     }
-
-    /* .currentTemp {
-        font-size: 6rem;
-    } */
-
-    /* .condition, */
-    .header {
-        font-size: 2rem;
-    }
-
-    .weatherData {
-        font-size: 2.5rem;
-    }
-
-    .leftContainer,
-    .rightContainer {
-        width: 35%;
-    }
 }
-
-/* @media only screen and (min-width: 600px) {
-    .weatherMiddle.jumbotron {
-        width: 70%;
-        min-height: 150px;
-    }
-
-    .wi {
-        font-size: 80px;
-    }
-
-    .currentTempAndCondition {
-        margin-left: 40px;
-    }
-
-    .currentTemp {
-        font-size: 40px;
-    }
-
-    .condition {
-        font-size: 18px;
-    }
-
-    .header {
-        font-size: 15px;
-    }
-
-    .weatherData {
-        font-size: 20px;
-    }
-}
-
-@media only screen and (orientation: landscape) and (max-width: 1000px) {
-    .date {
-        font-size: 18px;
-    }
-
-    .weatherMiddle.jumbotron {
-        width: 60%;
-        margin: 0 0 5px;
-        min-height: 0;
-    }
-
-    .wi {
-        font-size: 30px;
-    }
-
-    .currentTemp {
-        font-size: 25px;
-    }
-
-    .weatherBottom {
-        width: 80%;
-        flex-direction: column;
-    }
-
-    .leftContainer,
-    .rightContainer {
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    .weatherDataContainer {
-        width: 100%;
-    }
-} */
 
 /* News */
 
@@ -784,102 +663,6 @@ body {
         bottom: 0;
     }
 }
-
-/* @media only screen and (max-height: 1366px) {
-    .newsImageContainer {
-        height: 74%;
-    }
-
-    .newsTitle {
-        font-size: 3rem;
-    }
-
-    .newsDate,
-    .newsSource {
-        font-size: 2.5rem;
-    }
-}
-
-@media only screen and (max-height: 1024px) {
-    .newsImageContainer {
-        height: 68%;
-    }
-}
-
-@media only screen and (max-height: 823px) {
-    .newsImageContainer {
-        height: 76%;
-    }
-
-    .newsTitle {
-        font-size: 1.6rem;
-    }
-
-    .newsDate,
-    .newsSource {
-        font-size: 1.4rem;
-    }
-}
-
-@media only screen and (max-height: 731px) {
-    .newsImageContainer {
-        height: 74%;
-    }
-
-    .newsTitle {
-        font-size: 1.5rem;
-    }
-
-    .newsDate,
-    .newsSource {
-        font-size: 1rem;
-    }
-}
-
-@media only screen and (max-height: 640px) {
-    .newsImageContainer {
-        height: 72%;
-    }
-}
-
-@media only screen and (max-height: 568px) {
-    .newsImageContainer {
-        height: 60%;
-    }
-}
-
-@media only screen and (max-height: 480px) {
-    .newsTitle {
-        font-size: 1.2rem;
-    }
-
-    .newsDate,
-    .newsSource {
-        font-size: 1rem;
-    }
-}
-
-@media only screen and (max-width: 1000px) and (orientation: landscape) {
-    .carousel-indicators {
-        bottom: 0;
-    }
-
-    .newsImageContainer {
-        height: 75%;
-    }
-
-    .newsTitle {
-        font-size: 1.5rem;
-    }
-
-    .newsDate {
-        font-size: 1.2rem;
-    }
-
-    .newsSource {
-        font-size: 1rem;
-    }
-} */
 
 /* Images */
 
