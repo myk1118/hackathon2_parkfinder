@@ -85,7 +85,6 @@ body {
 }
 
 .preference_instructions {
-    /* margin-top: 15px; */
     text-align: center;
 }
 
@@ -125,6 +124,11 @@ body {
     }
 }
 
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    ...
+}
+
 @media only screen and (max-width: 850px) and (orientation: landscape) {
     .logo {
         width: 70%;
@@ -144,11 +148,6 @@ body {
     .preference_form {
         margin: 6% 0;
     }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-    ...
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -374,12 +373,12 @@ body {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .date {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
     }
 
     .weatherMiddle.jumbotron {
-        margin: 6.5% 0;
-        padding: 8% 0;
+        margin: 4.5% 0;
+        padding: 4% 0;
         width: 75%;
     }
 
@@ -392,16 +391,12 @@ body {
     }
 
     .currentTemp {
-        font-size: 7rem;
+        font-size: 6rem;
     }
 
     .condition,
     .header {
-        font-size: 2rem;
-    }
-
-    .weatherData {
-        font-size: 2.8rem;
+        font-size: 1.5rem;
     }
 
     .leftContainer,
@@ -410,6 +405,10 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .weatherData {
+        font-size: 1.8rem;
     }
 }
 
@@ -434,6 +433,11 @@ body {
 
     .condition {
         font-size: 2rem;
+    }
+
+    .leftContainer,
+    .rightContainer {
+        width: 32%;
     }
 
     .weatherDataContainer {
