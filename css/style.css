@@ -86,6 +86,7 @@ body {
 
 .preference_instructions {
     text-align: center;
+    text-shadow: 1px 1px 5px white;
 }
 
 .preference_form {
