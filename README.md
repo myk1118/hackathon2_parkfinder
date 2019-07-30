@@ -1,6 +1,7 @@
-# c219_hackathon2
+# California National Park Finder
 
-Hackathon project involving the combination of different data sources into an application or game
+> 48 hour hackathon project involving the combination of different data sources into an application
+> This application was developed to provide news, weather, and images information on the user's choice of a California National Park.
 
 ### Requirements
 - Combine at least 4 **external** resources via AJAX requests and present their information in an application
@@ -9,9 +10,7 @@ Hackathon project involving the combination of different data sources into an ap
   - must use class
   - must have methods to access the data
   - must pass data to subsequent functions with callbacks upon getting their data
-  
 - Must be issue-managed via meistertask or trello
-  - name your project 2.19 Team [your team number] Hackathon
 
 ### Judging Criteria
 - **Appeal** : is it visually appealing / well put together
@@ -21,40 +20,6 @@ Hackathon project involving the combination of different data sources into an ap
 - **Innovative / Transformative** : Did the project do something new and exciting?  Was it bold and tried to do things that haven't been done much.  Did it combine the data sources together in a way that was more useful than either source by itself
 - **Ease of Use / Understanding** : Was it easy to use the application / game, or if it was more complex, was the application or game able to provide you with tutorials or instructions that made understanding it a breeze.
 
-### Teams
-- Team 1
-  - andrew ly
-  - jason yata
-  - kenneth Li
-  - quan le
-  
-- Team 2
-  - chris gusavson
-  - westley poon
-  - vivian le
-
-- Team 3
-  - michelle poole
-  - johnny pham
-  - jennifer chun lai
-
-- team 4
-  - alice le
-  - jun lang
-  - kylie lin
-  - jimmy Pang
-
-- team 5
-  - chris gormley
-  - jennifer ong
-  - david lee
-  - jay samora
-  
-- team 6
-  - joe delrossi
-  - eric george
-  - caroline pan
-  - jaime kim
-
-### Alpha version Deadline: 
-- 7:00pm Wednesday, March 20th, 2015
+### Authors
+- Jaime Kim (https://github.com/myk1118)
+- Joe Dei Rossi (https://github.com/JoeDeiRossi)

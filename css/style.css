@@ -1,0 +1,716 @@
+@font-face {
+    font-family: gothamBook;
+    src: url(../font/Gotham-Book.otf);
+}
+
+@font-face {
+    font-family: gothamMedium;
+    src: url(../font/Gotham-Medium.otf);
+}
+
+@font-face {
+    font-family: gothamBold;
+    src: url(../font/Gotham-Bold.otf);
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    font-family: gothamBook, Arial, Helvetica, sans-serif
+}
+
+#loading,
+#errorModal {
+    display: none;
+    z-index: 3;
+    background-repeat: no-repeat;
+}
+
+#loading {
+    background-image: url("../images/loading.gif");
+    background-position: center center;
+}
+
+.errorContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+.errorGif {
+    height: 85%;
+}
+
+.errorText {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    position: fixed;
+    top: 82%;
+}
+
+/* Landing Page Elements */
+
+.landingPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.backgroundImage {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+}
+
+.landingPageItems {
+    position: absolute;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.logo {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.forms_container {
+    height: 30%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.preference_instructions {
+    text-align: center;
+    text-shadow: 1px 1px 5px white;
+}
+
+.preference_form {
+    margin: 6% 0;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    .preference_instructions,
+    .preference_form,
+    #submit_button {
+        font-size: 2.2rem;
+    }
+
+    .preference_instructions {
+        width: 85%;
+    }
+
+    .preference_form {
+        width: 65%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    .preference_instructions,
+    .preference_form,
+    #submit_button {
+        font-size: 2.5rem;
+    }
+
+    .preference_form {
+        width: 80%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    ...
+}
+
+@media only screen and (max-width: 850px) and (max-height: 450px) and (orientation: landscape) {
+    .logo {
+        width: 70%;
+    }
+
+    .preference_instructions {
+        width: max-content;
+        margin-top: 10px;
+    }
+
+    .preference_instructions,
+    .preference_form,
+    #submit_button {
+        font-size: 1.5rem;
+    }
+
+    .preference_form {
+        margin: 6% 0;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    .preference_instructions,
+    .preference_form,
+    #submit_button {
+        font-size: 2.8rem;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    ...
+}
+
+/* Map Elements, Including Tutorial/Home Buttons */
+
+#map_container {
+    position: absolute;
+    /* top: 0; */
+    height: 100%;
+    width: 100%;
+}
+
+.buttonsContainer {
+    position: absolute;
+    top: 3vh;
+    left: 3vh;
+    z-index: 1;
+}
+
+.tutorialButton,
+.goBackButton {
+    box-shadow: 1px 1px 4px grey;
+}
+
+#tutorialCollapse {
+    background-color: white;
+    box-shadow: 1px 1px 4px grey;
+    width: 275px;
+    border-radius: 5px;
+    margin: 4px 0 0 0;
+}
+
+.tutorialHeader {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.6rem;
+    font-family: gothamBold;
+    border-bottom: 1px #eee solid;
+    padding: 16px;
+}
+
+.tutorialBody {
+    padding: 16px;
+}
+
+/* General Carousel Elements */
+
+#carouselModalContainer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+
+#carouselModal,
+#loading,
+#errorModal {
+    height: 80%;
+    width: 80%;
+    max-width: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 12px;
+}
+
+#carousel-outer {
+    height: 100%;
+    /* background-color: transparent; */
+}
+
+.carousel-inner {
+    height: 100%;
+    text-align: center;
+}
+
+.item {
+    height: 90%;
+}
+
+#carousel-outer>a.carousel-control {
+    background-image: none;
+}
+
+.carousel-indicators {
+    bottom: 1%;
+}
+
+.carousel-indicators li {
+    border: 1px solid black;
+}
+
+.carousel-indicators .active {
+    background-color: black;
+}
+
+.fa-times {
+    color: gray;
+}
+
+/* Weather */
+
+.weatherContainer {
+    top: 4%;
+}
+
+.weatherFlexContainer {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.date {
+    font-family: gothamMedium, Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+    color: #6e6362;
+}
+
+.weatherMiddle.jumbotron {
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+}
+
+.currentTempAndCondition {
+    text-align: left;
+    margin-left: 8%;
+    width: 45%;
+}
+
+.currentTemp {
+    margin: 0 0 -8px 0;
+    font-weight: bold;
+}
+
+.weatherBottom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.weatherData:nth-child(6) {
+    margin-bottom: 0;
+}
+
+.header {
+    text-transform: uppercase;
+    color: #58a4b0;
+    font-family: gothamMedium;
+}
+
+.weatherData {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+#modalClose {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    font-size: 28px;
+    border-style: none;
+    background-color: transparent;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .date {
+        font-size: 2rem;
+    }
+
+    .weatherMiddle.jumbotron {
+        margin: 3% 0;
+        padding: 4% 0;
+        width: 75%;
+    }
+
+    .wi {
+        font-size: 5rem;
+    }
+
+    .currentTemp {
+        font-size: 3rem;
+    }
+
+    .condition,
+    .header {
+        font-size: 1rem;
+    }
+
+    .weatherData {
+        font-size: 1.4rem;
+    }
+
+    .leftContainer,
+    .rightContainer {
+        width: 35%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .date {
+        font-size: 2.5rem;
+    }
+
+    .weatherMiddle.jumbotron {
+        margin: 4.5% 0;
+        padding: 4% 0;
+        width: 75%;
+    }
+
+    .wi {
+        font-size: 12rem;
+    }
+
+    .currentTempAndCondition {
+        margin-left: 8%;
+    }
+
+    .currentTemp {
+        font-size: 6rem;
+    }
+
+    .condition,
+    .header {
+        font-size: 1.5rem;
+    }
+
+    .leftContainer,
+    .rightContainer {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .weatherData {
+        font-size: 1.8rem;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .date {
+        font-size: 3rem;
+    }
+
+    .weatherMiddle.jumbotron {
+        margin: 2.5% 0;
+        padding: 5% 0;
+    }
+
+    .wi {
+        font-size: 8rem;
+    }
+
+    .currentTemp {
+        font-size: 5rem;
+    }
+
+    .condition {
+        font-size: 2rem;
+    }
+
+    .leftContainer,
+    .rightContainer {
+        width: 32%;
+    }
+
+    .weatherDataContainer {
+        width: 24%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header,
+    .weatherData {
+        font-size: 1.5rem;
+        width: max-content;
+    }
+}
+
+@media only screen and (max-width: 850px) and (max-height: 450px) and (orientation: landscape) {
+    .date {
+        font-size: 1.5rem;
+    }
+
+    .weatherMiddle.jumbotron {
+        margin: 2.5% 0;
+        padding: 2% 0;
+    }
+
+    .wi {
+        font-size: 7rem;
+    }
+
+    .currentTemp {
+        font-size: 3.5rem;
+    }
+
+    .condition {
+        font-size: 1.3rem;
+    }
+
+    .weatherBottom {
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .leftContainer,
+    .rightContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .weatherDataContainer {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        width: 10%;
+    }
+
+    .weatherDataContainer:nth-child(2) {
+        margin: 0 50px;
+    }
+
+    .header,
+    .weatherData {
+        width: max-content;
+        font-size: 1rem;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .date {
+        font-size: 4.5rem;
+    }
+
+    .weatherMiddle.jumbotron {
+        margin: 8% 0;
+        padding: 8% 0;
+    }
+
+    .wi {
+        font-size: 14rem;
+    }
+
+    .currentTempAndCondition {
+        margin-left: 6%;
+    }
+
+    .currentTemp {
+        font-size: 8rem;
+    }
+
+    .condition,
+    .header {
+        font-size: 3rem;
+    }
+
+    .weatherData {
+        font-size: 3.5rem;
+    }
+}
+
+@media only screen and (min-width: 992px) and (orientation: landscape) {
+    .date {
+        font-size: 2.5rem;
+    }
+
+    .wi {
+        font-size: 12rem;
+    }
+
+    .weatherMiddle.jumbotron {
+        margin: 3% 0;
+        padding: 4% 0;
+    }
+
+    .weatherBottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .leftContainer,
+    .rightContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .condition,
+    .header,
+    .weatherData {
+        font-size: 2rem;
+    }
+
+    .weatherDataContainer {
+        width: 28%;
+    }
+
+    .header,
+    .weatherData {
+        width: max-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .date {
+        font-size: 3rem;
+    }
+
+    .weatherMiddle.jumbotron {
+        padding: 3% 0;
+    }
+
+    .currentTempAndCondition {
+        width: 50%;
+        margin-left: 8%;
+    }
+}
+
+/* News */
+
+.newsFlexContainer {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.newsImageContainer {
+    height: 70%;
+    width: 100%;
+    background-color: lightgrey;
+    border-radius: 12px 12px 0 0;
+}
+
+.newsImage {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.captionContainer {
+    height: 30%;
+    width: 85%;
+    margin: 15px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.newsTitle {
+    text-transform: capitalize;
+    color: #58a4b0;
+    font-size: 2.5rem;
+    font-family: gothamMedium, Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.newsDate {
+    margin: 5px 0;
+    font-size: 1.5rem;
+}
+
+.newsSource {
+    text-transform: uppercase;
+    margin: 0;
+    color: #6e6362;
+    font-size: 1.5rem;
+    font-family: gothamMedium, Arial, Helvetica, sans-serif;
+}
+
+.noArticles {
+    font-size: 30px;
+    width: 80%;
+    left: 10%;
+    margin-bottom: 50px;
+}
+
+.noArticlesButton {
+    margin: auto;
+}
+
+.noArticlesButton:hover {
+    cursor: pointer;
+}
+
+.noArticles,
+.noArticlesButton {
+    font-family: gothamMedium, Arial, Helvetica, sans-serif;
+    position: relative;
+    top: 20%;
+}
+
+@media only screen and (max-width: 992px) {
+    .newsTitle {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .newsImageContainer {
+        height: 60%;
+    }
+
+    .captionContainer {
+        height: 40%;
+    }
+
+    .newsTitle {
+        -webkit-line-clamp: 4;
+    }
+
+    .carousel-indicators {
+        bottom: 0;
+    }
+}
+
+/* Images */
+
+img.item {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+}

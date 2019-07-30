@@ -1,0 +1,102 @@
+.infoHeader {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.gm-style .infoImage {
+    width: 100%;
+    max-width: 400px;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+.infoLinksContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 10px; */
+}
+
+.infoLinks,
+.noArticlesButton {
+    background-color: cadetblue;
+    height: 40px;
+    width: 120px;
+    border-radius: 8px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.infoLinks:nth-child(2) {
+    margin: 8px;
+}
+
+.infoLinks:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+    .infoLinks {
+        height: 40px;
+        width: 110px;
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 480px) and (orientation: landscape) {
+    .infoHeader {
+        font-size: 2.4rem;
+    }
+
+    .infoLinks {
+        height: 36px;
+        width: 84px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .infoHeader {
+        font-size: 2rem;
+    }
+
+    .infoLinksContainer {
+        margin-top: 0;
+    }
+
+    .infoLinks {
+        font-size: 18px;
+        height: 32px;
+        width: 84px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .infoLinks {
+        font-size: 16px;
+        width: 68px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .infoHeader {
+        font-size: 1.8rem;
+    }
+
+    .infoLinksContainer {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .infoLinks {
+        font-size: 16px;
+        width: 80px;
+    }
+}

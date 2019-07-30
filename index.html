@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>California National Park Finder</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/forest.png">
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
+        integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiZ9d1v25RWbBqnUSci3IKAAXdYVuSHmI">
+    </script>
+
+    <link rel="stylesheet" href="css/weather-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/info_boxes.css">
+    <script src="map.js"></script>
+    <script src="news.js"></script>
+    <script src="main.js"></script>
+    <script src="images.js"></script>
+    <script src="weather.js"></script>
+</head>
+
+<body>
+    <div id="loading"></div>
+
+    <div id="errorModal">
+        <div class="errorContainer">
+            <img class="errorGif" src="images/error.gif">
+            <p class="errorText">Whoops! Please try again.</p>
+            <button class="closeErrorModal btn btn-info" onclick="closeErrorModal()">Close</button>
+        </div>
+        <button id="modalClose" onclick="closeErrorModal()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <div class="landingPage">
+        <img class="backgroundImage" src="images/landing_page.jpeg">
+        <div class="landingPageItems">
+            <img class="logo" src="images/hackathonlogo.png">
+            <div class="forms_container">
+                <div class="preference_instructions">What type of park are you looking for?</div>
+                <select class="preference_form">
+                    <option value="mountains">Mountains</option>
+                    <option value="forests">Forests</option>
+                    <option value="oceans">Oceans</option>
+                    <option value="deserts">Deserts</option>
+                </select>
+                <button type="submit" class="btn btn-info" id="submit_button">Let's Go</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="buttonsContainer">
+        <button class="btn btn-light btn-lg tutorialButton" data-toggle="collapse" data-target="#tutorialCollapse">
+            <i class='fas fa-question'></i></button>
+        <button class="btn btn-light btn-lg goBackButton"><i class='fas fa-home'></i></button>
+        <div id="tutorialCollapse" class="collapse">
+            <div class="tutorialHeader">Click a map marker to get started!</div>
+            <div class="tutorialBody">Then you will be able to access news, images, and weather information of your
+                choice of park.</div>
+        </div>
+    </div>
+
+    <div id="map_container"></div>
+
+    <div id="carouselModalContainer">
+        <div id="carouselModal">
+            <div id="carousel-outer" class="carousel slide">
+                <ol class="carousel-indicators">
+                </ol>
+                <div class="carousel-inner">
+                </div>
+                <a class="carousel-control left" href="#carousel-outer" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="carousel-control right" href="#carousel-outer" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
